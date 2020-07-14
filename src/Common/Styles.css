@@ -1,0 +1,67 @@
+/* modal title styles */
+
+.ui.modal>.header {
+    display: block;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    background: #fff;
+    text-transform: capitalize;
+    color: #000000;
+    margin: 0;
+    padding: 1.25rem 1.5rem;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: rgba(0,0,0,.85);
+    border-bottom: 1px solid rgba(34,36,38,.15);
+}
+
+
+
+
+
+/* black btn with green writing is class .green */
+
+.ui.green.button, .ui.green.buttons .button {
+    background-color: #1A1A1A;
+    color: #44DABD;
+    padding: 16px 40px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 8px;
+}
+
+.ui.green.button:hover, .ui.green.buttons .button:hover {
+    background-color: #1a1a1aa6;
+    color: #44DABD;
+    text-shadow: none;
+}
+
+/* grey btn with black writing is class .red */
+
+.ui.red.button, .ui.red.buttons .button {
+    background-color: #F5F5F7;
+    color: #1A1A1A;
+    padding: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 8px;
+}
+
+.ui.red.button:hover, .ui.red.buttons .button:hover {
+    background-color: #e0e0e0;
+    color: #1a1a1a;
+    text-shadow: none;
+}
