@@ -1,0 +1,52 @@
+/*=================================
+            HEADER 
+=================================*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+.Header{
+    font-family: 'Inter', sans-serif;
+}
+
+
+.Header .title{
+    font-size: 36px;
+    line-height: 42px;
+}
+
+.addNew{
+    margin-top: 44px;
+}
+
+.addNew input[type=text]{
+    background-color: #ffffff;
+    /* background-image: url('./img/search.png'); */
+    /* background-position: 11px 6px 11px 14px; */
+    background-repeat: no-repeat;
+
+    border-radius: 8px;
+    border: 1px solid #8E9296;
+    padding-top: 10.5px;
+    padding-bottom: 11.5px;
+    padding-left: 44px;
+
+    font-size: 14px;
+    line-height: 12px;
+    width: 371px;
+
+    float: left;
+}
+
+.addNew button{
+    color: #44DABD;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #1A1A1A;
+
+    padding-left: 57px;
+    padding-right: 57px;
+    border-radius: 8px;
+    float: right;
+    height: 46px;
+    
+}
