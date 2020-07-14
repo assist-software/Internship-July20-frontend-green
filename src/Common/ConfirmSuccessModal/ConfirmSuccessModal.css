@@ -1,0 +1,30 @@
+.visible.transition {
+    text-align: center;
+}
+.ui.modal>.header {
+    display: flex;
+    flex-direction: column;
+}
+.ui.header>.icon {
+    align-self: center;
+    margin: 45px 0 0 0;
+}
+.ui.header .content {
+    padding: 0;
+    margin-top: 29px;
+}
+@media only screen and (max-width: 767px)
+{
+    .ui.modal>.header {
+        padding: .75rem 1rem!important;
+    }
+}
+.ui.modal>.actions {
+    text-align: center;
+}
+.ui.modal .actions>.button {
+    margin: 24px 0 14px;
+}
+.ui.header>.icon+.content {
+    padding-left: 0;
+}

@@ -1,4 +1,10 @@
-/* modal title styles */
+/* modal title/ header and bottom styles */
+.modals.dimmer .ui.scrolling.modal {
+    background: #FFFFFF;
+    border: 1px solid #8E9296;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
 
 .ui.modal>.header {
     display: block;
@@ -15,11 +21,18 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     color: rgba(0,0,0,.85);
-    border-bottom: 1px solid rgba(34,36,38,.15);
+    border:none;
+}
+.ui.modal>.actions {
+    border:none;
 }
 
-
-
+hr {
+    width: 90%;
+    border-width: 1px;
+    border-style: solid;
+    color:#CAD2E2;
+}
 
 
 /* black btn with green writing is class .green */
@@ -64,4 +77,54 @@
     background-color: #e0e0e0;
     color: #1a1a1a;
     text-shadow: none;
+}
+
+/* modal size style */
+
+.ui.modal>.actions {
+    background: #ffffff;
+}
+@media only screen and (min-width: 768px) {
+    .ui.modal {
+        width: 50%;
+        margin: 0;
+    }
+}
+@media only screen and (max-width: 2500px) {
+    .ui.modal>.close {
+        top: 1.0535rem;
+        right: 1rem;
+        color: rgba(0,0,0,.87);
+    }
+}
+
+
+/* input styles for add / edit modal */
+
+.form-inputs label {
+    display:block;
+    margin-bottom: 0.8vh;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: capitalize;
+    color: #000000;
+}
+.form-inputs input, select {
+    width:100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background: #FFFFFF;
+    border: 1px solid #8E9296;
+    border-radius: 8px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    color: #8E9296;
+    padding:16px;
 }
