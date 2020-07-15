@@ -1,6 +1,10 @@
 * {
     font-family: Inter;
 }
+.layout {
+    display: grid;
+    grid-template-columns: 216px auto;
+}
 
 /* modal title/ header and bottom styles */
 .ui.active.modal {

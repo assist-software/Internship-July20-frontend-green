@@ -1,6 +1,8 @@
 import React from 'react';
 import './Leftsidebar.css';
-import avatar from '../LeftSidebar/imgs/img_avatar.png'
+import avatar from '../LeftSidebar/imgs/img_avatar.png';
+import NavLinks from '../LeftSidebar/butoane';
+
 const leftSidebar = (props) => {
     return(
         <div className="LeftSidebar">
@@ -13,6 +15,7 @@ const leftSidebar = (props) => {
 
            
             </div>
+            <NavLinks />
         </div>
     );
 };

@@ -1,63 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Header from './Components/Header/Header'
-// import CoachTable from './Components/Coaches/CoachesTable/CoachTable';
-// import EventComponent from './Components/Events/EventsPage/EventComponent';
-// import EventPage from './Components/Events/EventPage/EventPage';
+import { Route, Switch } from 'react-router-dom';
+import Layout from './Components/Layout/Layout'
+import Login from './Components/Login/Login'
+import Coaches from './Components/Coaches/CoachesTable/CoachTable';
+import Events from './Components/Events/EventsPage/Events';
+
 
 class App extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
 
-  state = {
-    headers: ['Coaches', 'Events', 'Clubs', 'Athletes'],
-    coaches: [
-      { name: '3d23', email: 'samantha.kennedy@example.com', club: 'Biking Club, Running Club,.. +3' },
-      { name: 'Bessie Robertson', email: 'ken.wright@example.com', club: 'Biking Club, Running Club,.. +20' },
-      { name: 'Jorge Edwards', email: 'penny.nichols@example.com', club: 'Biking Club, Running Club,.. +6' },
-      { name: 'Judith Steward', email: 'scott.gilbert@example.com', club: 'Biking Club, Running Club,.. +8' },
-      { name: 'Arlene Murphy', email: 'nina.hernandez@example.com', club: 'Biking Club, Running Club,.. +20' },
-      { name: 'Regina Flores', email: 'keith.richards@example.com', club: 'Biking Club, Running Club,.. +9' },
-      { name: 'Theresa Alexander', email: 'ramona.lowe@example.com', club: 'Biking Club, Running Club,.. +2' },
-    ],
-    events: [
-      { img: './bg-1.png', title: 'Running for Life', body: 'Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.', date: '20.06.2020', time: '09:00 AM', location: 'Suceava Fortress, Main Enter', participants: '' },
-      { img: './bg-2.png', title: 'Running for Life', body: 'Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.', date: '20.06.2020', time: '09:00 AM', location: 'Suceava Fortress, Main Enter', participants: '' },
-      { img: './bg-3.png', title: 'Running for Life', body: 'Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.', date: '20.06.2020', time: '09:00 AM', location: 'Suceava Fortress, Main Enter', participants: '' },
-      { img: './bg-4.png', title: 'Running for Life', body: 'Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.', date: '20.06.2020', time: '09:00 AM', location: 'Suceava Fortress, Main Enter', participants: '' },
-      { img: './bg-5.png', title: 'Running for Life', body: 'Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.', date: '20.06.2020', time: '09:00 AM', location: 'Suceava Fortress, Main Enter', participants: '' }
-    ]
-
-  }
 
   render() {
     return (
       <div className="App">
-
-        <div className="box">
-          <div className="a">
-            {/* <LeftSidebar></LeftSidebar>
-            <Butoane></Butoane> */}
-          </div>
-
-
-          <div className="b">
-            {/* <Coachtable ></Coachtable>
-        <TableRow></TableRow> */}
-            {/* <Coaches
-              coaches={this.state.coaches}
-            />
-            <Events
-              events={this.state.events}
-            /> */}
-          </div>
-
-          {/* <Login></Login> */}
-
-
-        </div>
+         <Switch>
+         {/* <Route path="/login" component={Login} /> */}
+        <Layout>
+            <Route exact path="/" component={Login} />
+            <Route path="/coaches" component={Coaches} />
+            <Route path="/events" component={Events} />
+        </Layout>
+        </Switch>   
       </div>
     );
   };
