@@ -19,6 +19,8 @@ const eventPage = props => {
                     <p><img src={require('./img/pin.png')} alt="" /> Suceava Fortress, Main Enter</p>
                 </div>
 
+
+
             </div>
 
         </div>
