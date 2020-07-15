@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import LeftSidebar from './Components/LeftSidebar/LeftSidebar';
+
 import Coaches from './Components/Coaches/CoachesTable/CoachTable';
+import Butoane from './Components/LeftSidebar/butoane';
+// import TableRow from'./Components/Coaches/CoachesTable/TableRow';
 import Events from './Components/Events/EventsPage/EventComponent';
+
 import './App.css';
 
-
-class App extends Component {
+class App extends Component{
 
   state = {
     header: ['Coaches', 'Events'],
@@ -31,14 +35,28 @@ class App extends Component {
     return (
       <div className="App">
 
-        {/* <Login></Login> */}
-        <Coaches
+<div className="box">
+         <div className="a">
+        <LeftSidebar></LeftSidebar>
+        <Butoane></Butoane>
+        </div>
+
+
+        <div className="b">
+        {/* <Coachtable ></Coachtable>
+        <TableRow></TableRow> */}
+          <Coaches
           coaches={this.state.coaches}
         />
         <Events
           events={this.state.events}
         />
+        </div>
 
+        {/* <Login></Login> */}
+      
+
+      </div>
       </div>
     );
   };
