@@ -1,5 +1,8 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+.App{
+    background-color: #f9f9f9;
+    padding: 60px 40px;
+    font-family: 'Inter', sans-serif;
 }
 
 .App-logo {
