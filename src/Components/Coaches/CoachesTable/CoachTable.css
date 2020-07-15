@@ -49,7 +49,7 @@
 
 /* btns ------------------------ */
 #table-coaches td .btn-edit{
-    /* background-image: url('./img/edit.png'); */
+    background-image: url('./edit.png');
     height: 24px;
     width: 24px;
     border: none;
@@ -60,7 +60,7 @@
 }
 
 #table-coaches td .btn-delete{
-    /* background-image: url('./img/delete.png'); */
+    background-image: url('./delete.png');
     height: 24px;
     width: 24px;
     border: none;
