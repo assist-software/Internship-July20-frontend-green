@@ -14,19 +14,19 @@ const event = props => {
                     reprehenderit id.
                     </p>
                     <div className="dateTime">
-                        <p><img src='./img/calendar.png' alt="" /> 20.06.2020</p>
-                        <p><img src='./img/clock.png' alt="" /> 09:00 AM</p>
+                        <p><img src={require('./img/calendar.png')} alt="" /> 20.06.2020</p>
+                        <p><img src={require('./img/clock.png')} alt="" /> 09:00 AM</p>
                         <br />
-                        <p><img src='./img/pin.png' alt="" /> Suceava Fortress, Main Enter</p>
+                        <p><img src={require('./img/pin.png')} alt="" /> Suceava Fortress, Main Enter</p>
                     </div>
 
                     <div className="participants">
                         <h1>participants</h1>
 
-                        <img src={require('./avatar-1.png')} alt="" />
-                        <img src={require('./avatar-2.png')} alt="" />
-                        <img src={require('./avatar-3.png')} alt="" />
-                        <img src={require('./avatar-4.png')} alt="" />
+                        <img src={require('./img/avatar-1.png')} alt="" />
+                        <img src={require('./img/avatar-2.png')} alt="" />
+                        <img src={require('./img/avatar-3.png')} alt="" />
+                        <img src={require('./img/avatar-4.png')} alt="" />
 
                         <p>+ 20</p>
                     </div>

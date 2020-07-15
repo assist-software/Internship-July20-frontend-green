@@ -29,7 +29,7 @@
 
 /* event img style -------------- */
 .event-img{
-    background-image: url('./bg-1.png');
+    background-image: url('./img/bg-1.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -71,6 +71,10 @@
     font-size: 14px;
     line-height: 24px;
     color: #000000;
+}
+
+.event-body .dateTime p:first-child{
+    margin-right: 16px;
 }
 
 .event-body .dateTime img{

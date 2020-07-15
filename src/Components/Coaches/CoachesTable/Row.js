@@ -11,8 +11,8 @@ const Row = props => {
             <td>{props.email}</td>
             <td>{props.club}</td>
             <td>
-                <button class="btn-edit"></button>
-                <button class="btn-delete"></button>
+                <button className="btn-edit"></button>
+                <button className="btn-delete"></button>
             </td>
         </tr>
     )

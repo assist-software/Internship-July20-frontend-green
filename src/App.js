@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Components/Header/Header'
 import CoachTable from './Components/Coaches/CoachesTable/CoachTable';
 import EventComponent from './Components/Events/EventsPage/EventComponent';
+import EventPage from './Components/Events/EventPage/EventPage';
 
 class App extends Component {
 
@@ -36,9 +37,15 @@ class App extends Component {
     return (
       <div className="App" >
 
-        <Header title={this.state.headers[0]}></Header>
-        <CoachTable coaches={this.state.coaches}></CoachTable>
-        <EventComponent events={this.state.events} />
+        {/* <Header title={this.state.headers[0]}></Header>
+        <CoachTable coaches={this.state.coaches}></CoachTable> */}
+
+        {/* <Header title={this.state.headers[1]}></Header>
+        <EventComponent events={this.state.events} /> */}
+
+        <EventPage></EventPage>
+
+
       </div>
     );
   }
