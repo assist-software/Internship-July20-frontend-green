@@ -1,0 +1,116 @@
+/*=================================
+            Event 
+=================================*/
+
+.Events{
+    margin-top: 125px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+}
+
+.Events .Event{
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: .4fr .6fr;
+}
+
+@media screen and (max-width: 1200px){
+    .Events{
+        margin-top: 125px;
+        display: grid;
+        grid-template-columns: auto;
+        grid-column-gap: 16px;
+        grid-row-gap: 16px;
+    }
+}
+
+/* event img style -------------- */
+.event-img{
+    background-image: url('./bg-1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.event-img img{
+    height: 100px;
+}
+
+
+
+/* event body style -------------- */
+.event-body{
+    width: 60%;
+    padding: 30px 24px 24px 24px;
+}
+
+.event-body h1{
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+    padding-bottom: 1px;
+}
+
+.event-body p.description{
+    font-size: 14px;
+    line-height: 24px;
+    color: #1A1A1A;
+    padding-bottom: 14px;
+}
+
+/* date&time style -------------- */
+.event-body .dateTime{
+    padding-bottom: 19px;
+}
+
+.event-body .dateTime p{
+    display: inline;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.event-body .dateTime img{
+    margin-right: 4px;
+}
+
+/* participants style -------------- */
+.participants{
+    position: relative;
+    height: 70px;
+}
+
+.participants h1{
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8E9296;
+    padding-bottom: 4px;
+}
+
+.participants img,
+.participants p {
+    display: inline;
+    position: absolute;
+}
+
+.participants img:nth-child(3){
+    left: 20px;
+}
+.participants img:nth-child(4){
+    left: 40px;
+
+}
+.participants img:nth-child(5){
+    left: 60px;
+}
+.participants p:nth-child(6){
+    left: 116px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+}
