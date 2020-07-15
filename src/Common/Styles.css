@@ -1,9 +1,16 @@
+* {
+    font-family: Inter;
+}
+
 /* modal title/ header and bottom styles */
-.modals.dimmer .ui.scrolling.modal {
-    background: #FFFFFF;
+.ui.active.modal {
+    width:520px;
+    height:auto;
+    background: #fff;
     border: 1px solid #8E9296;
     box-sizing: border-box;
     border-radius: 8px;
+    padding: 4rem 2.8rem 2rem;
 }
 
 .ui.modal>.header {
@@ -17,30 +24,23 @@
     text-transform: capitalize;
     color: #000000;
     margin: 0;
-    padding: 1.25rem 1.5rem;
+    padding: 0 0 1rem;
     -webkit-box-shadow: none;
     box-shadow: none;
     color: rgba(0,0,0,.85);
-    border:none;
+    border-bottom: 1px solid #c9d2e1;
+}
+.ui.modal>.content {
+    padding: 3.25rem 0 2.5rem;
 }
 .ui.modal>.actions {
-    border:none;
-}
-
-hr {
-    width: 90%;
-    border-width: 1px;
-    border-style: solid;
-    color:#CAD2E2;
+    border-top:1px solid #c9d2e1;
+    padding: 2.3rem 0 0;
 }
 
 
 /* black btn with green writing is class .green */
-
-.ui.green.button, .ui.green.buttons .button {
-    background-color: #1A1A1A;
-    color: #44DABD;
-    padding: 16px 40px;
+.ui.button {
     letter-spacing: 0.06em;
     text-transform: uppercase;
     font-family: Inter;
@@ -51,34 +51,55 @@ hr {
     border-radius: 8px;
 }
 
-.ui.green.button:hover, .ui.green.buttons .button:hover {
-    background-color: #1a1a1aa6;
+.ui.green.button {
+    background-color: #1A1A1A;
     color: #44DABD;
-    text-shadow: none;
+    padding: 16px 40px;
+}
+
+.ui.green.button:hover {
+    background-color: #1a1a1a;
+    color: #fcfffe;
 }
 
 /* grey btn with black writing is class .red */
 
-.ui.red.button, .ui.red.buttons .button {
+.ui.red.button {
     background-color: #F5F5F7;
     color: #1A1A1A;
     padding: 16px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
-    border-radius: 8px;
 }
 
-.ui.red.button:hover, .ui.red.buttons .button:hover {
-    background-color: #e0e0e0;
-    color: #1a1a1a;
-    text-shadow: none;
+.ui.red.button:hover {
+    background-color: #F5F5F7;
+    color: #41c7ac;
 }
-
+/* transparent button with black text */
+.ui.blue.button {
+    background-color: transparent;
+    color: #1A1A1A;
+    padding: 5px 0 6px 0;
+    border-bottom: 1px solid #c9d2e1;
+    border-radius: 0;
+    margin: 0 0.5rem 2.2rem 0;
+}
+.ui.blue.button:hover {
+    background-color: transparent;
+    color: #1A1A1A;
+    cursor:pointer;
+}
+/* transparent button with GREEN text */
+.ui.black.button {
+    background-color: transparent;
+    color: #41c7ac;
+    padding:16px;
+    margin-right: auto;
+}
+.ui.black.button:hover {
+    background-color: transparent;
+    color: #1A1A1A;
+    cursor:pointer;
+}
 /* modal size style */
 
 .ui.modal>.actions {
@@ -100,19 +121,27 @@ hr {
 
 
 /* input styles for add / edit modal */
-
+.form-subtitle {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    margin: 1px 0 8px;
+}
+p.form-subtitle:first-of-type {
+    margin-top:0px;
+}
 .form-inputs label {
     display:block;
     margin-bottom: 0.8vh;
     font-family: Inter;
     font-style: normal;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 14px;
     line-height: 16px;
     text-transform: capitalize;
     color: #000000;
 }
-.form-inputs input, select {
+.form-inputs input, select, textarea {
     width:100%;
     margin: 0 auto;
     box-sizing: border-box;
@@ -126,5 +155,28 @@ hr {
     font-size: 14px;
     line-height: 14px;
     color: #8E9296;
-    padding:16px;
+    padding:13.6px;
 }
+.form-inputs input[type="file"] {
+    border: 1px dashed #8E9296;
+    margin-bottom: 7px;
+}
+
+/* form invite btn */
+.invite-members {
+    display: flex;
+}
+.invite-members p {
+    color: #8E9296;
+}
+.form-btns {
+    display:flex;
+    justify-content: flex-end;
+}
+/* form 2 inputs on a row class */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 8px;
+}
+

@@ -5,7 +5,7 @@ import '../../Common/Styles.css';
 const AddCoach = () =>  (
         <Modal trigger={<Button>Add / Edit Coach Modal</Button>} closeIcon>
         <Header content='Add / Edit Coach' />
-        <hr/>
+        
         <Modal.Content>
           <form className="form-inputs">
             <label for="first-name">First Name</label>
@@ -25,8 +25,11 @@ const AddCoach = () =>  (
 
           </form>
         </Modal.Content>
-        <hr/>
-        <Modal.Actions>
+        
+        <Modal.Actions className="form-btns">
+        <Button color='black'>
+             delete
+          </Button>
           <Button color='red'>
              Cancel
           </Button>

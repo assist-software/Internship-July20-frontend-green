@@ -5,7 +5,7 @@ import '../../Common/Styles.css';
 const ConfirmDeleteModal = () =>  (
         <Modal trigger={<Button>Confirm Delete Modal</Button>} closeIcon>
         <Header content='Delete Coach' />
-        <hr/>
+        
         <Modal.Content>
           <p>
           Are you sure you want to delete Aubrey Miles coach? 
@@ -13,7 +13,7 @@ const ConfirmDeleteModal = () =>  (
           profile will permanently deleted.
           </p>
         </Modal.Content>
-        <hr/>
+       
         <Modal.Actions>
           <Button color='red'>
              cancel
