@@ -1,0 +1,90 @@
+/*=================================
+            Event page
+=================================*/
+header p,
+header h1{
+    display: inline;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: capitalize;
+}
+
+header p{
+    color: #8E9296;
+}
+
+header h1{
+    color: #000000;
+}
+
+header img{
+    height: 16px;
+    width: 16px;
+    
+}
+
+/* date&time style -------------- */
+.dateTime{
+    padding-bottom: 19px;
+    margin-top: 44px;
+}
+
+.dateTime p{
+    display: inline;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+    margin-right: 16px;
+    vertical-align: auto;
+}
+
+.dateTime p,
+.dateTime img{
+    padding-top: 46px;
+}
+
+
+
+/* btn style -------------- */
+button {
+    float: right;
+    background: #1A1A1A;
+    border-radius: 8px;
+    padding: 16px 73.5px;
+
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #44DABD;
+}
+
+/*=================================
+        Event Page Content
+=================================*/
+.event-content{
+    background-color: #FFFFFF;
+}
+
+.text-content h1{
+    padding: 48px 44px 10px 32px;
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+}
+.text-content p{
+    padding: 10px 32px 40px 32px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+}
+
+
+.image-content{
+    background-image: url('./img/content-img.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 374px;
+
+}

@@ -7,7 +7,7 @@ const header = props => {
         <div className="Header">
             <br />
             <br />
-            <h1 className="title">{props.title}</h1>
+            <h1 className="title">{props.titles}</h1>
 
             <div className="addNew">
                 <input type="text" placeholder="Input Placeholder" />
