@@ -1,0 +1,66 @@
+#member-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#member-header {
+    margin: 26px 0 5px;
+}
+#member-header:not(i) {
+    font-size:36px;
+}
+
+#member-modal .content {
+    padding: 16px 0;
+    margin:33px 0 32px;
+    text-align: center;
+}
+@media only screen and (max-width: 767px)
+{
+    #member-header {
+        padding: .75rem 1rem!important;
+    }
+}
+
+#member-modal button {
+    margin: 34px 0 12px 0;
+}
+.round-img {
+    border-radius:  50%;
+}
+#member-content {
+    display: grid;
+    grid-template-columns: 140px 1px 140px;
+    border-top: 1px solid #8E9296;
+    border-bottom: 1px solid #8E9296;
+}
+p.member-info {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+div.member-item {
+    color: #8E9296;
+    text-align: left;
+}
+div.member-item .member-sport{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+}
+div.member-item.one {
+    justify-self: start;
+}
+div.member-item.two {
+    justify-self: end;
+}
+div.middle-line {
+    background: #8E9296;
+}

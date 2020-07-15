@@ -1,0 +1,102 @@
+.login-container {
+    display:grid;
+    grid-template-columns: 40vw 60vw;
+    height: 100vh;
+}
+.login {
+    display:grid;
+    grid-template-columns: 0.2fr 0.6fr 0.2fr;
+    background: #F9F9F9;
+}
+.login-data-container {
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+}
+.login-text {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
+    align-self: end;
+    margin-bottom: 13vh;
+}
+.login-text p {
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.login-text h2 {
+    font-size: 36px;
+    line-height: 42px;
+    text-transform: capitalize;
+}
+
+.login-form {
+    align-self: start;
+}
+.login-form label {
+    display:block;
+    margin-bottom: 0.8vh;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height, or 114% */
+    text-transform: capitalize;
+    color: #000000;
+}
+.login-form input {
+    width:100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background: #FFFFFF;
+    border: 1px solid #8E9296;
+    border-radius: 8px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    color: #8E9296;
+    padding:16px;
+}
+.login-form input[type="submit"] {
+    margin-top: 16px;
+    background: #1A1A1A;
+    color: #44DABD;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: 1px solid #1A1A1A;
+}
+.login-image {
+    background-image: url("../../Images/loginImage.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position-x: center;
+}
+@media (max-height: 600px) {
+    .login-form input {
+        padding: 10px;
+    }
+}
+@media (max-width: 700px) {
+    .login-text h2 {
+        font-size: 30px;
+    }
+    .login-container {
+        grid-template-columns: 1fr;
+    }
+    .login-image {
+        display: none;
+    }
+}
+@media (max-width: 900px) and (min-width: 701px) {
+    .login-container {
+        grid-template-columns: 50vw 50vw;
+    }
+}
+

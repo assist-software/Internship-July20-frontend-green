@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './Components/Header/Header'
-import CoachTable from './Components/Coaches/CoachesTable/CoachTable';
-import EventComponent from './Components/Events/EventsPage/EventComponent';
-import EventPage from './Components/Events/EventPage/EventPage';
+// import Header from './Components/Header/Header'
+// import CoachTable from './Components/Coaches/CoachesTable/CoachTable';
+// import EventComponent from './Components/Events/EventsPage/EventComponent';
+// import EventPage from './Components/Events/EventPage/EventPage';
 
 class App extends Component {
 
@@ -33,22 +33,34 @@ class App extends Component {
   }
 
   render() {
-
     return (
-      <div className="App" >
+      <div className="App">
 
-        {/* <Header title={this.state.headers[0]}></Header>
-        <CoachTable coaches={this.state.coaches}></CoachTable> */}
-
-        {/* <Header title={this.state.headers[1]}></Header>
-        <EventComponent events={this.state.events} /> */}
-
-        <EventPage></EventPage>
+        <div className="box">
+          <div className="a">
+            {/* <LeftSidebar></LeftSidebar>
+            <Butoane></Butoane> */}
+          </div>
 
 
+          <div className="b">
+            {/* <Coachtable ></Coachtable>
+        <TableRow></TableRow> */}
+            {/* <Coaches
+              coaches={this.state.coaches}
+            />
+            <Events
+              events={this.state.events}
+            /> */}
+          </div>
+
+          {/* <Login></Login> */}
+
+
+        </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;
