@@ -1,14 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Layout from './App';
 import { BrowserRouter } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
+import { Route, Switch } from 'react-router-dom';
+import Login from './Components/Login/Login'
+import Coaches from './Components/Coaches/Coaches';
+import EventsLanding from './Components/Events/EventsLanding';
 
 ReactDOM.render(
   <BrowserRouter>
   <React.StrictMode>
-    <App />
+  <Switch>
+         {/* <Route path="/login" component={Login} /> */}
+        <Layout>
+            <Route exact path="/" component={Login} />
+            <Route path="/coaches" component={Coaches} />
+            <Route path="/events" component={EventsLanding} />
+        </Layout>
+        </Switch>   
   </React.StrictMode>
   </BrowserRouter>,
   document.getElementById('root')

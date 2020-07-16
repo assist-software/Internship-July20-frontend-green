@@ -11,9 +11,9 @@ class Layout extends Component {
     render () {
         return (
            <div className="layout">
-             <LeftSidebar 
-                open={this.state.showLeftSidebar} 
-                closed={this.LeftSideBarClosedHandler} /> 
+            
+            <LeftSidebar /> 
+       
 
             <main>
                 {this.props.children}

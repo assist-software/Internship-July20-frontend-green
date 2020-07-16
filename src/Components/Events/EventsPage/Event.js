@@ -1,12 +1,15 @@
 import React from 'react';
 import './Event.css';
+import { NavLink } from 'react-router-dom';
 const event = props => {
     return (
         <div className="Event">
+            <NavLink to="/event{props.id}">
             <div className="event-img"
             // style={{ backgroundImage: url('./bg-1.png') }}
             >
             </div>
+            </NavLink>
             <div className="event-body">
                 <div className="wrapper">
                     <h1>Running for Life</h1>

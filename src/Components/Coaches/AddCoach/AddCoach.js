@@ -1,28 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react';
 import '../../Common/Styles.css';
 
-const AddCoach = () =>  (
-        <Modal trigger={<Button>Add / Edit Coach Modal</Button>} closeIcon>
-        <Header content='Add / Edit Coach' />
+class AddCoach extends Component  {
+      onOpen = () => {
+        this.props.openClick();
+      }
+      onClose =() => {
+        this.props.closeClick();
+      }
+     
+      handleChange(event) {
+        // this.setState{(value: event.target.value)};
+        console.log(event.target.value)
+       }
+    render () {
+      return   (
+        <Modal  closeIcon 
+        open={this.props.open}
+        onOpen={this.onOpen}
+        onClose={this.onClose}
+        dimmer={true}>
+        <Header content={this.props.title} />
         
         <Modal.Content>
           <form className="form-inputs">
-            <label for="first-name">First Name</label>
-                <input name="first-name" type="text" placeholder="First Name" required/>
-
-            <label for="last-name">Last Name</label>
-                <input name="last-name" type="text" placeholder="Last name" required/>
-
-            <label for="email">Email Address</label>
-                <input name="email" type="email" placeholder="Enter Your Email" required/>
-                      
-            <label for="club">Club Assign </label>
-                  <select name="club" type="select" placeholder="Club Assign" required>
+            <label>First Name
+                <input name="first-name" value={this.props.firstName} onChange={this.handleChange}
+                type="text" placeholder="First Name" required/>
+            </label>
+            <label>Last Name
+                <input name="last-name" value={this.props.lastName} onChange={this.handleChange}
+                type="text" placeholder="Last name" required/>
+            </label>
+            <label>Email Address
+                <input name="email" value={this.props.email} onChange={this.handleChange}
+                type="email" placeholder="Enter Your Email" required/>
+            </label>        
+            <label>Club Assign
+                  <select name="club" value={this.props.club} onChange={this.handleChange}
+                  type="select" placeholder="Club Assign" required>
                       <option value="clubX">Club X</option>
                       <option value="clubY">Club Y</option>
                   </select>
-
+            </label>
           </form>
         </Modal.Content>
         
@@ -30,7 +51,7 @@ const AddCoach = () =>  (
         <Button color='black'>
              delete
           </Button>
-          <Button color='red'>
+          <Button color='red' onClick={this.onClose}>
              Cancel
           </Button>
           <Button color='green'>
@@ -39,5 +60,7 @@ const AddCoach = () =>  (
         </Modal.Actions>
       </Modal>
     );
-
+    }
+   
+  }
 export default AddCoach;
