@@ -1,4 +1,5 @@
 import React from 'react';
+import Participants from './Participants';
 
 import './EventPage.css';
 
@@ -23,10 +24,21 @@ const eventPage = props => {
             <div className="event-content">
                 <div className='image-content'></div>
                 <div className="text-content">
-                    <h1>Est amet incididunt proident proident ipsum incididunt non sint cillum amet ullamco proident ut.</h1>
+                    <p className="title-content">Est amet incididunt proident proident ipsum incididunt non sint cillum amet ullamco proident ut.</p>
                     <p>Est amet incididunt proident proident ipsum incididunt non sint cillum amet ullamco proident ut. Consectetur irure quis adipisicing occaecat eiusmod esse nostrud mollit et. Excepteur anim aliquip consequat sint ad ut enim mollit. Amet esse adipisicing aute reprehenderit labore enim exercitation. Dolor laboris irure exercitation elit. Labore labore pariatur deserunt Lorem veniam Lorem incididunt labore sint. Ut laboris ex in nostrud irure fugiat duis nisi non deserunt et. Labore sunt culpa cupidatat non irure duis ipsum nulla dolor in ipsum sint aliqua. Labore ipsum adipisicing id aliquip id qui duis. Laborum ut consectetur esse aliquip anim consectetur dolore mollit anim quis consequat anim proident.</p>
                 </div>
             </div>
+
+            <div className='eventParticipants'>
+                <p>Participants (<span>{props.participants.length}</span>)</p>
+                {/* <button>Compare performance</button> */}
+
+                <div className='Participants'>
+                    <Participants
+                        participants={props.participants} />
+                </div>
+            </div>
+
 
         </div >
     );

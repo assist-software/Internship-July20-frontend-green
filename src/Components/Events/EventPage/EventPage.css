@@ -1,6 +1,7 @@
 /*=================================
             Event page
 =================================*/
+
 header p,
 header h1{
     display: inline;
@@ -60,14 +61,14 @@ button {
     color: #44DABD;
 }
 
-/*=================================
-        Event Page Content
-=================================*/
+/* Event page content -------------- */
 .event-content{
     background-color: #FFFFFF;
+    border-radius: 8px;
+    margin-bottom: 93px;
 }
 
-.text-content h1{
+.event-content p.title-content{
     padding: 48px 44px 10px 32px;
     font-size: 24px;
     line-height: 32px;
@@ -86,5 +87,66 @@ button {
     background-repeat: no-repeat;
     background-size: cover;
     height: 374px;
+}
 
+/*=================================
+            Participants
+=================================*/
+.Participants{
+    display: grid;
+    grid-template-columns: .25fr .25fr .25fr .25fr;
+    column-gap: 16px;
+    row-gap: 16px;
+}
+
+@media screen and (max-width: 867px){
+    .Participants{
+        grid-template-columns: .5fr .5fr;
+    }
+}
+
+@media screen and (max-width: 440px){
+    .Participants{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/*=================================
+            Participant
+=================================*/
+.Participant{
+    background: #FFFFFF;
+    box-shadow: 0px 0.399006px 0.864513px rgba(0, 0, 0, 0.0201946), 0px 1.34018px 2.90372px rgba(0, 0, 0, 0.0298054), 0px 6px 13px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.Participant img{
+    margin-top: 22px;
+    margin-left: 22px;
+}
+
+.Participant .p-name{
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+    padding: 6px 24px;
+    margin: 0;
+}
+
+.Participant .p-details{
+    margin: 0;
+    padding-top: 0;
+    padding-left: 24px;
+    padding-bottom: 22px;
+
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+}
+
+.Participant span{
+    font-weight: 900;
 }
