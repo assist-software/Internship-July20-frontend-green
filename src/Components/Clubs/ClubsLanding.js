@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import EventsPage from "./EventsPage/EventComponent";
 import Header from "../Header/Header";
+import ClubsComponent from "./ClubsComponent/ClubsComponent";
 
-class EventsLanding extends Component {
+class ClubsLanding extends Component {
   state = {
     events: [
       {
@@ -61,11 +61,11 @@ class EventsLanding extends Component {
   render() {
     return (
       <div>
-        <Header title="Events" />
-        <EventsPage events={this.state.events} />
+        <Header title="Clubs" />
+        <ClubsComponent clubs={this.state.clubs} />
       </div>
     );
   }
 }
 
-export default EventsLanding;
+export default ClubsLanding;
