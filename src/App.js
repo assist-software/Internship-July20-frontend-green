@@ -69,9 +69,9 @@ class App extends Component {
 
         {/* <EventPage participants={this.state.participants}></EventPage> */}
 
-        <Clubs clubs={this.state.clubs} />
+        {/* <Clubs clubs={this.state.clubs} /> */}
 
-        <ClubPage clubs={this.state.clubs[0]} />
+        <ClubPage club={this.state.clubs[0]} members={this.state.members} />
 
 
 

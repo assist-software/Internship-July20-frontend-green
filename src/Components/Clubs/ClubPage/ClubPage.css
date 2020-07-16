@@ -1,0 +1,105 @@
+/*=================================
+            Club Page 
+=================================*/
+
+
+/* Fillter and add ----------------------- */
+.filterAdd{
+    margin-top: 44px;
+    margin-bottom: 150px;
+}
+
+.filterAdd input[type=text]{
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+
+    border-radius: 8px;
+    border: 1px solid #8E9296;
+    padding-top: 10.5px;
+    padding-bottom: 11.5px;
+    padding-left: 44px;
+
+    font-size: 14px;
+    line-height: 12px;
+    width: 371px;
+
+    float: left;
+}
+
+.filterAdd button{
+    color: #44DABD;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #1A1A1A;
+
+    padding-left: 57px;
+    padding-right: 57px;
+    border-radius: 8px;
+    float: right;
+    height: 46px;
+}
+
+/*=================================
+            Club Members 
+=================================*/
+.clubMembers{
+    display: grid;
+    grid-template-columns: .33fr .33fr .33fr;
+    column-gap: 16px;
+    row-gap: 16px;
+}
+
+@media screen and (max-width: 867px){
+    .clubMembers{
+        grid-template-columns: .5fr .5fr;
+    }
+}
+
+@media screen and (max-width: 440px){
+    .clubMembers{
+        grid-template-columns: 1fr;
+    }
+}
+
+.Member{
+    background: #FFFFFF;
+    box-shadow: 0px 0.399006px 0.864513px rgba(0, 0, 0, 0.0201946), 0px 1.34018px 2.90372px rgba(0, 0, 0, 0.0298054), 0px 6px 13px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 22px 24px;
+}
+
+.member-header{
+    margin: 0;
+    padding: 0;
+}
+
+.member-header img{
+    float: left;
+    padding-right: 14px;
+}
+
+.member-header p{
+    margin: 0;
+}
+
+.member-header p:first-child{
+    font-size: 24px;
+    line-height: 32px;
+}
+.member-header p:nth-child(3){
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0;
+
+}
+
+.member-sports{
+    display: grid;
+    grid-template-columns: .4fr .6fr;
+    column-gap: 20px;
+    float: left;
+}
