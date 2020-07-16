@@ -2,8 +2,8 @@
             Event page
 =================================*/
 
-header p,
-header h1{
+.EventPage header p,
+.EventPage header h1{
     display: inline;
     font-weight: 600;
     font-size: 14px;
@@ -11,44 +11,56 @@ header h1{
     text-transform: capitalize;
 }
 
-header p{
+.EventPage header p{
     color: #8E9296;
 }
 
-header h1{
+.EventPage header h1{
     color: #000000;
 }
 
-header img{
+.EventPage header img{
     height: 16px;
     width: 16px;
-    
 }
 
 /* date&time style -------------- */
-.dateTime{
+.EventPage .main-header{
     padding-bottom: 19px;
-    margin-top: 44px;
+    margin-top: 43px;
 }
 
-.dateTime p{
+.EventPage .main-header p.title{
     display: inline;
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+}
+
+.EventPage .dateTime{
+    margin-top: 15px;
+}
+
+.EventPage .main-header .dateTime div p,
+.EventPage .main-header .dateTime div{
+    display: inline;
+}
+
+.EventPage .main-header .dateTime div{
     font-size: 14px;
     line-height: 24px;
     color: #000000;
-    margin-right: 16px;
-    vertical-align: auto;
+    padding-right: 16px;
 }
 
-.dateTime p,
-.dateTime img{
-    padding-top: 46px;
+.EventPage .main-header .dateTime div img{
+    padding-right: 4px;
+    top: 4px;
 }
-
-
 
 /* btn style -------------- */
-button {
+.EventPage .main-header button{
+    display: block;
     float: right;
     background: #1A1A1A;
     border-radius: 8px;
@@ -62,19 +74,19 @@ button {
 }
 
 /* Event page content -------------- */
-.event-content{
+.EventPage .event-content{
     background-color: #FFFFFF;
     border-radius: 8px;
     margin-bottom: 93px;
 }
 
-.event-content p.title-content{
+.EventPage .event-content p.title-content{
     padding: 48px 44px 10px 32px;
     font-size: 24px;
     line-height: 32px;
     color: #000000;
 }
-.text-content p{
+.EventPage .text-content p{
     padding: 10px 32px 40px 32px;
     font-size: 14px;
     line-height: 24px;
@@ -82,7 +94,7 @@ button {
 }
 
 
-.image-content{
+.EventPage .image-content{
     background-image: url('./img/content-img.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -111,6 +123,49 @@ button {
     }
 }
 
+.eventParticipants{
+    padding-bottom: 40px;
+}
+
+.eventParticipants p.p-title{
+    display: inline;
+}
+
+.eventParticipants button{
+    float: right;
+    background: #1A1A1A;
+    border: 1px solid #44DABD;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #44DABD;
+}
+
+.eventParticipants .btn-compare{
+    padding: 16px 2px;
+}
+.eventParticipants .btn-done{
+    padding: 16px 68px;
+}
+
+
+.eventParticipants .p-select{
+    font-size: 14px;
+    line-height: 24px;
+    color: #1A1A1A;
+    /* display: none; */
+}
+
+.compareParticipants .p-select{
+    font-size: 14px;
+    line-height: 24px;
+    color: #1A1A1A;
+    margin-top: 0px;
+}
 
 
 /*=================================
@@ -123,9 +178,15 @@ button {
     text-transform: uppercase;
 }
 
-.Participant img{
+.Participant img:first-child{
     margin-top: 22px;
     margin-left: 22px;
+}
+
+.Participant img:nth-child(2){
+    float: right;
+    padding-top: 24px;
+    padding-right: 24px;
 }
 
 .Participant .p-name{
@@ -149,4 +210,30 @@ button {
 
 .Participant span{
     font-weight: 900;
+}
+
+/*=================================
+            Compare
+=================================*/
+.compareParticipants .p-options{
+    display: grid;
+    grid-template-columns: .25fr .25fr .25fr .25fr;
+    column-gap: 15px;
+    margin-bottom: 70px;
+}
+
+.compareParticipants .p-option{
+    font-size: 18px;
+    line-height: 43px;
+    color: #000000;
+    background: #FFFFFF;
+    border-radius: 8px;
+    margin: 0;
+    display: inline;
+}
+
+
+.compareParticipants .p-option img{
+    float: left;
+    padding: 9.5px 7px 9.5px 12px;
 }

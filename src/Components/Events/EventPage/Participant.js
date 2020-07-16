@@ -7,6 +7,7 @@ const participant = props => {
     return (
         <div className="Participant">
             <img src={require('./img/avatar.png')} alt="" />
+            <img src={require('./img/checkbox.png')} alt="" />
             <p className="p-name">{props.name}</p>
             <p className='p-details'>
                 {props.gender} <span>&#183;</span> {props.age} YEARS

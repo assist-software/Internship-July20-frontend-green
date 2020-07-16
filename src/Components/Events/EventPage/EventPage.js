@@ -13,11 +13,27 @@ const eventPage = props => {
                 <h1>Running for Life</h1>
             </header>
 
-            <div className="dateTime">
-                <p><img src={require('./img/calendar.png')} alt="" /> 20.06.2020</p>
-                <p><img src={require('./img/clock.png')} alt="" /> 09:00 AM</p>
-                <p><img src={require('./img/pin.png')} alt="" /> Suceava Fortress, Main Enter</p>
+
+            <div className="main-header">
+
+                <p className="title">Running for Life</p>
                 <button>edit</button>
+
+                <div className="dateTime">
+                    <div>
+                        <img src={require('./img/calendar.png')} alt="" />
+                        <p>20.06.2020</p>
+                    </div>
+                    <div>
+                        <img src={require('./img/clock.png')} alt="" />
+                        <p> 09:00 AM</p>
+                    </div>
+                    <div>
+                        <img src={require('./img/pin.png')} alt="" />
+                        <p> Suceava Fortress, Main Enter</p>
+                    </div>
+                </div>
+
 
             </div>
 
@@ -30,8 +46,11 @@ const eventPage = props => {
             </div>
 
             <div className='eventParticipants'>
-                <p>Participants (<span>{props.participants.length}</span>)</p>
-                {/* <button>Compare performance</button> */}
+                <p className='p-title'>Participants (<span>{props.participants.length}</span>)</p>
+                <button className='btn-compare'>Compare performance</button>
+                <button className='btn-done'>Done</button>
+
+                <p className="p-select">Select participants you want to compare</p>
 
                 <div className='Participants'>
                     <Participants
@@ -39,6 +58,32 @@ const eventPage = props => {
                 </div>
             </div>
 
+            <div className='compareParticipants'>
+                <p className="p-select">Select metrics you want to be compared</p>
+
+                <div className='p-options'>
+                    <div className="p-option">
+                        <img src={require('./img/checkbox.png')} />
+                        <p className="p-option">Heart Rate</p>
+                    </div>
+                    <div className="p-option">
+                        <img src={require('./img/checked.png')} alt='' />
+                        <p className="p-option">Calories</p>
+                    </div>
+                    <div className="p-option">
+                        <img src={require('./img/checked.png')} alt='' />
+                        <p className="p-option">Av. Speed</p>
+                    </div>
+                    <div className="p-option">
+                        <img src={require('./img/checkbox.png')} alt='' />
+                        <p className="p-option">Distance</p>
+                    </div>
+                </div>
+
+                <p className="p-select">Graph</p>
+
+
+            </div>
 
         </div >
     );

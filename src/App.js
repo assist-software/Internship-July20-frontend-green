@@ -4,8 +4,11 @@ import React, { Component } from 'react';
 // import Coaches from './Components/Coaches/CoachesTable/CoachTable';
 import Events from './Components/Events/EventsPage/EventComponent';
 import EventPage from './Components/Events/EventPage/EventPage';
+import Clubs from './Components/Clubs/ClubsComponent/ClubsComponent';
+import ClubPage from './Components/Clubs/ClubPage/ClubPage';
 
 import './App.css';
+import club from './Components/Clubs/ClubsComponent/SingleClub';
 
 class App extends Component {
 
@@ -32,10 +35,29 @@ class App extends Component {
       { img: '', name: 'Regina Cooper', gender: 'female', age: '24' },
       { img: '', name: 'Brandon Wilson', gender: 'male', age: '31' },
       { img: '', name: 'Shane Black', gender: 'male', age: '28' },
-      { img: '', name: 'Jorge Watson', gender: 'male', age: '27' },
+      // { img: '', name: 'Jorge Watson', gender: 'male', age: '27' },
       { img: '', name: 'Ronald Robertson', gender: 'male', age: '67' },
       { img: '', name: 'Wendy Watson', gender: 'female', age: '44' },
       { img: '', name: 'Priscilla Edwards', gender: 'female', age: '65' }
+    ],
+    clubs: [
+      { title: 'Biking Club', img: '', members: '132', coach: 'Esther Wilson' },
+      { title: 'Club Biking', img: '', members: '12', coach: 'Esther ' },
+      { title: 'Biking Club', img: '', members: '5', coach: 'Wilson' },
+      { title: 'Club Biking', img: '', members: '14', coach: 'Esther Wilson' },
+      { title: 'Biking Club', img: '', members: '475', coach: 'Wilson' },
+      { title: 'Club Biking', img: '', members: '523', coach: 'Esther Wilson' }
+    ],
+    members: [
+      { img: '', name: 'Dianne Robertson', gender: 'female', age: '34', primary: 'Running', secondary: 'Biking' },
+      { img: '', name: 'Eduardo Miles', gender: 'male', age: '25', primary: 'Biking', secondary: 'Running' },
+      { img: '', name: 'Lily Jones', gender: 'female', age: '35', primary: 'Running', secondary: 'Biking' },
+      { img: '', name: 'Wendy Watson', gender: 'female', age: '26', primary: 'Biking', secondary: 'Running' },
+      { img: '', name: 'Courtney Nguyen', gender: 'female', age: '36', primary: 'Running', secondary: 'Biking' },
+      { img: '', name: 'Bruce Russell', gender: 'male', age: '21', primary: 'Biking', secondary: 'Running' },
+      { img: '', name: 'Bessie Richards', gender: 'female', age: '28', primary: 'Running', secondary: 'Biking' },
+      { img: '', name: 'Mitchell Cooper', gender: 'male', age: '63', primary: 'Biking', secondary: 'Running' },
+      { img: '', name: 'Pat Cooper', gender: 'male', age: '24', primary: 'Running', secondary: 'Biking' }
     ]
   }
 
@@ -45,7 +67,12 @@ class App extends Component {
 
         {/* <Events events={this.state.events} /> */}
 
-        <EventPage participants={this.state.participants}></EventPage>
+        {/* <EventPage participants={this.state.participants}></EventPage> */}
+
+        <Clubs clubs={this.state.clubs} />
+
+        <ClubPage clubs={this.state.clubs[0]} />
+
 
 
       </div>
