@@ -4,16 +4,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 .Header{
     font-family: 'Inter', sans-serif;
+    margin: calc(60px - 0.67em) 40px 0;
+    display: grid;
+    grid-template-rows: 86px 86px;
 }
 
 
 .Header .title{
     font-size: 36px;
     line-height: 42px;
-}
-
-.addNew{
-    margin-top: 44px;
 }
 
 .addNew input[type=text]{
@@ -33,20 +32,9 @@
     width: 371px;
 
     float: left;
-}
-
-.addNew button{
-    color: #44DABD;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
-    background-color: #1A1A1A;
-
-    padding-left: 57px;
-    padding-right: 57px;
-    border-radius: 8px;
-    float: right;
     height: 46px;
-    
 }
+
+ .addNew button{
+    float: right;
+} 

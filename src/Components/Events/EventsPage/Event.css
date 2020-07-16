@@ -3,7 +3,7 @@
 =================================*/
 
 .Events{
-    margin-top: 125px;
+    margin: 0 40px;
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 16px;
@@ -43,7 +43,7 @@
 
 /* event body style -------------- */
 .event-body{
-    width: 60%;
+    width: 100%;
     padding: 30px 24px 24px 24px;
 }
 

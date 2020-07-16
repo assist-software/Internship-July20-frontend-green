@@ -6,14 +6,12 @@ import './Clubs.css';
 const clubs = props => {
 
     return props.clubs.map((club, index) => {
-        return (
-        <Club
+        return <Club
             title={club.title}
             img={club.img}
             members={club.members}
             coach={club.coach}
         />
-        );
     });
 };
 
