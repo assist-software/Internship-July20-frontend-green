@@ -17,7 +17,7 @@ const clubPage = props => {
             </div>
 
             <div className='club-btns'>
-                <p>Members (<span>{props.club.members}</span>)</p>
+                <p className="active-btn">Members (<span>{props.club.members}</span>)</p>
                 <p>Requests</p>
             </div>
 

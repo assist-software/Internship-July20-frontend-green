@@ -6,6 +6,7 @@ import Events from './Components/Events/EventsPage/EventComponent';
 import EventPage from './Components/Events/EventPage/EventPage';
 import Clubs from './Components/Clubs/ClubsComponent/ClubsComponent';
 import ClubPage from './Components/Clubs/ClubPage/ClubPage';
+import Athletes from './Components/Athletes/Athletes/AthletesComponent';
 
 import './App.css';
 import club from './Components/Clubs/ClubsComponent/SingleClub';
@@ -71,9 +72,9 @@ class App extends Component {
 
         {/* <Clubs clubs={this.state.clubs} /> */}
 
-        <ClubPage club={this.state.clubs[0]} members={this.state.members} />
+        {/* <ClubPage club={this.state.clubs[0]} members={this.state.members} /> */}
 
-
+        <Athletes club={this.state.clubs[0]} members={this.state.members}></Athletes>
 
       </div>
     );
