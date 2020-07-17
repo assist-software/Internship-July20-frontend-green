@@ -8,13 +8,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App layout">  
-      <div>
-         <LeftSidebar />
-      </div>
-      <div>
-         {this.props.children}
-      </div>
+      <div className="App layout">
+        <div>
+          <LeftSidebar />
+        </div>
+        <div>
+          {this.props.children}
+        </div>
 
       </div>
     );
