@@ -1,0 +1,185 @@
+/*=================================
+            Club Page Header
+=================================*/
+.ClubPage .club-title{
+    font-size: 36px;
+    line-height: 42px;
+    text-transform: capitalize;
+    display: inline;
+    margin-right: 10px;
+}
+
+.ClubPage .club-edit{
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.club-coach{
+    margin-bottom: 80px;
+}
+
+.club-coach p:first-child{
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8E9296;
+    margin-bottom: 0;
+}
+
+.club-coach p:nth-child(2){
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #000000;
+    margin-top: 0;
+}
+
+.club-btns p{
+    display: inline;
+    border: 1px solid #8E9296;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 15px 32px;
+    margin-right: 4px;
+
+    background-color: #FFFFFF;
+    color: #000000;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.active-btn{
+    background: #1A1A1A !important;
+    color: #FFFFFF !important;
+}
+
+
+/* Fillter and add ----------------------- */
+.filterAdd{
+    margin-top: 44px;
+    margin-bottom: 150px;
+}
+
+.filterAdd input[type=text]{
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+
+    border-radius: 8px;
+    border: 1px solid #8E9296;
+    padding-top: 10.5px;
+    padding-bottom: 11.5px;
+    padding-left: 44px;
+
+    font-size: 14px;
+    line-height: 12px;
+    width: 371px;
+
+    float: left;
+}
+
+.filterAdd button{
+    color: #44DABD;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #1A1A1A;
+
+    padding-left: 57px;
+    padding-right: 57px;
+    border-radius: 8px;
+    float: right;
+    height: 46px;
+}
+
+/*=================================
+            Club Members 
+=================================*/
+.clubMembers{
+    display: grid;
+    grid-template-columns: .33fr .33fr .33fr;
+    column-gap: 16px;
+    row-gap: 16px;
+}
+
+@media screen and (min-width: 1400px){
+    .clubMembers{
+        grid-template-columns: .25fr .25fr .25fr .25fr;
+    }
+}
+
+@media screen and (max-width: 867px){
+    .clubMembers{
+        grid-template-columns: .5fr .5fr;
+    }
+}
+
+@media screen and (max-width: 440px){
+    .clubMembers{
+        grid-template-columns: 1fr;
+    }
+}
+
+.Member{
+    background: #FFFFFF;
+    box-shadow: 0px 0.399006px 0.864513px rgba(0, 0, 0, 0.0201946), 0px 1.34018px 2.90372px rgba(0, 0, 0, 0.0298054), 0px 6px 13px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 22px 24px;
+}
+
+.member-header{
+    margin: 0;
+    padding: 0;
+}
+
+.member-header img{
+    float: left;
+    padding-right: 14px;
+}
+
+.member-header p{
+    margin: 0;
+}
+
+.member-header p:first-child{
+    font-size: 24px;
+    line-height: 32px;
+}
+.member-header p:nth-child(3){
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0;
+
+}
+
+.member-sports{
+    display: grid;
+    grid-template-columns: .4fr .6fr;
+    /* column-gap: 20px; */
+    float: left;
+    width: 100%;
+}
+
+.primary-sport p:first-child,
+.secondary-sport p:first-child{
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8E9296;
+    margin-bottom: 0;
+    margin-right: 20px;
+}
+.primary-sport p:nth-child(2),
+.secondary-sport p:nth-child(2){
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+    margin-top: 0;
+}

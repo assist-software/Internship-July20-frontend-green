@@ -1,5 +1,5 @@
 /*=================================
-            Event 
+            Events
 =================================*/
 
 .Events{
@@ -19,13 +19,30 @@
 
 @media screen and (max-width: 1200px){
     .Events{
-        margin-top: 125px;
+        margin-top: 45px;
         display: grid;
         grid-template-columns: auto;
         grid-column-gap: 16px;
         grid-row-gap: 16px;
     }
 }
+
+.choices p{
+    display: inline;
+    color: #1A1A1A;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px 32px;
+    margin-left: 4px;
+    border: 1px solid #8E9296;
+    border-radius: 8px;
+}
+
+.choices .activeChoice{
+    background-color: #1A1A1A !important;
+    color: #ffffff !important;
+}
+
 
 /* event img style -------------- */
 .event-img{
