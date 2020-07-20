@@ -8,7 +8,6 @@ const clubsComponent = props => {
     return (
         <div className="ClubsComponent">
             {/* <Clubs clubs={props.clubs} /> */}
-
         </div>
     );
 };

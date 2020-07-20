@@ -8,7 +8,7 @@ const butoane = () => {
       <div className="menu">
         <NavLink to="/coaches">
           <button className="btncoaches" id="text">
-            <i className="icon"></i>Coaches
+            Coaches
           </button>
         </NavLink>
         <NavLink to="/events">

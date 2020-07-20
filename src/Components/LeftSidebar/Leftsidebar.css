@@ -22,7 +22,7 @@ height: 52px;
 left: 32px;
 top: 182px;
 }
-@media only screen and (max-width: 1400px){
+@media only screen and (max-width: 800px){
     .elipse{
         display: none;
     }   
@@ -43,8 +43,6 @@ top: 182px;
     left: 32px;
     top: 182px;
     font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
     font-size: 24px;
     line-height: 32px;
     display: flex;
@@ -59,12 +57,8 @@ top: 182px;
     top: 220px;
     padding-top: 5px;
     font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
     font-size: 12px;
     line-height: 14px;
-    display: flex;
-    align-items: center;
     text-align: center;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -81,10 +75,12 @@ top: 182px;
         background-image: url("imgs/Coachesgri.png"); /* The image used */
         background-repeat: no-repeat;
         background-position: 20px;  
-    }}
+    }
+}
 .btncoaches{
+    margin: 12px 22px;
+    padding: 20px 50px 20px 56px;
     border: none;
-    padding: 20px 70px;
     font-size: 16px;
     cursor: pointer;    
     background: #1a1a1a;
@@ -94,9 +90,10 @@ top: 182px;
     background-position: 20px;  
 }
 .btncoaches:hover {
+    margin: 12px 22px;
+    padding: 20px 50px 20px 56px;
     background-color: white;
     font-family: Inter;
-    font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
@@ -107,8 +104,9 @@ top: 182px;
     background-position: 20px;
 }
 .btnevents{
+    margin: 12px 22px;
+    padding: 20px 60px 20px 56px;
     border: none;
-    padding: 20px 75px;
     font-size: 16px;
     cursor: pointer;    
     background: #1a1a1a;
@@ -118,6 +116,8 @@ top: 182px;
     background-position: 16px;
 }
 .btnevents:hover {
+    margin: 12px 22px;
+    padding: 20px 60px 20px 56px;
     background-color: white;
     font-family: Inter;
     font-style: normal;
@@ -131,8 +131,9 @@ top: 182px;
     background-position: 16px;
   }
 .btnclubs{
+    margin: 12px 22px;
+    padding: 20px 70px 20px 56px;
     border: none;
-    padding: 20px 80px;
     font-size: 16px;
     cursor: pointer;    
     background: #1a1a1a;
@@ -142,6 +143,8 @@ top: 182px;
     background-position: 12px;
 }
 .btnclubs:hover {
+    margin: 12px 22px;
+    padding: 20px 70px 20px 56px;
     background-color: white;
     font-family: Inter;
     font-style: normal;
@@ -155,8 +158,9 @@ top: 182px;
     background-position: 12px;
   }
 .btnath{
+    margin: 12px 22px;
+    padding: 20px 60px 20px 56px;
     border: none;
-    padding: 20px 75px;
     font-size: 16px;
     cursor: pointer;    
     background: #1a1a1a;
@@ -166,6 +170,8 @@ top: 182px;
     background-position: 17px;
 }
 .btnath:hover {
+    margin: 12px 22px;
+    padding: 20px 60px 20px 56px;
     border: none;
     background-color: white;
     font-family: Inter;
@@ -208,24 +214,15 @@ top: 182px;
     text-align: center;
 }
 .menu{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    width: 172px;
-    height: 288px;
-    left: 22px;
-    top: 368px;
+    display: block;
+    margin: 253px 0 0 0;
 }
 @media only screen and (max-width: 1400px) {
   .menu{ 
-    font-size: 2px;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    width: 172px;
-    height: 288px;
-    left: 22px;
-    top: 100px;
+    display: block;
+    margin: 253px 0 0 0;
+    
+    
 }}
 .btnlog{
     border: none;
