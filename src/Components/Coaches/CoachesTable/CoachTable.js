@@ -9,13 +9,15 @@ const CoachTable = props => {
     return (
         <div className="CoachTable">
             <table id="table-coaches">
-                <tr id="table-head">
+                <thead id="table-head">
+                    <tr>
                     <th><input type="checkbox" /></th>
                     <th>First &amp; Last Name</th>
                     <th>Email Adress</th>
                     <th>Owned Clubs</th>
                     <th>Actions</th>
-                </tr>
+                    </tr>
+                </thead>
 
                 <TableRow coaches={props.coaches} />
 

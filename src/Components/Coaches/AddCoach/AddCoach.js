@@ -28,6 +28,7 @@ class AddCoach extends Component  {
        }
 
         addCoachHandler() {
+      
           axios.post('/coaches', this.state)
           .then(function (response) {
             console.log(response);
@@ -51,11 +52,11 @@ class AddCoach extends Component  {
         <Modal.Content>
           <form className="form-inputs">
             <label>First Name
-                <input name="first_name" id="first_name" value={this.props.firstName} onChange={this.handleChange}
+                <input name="first_name" id="first_name" value={this.props.first_name} onChange={this.handleChange}
                 type="text" placeholder="First Name" required/>
             </label>
             <label>Last Name
-                <input name="last_name" id="last_name" value={this.props.lastName} onChange={this.handleChange}
+                <input name="last_name" id="last_name" value={this.props.last_name} onChange={this.handleChange}
                 type="text" placeholder="Last name" required/>
             </label>
             <label>Email Address
