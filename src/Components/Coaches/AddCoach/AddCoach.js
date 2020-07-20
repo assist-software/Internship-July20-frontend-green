@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react';
 import '../../Common/Styles.css';
+import axios from '../../../axios'
 
 class AddCoach extends Component  {
+      constructor(props){
+        super(props);
+        this.state = {};
+        this.handleChange = this.handleChange.bind(this);
+        this.addCoachHandler= this.addCoachHandler.bind(this);
+      }
+
       onOpen = () => {
         this.props.openClick();
       }
@@ -11,10 +19,27 @@ class AddCoach extends Component  {
       }
      
       handleChange(event) {
-        // this.setState{(value: event.target.value)};
-        console.log(event.target.value)
+        let obj ={[event.target.name]:event.target.value} ;
+       this.setState({...this.state,[event.target.name]: event.target.value})
+        console.log(obj, this.state)
+
+        // this.setState({addCoach : obj});
+        // console.log(this.state.addCoach)
        }
+
+        addCoachHandler() {
+          axios.post('/coaches', this.state)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+         }
+       
+       
     render () {
+      console.log(this.props, 'asdas')
       return   (
         <Modal  closeIcon 
         open={this.props.open}
@@ -54,7 +79,7 @@ class AddCoach extends Component  {
           <Button color='red' onClick={this.onClose}>
              Cancel
           </Button>
-          <Button color='green'>
+          <Button color='green' onClick={this.addCoachHandler}>
              Add
           </Button>
         </Modal.Actions>

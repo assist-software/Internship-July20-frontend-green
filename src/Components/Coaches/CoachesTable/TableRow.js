@@ -9,8 +9,8 @@ const TableRow = props => {
     return props.coaches.map((coach, index) => {
         return (
             <Row
-                firstName={coach.firstName}
-                lastName={coach.lastName}
+                firstName={coach.first_name}
+                lastName={coach.last_name}
                 email={coach.email}
                 club={coach.club} />
         );
