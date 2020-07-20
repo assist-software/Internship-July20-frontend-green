@@ -1,4 +1,18 @@
 {
+  "users": [
+    {
+      "email": "nice@nice.com",
+      "pass": "1234"
+    },
+    {
+      "email": "qwerty@qwerty.com",
+      "pass": "1234"
+    },
+    {
+      "email": "zxcv@zxcv.com",
+      "pass": "1234"
+    }
+  ],
   "coaches": [
     {
       "id": 1,

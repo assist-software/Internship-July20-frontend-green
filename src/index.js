@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { Route, Switch } from "react-router-dom";
 import Login from "./Components/Login/Login";
+import Register from "./Components/Register/Register";
 import Coaches from "./Components/Coaches/Coaches";
 import EventsLanding from "./Components/Events/EventsLanding";
 import Event from "./Components/Events/EventPage/EventPage";
