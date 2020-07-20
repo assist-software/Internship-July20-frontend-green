@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LeftSidebar from './Components/LeftSidebar/LeftSidebar';
-
+import Chart from './chart';
 import Coaches from './Components/Coaches/CoachesTable/CoachTable';
 import Butoane from './Components/LeftSidebar/butoane';
 // import TableRow from'./Components/Coaches/CoachesTable/TableRow';
@@ -48,7 +48,7 @@ class App extends Component{
             <div className="a">
             <LeftSidebar></LeftSidebar>
             <Butoane></Butoane>
-            
+            {/* <Chart></Chart> */}
             </div>
 
             
@@ -64,6 +64,9 @@ class App extends Component{
             />
             </div>
             
+
+
+
 
         {/* <Login></Login> */}
       
