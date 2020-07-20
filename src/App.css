@@ -1,15 +1,5 @@
-.box {
-  display: flex;
-  align-items: stretch;
-  width: 100vw;
-}
-.a {
-  flex: 0 0 256px;
-}
-.b-c {
-  
-  flex-direction: column;
-  display: flex;
-  flex-grow: 1;
-  flex: 0 0 100%;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+.App{
+    background-color: #f9f9f9;
+    font-family: 'Inter', sans-serif;
 }

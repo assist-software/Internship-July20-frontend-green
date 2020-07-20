@@ -2,19 +2,11 @@ import React, { Component } from 'react';
 import LeftSidebar from './Components/LeftSidebar/LeftSidebar';
 import Butoane from './Components/LeftSidebar/butoane';
 import './App.css';
-import Chart from './Components/Chart';
-class App extends Component{
-  constructor(){
-    super();
-    this.state = {
-      chartData:{}
-    }
-  }
+import LeftSidebar from '../src/Components/LeftSidebar/LeftSidebar';
 
-  componentWillMount(){
-   // this.getchartData(); // this should be this.getChartData();
-    this.getChartData();
-  }
+class App extends Component {
+
+
 
   getChartData(){
     // Ajax calls here
@@ -42,32 +34,14 @@ class App extends Component{
   }
 render() {
     return (
-      <div className="App">
-        <div className="box">
-        <div id="main">
+      <div className="App layout">
+        <div>
+          <LeftSidebar />
         </div>
-        <div className="container"></div>
-            <div className="a">
-            <LeftSidebar></LeftSidebar>
-            <Butoane></Butoane>
-            </div>
-            <div className="b">
-            
+        <div>
+          {this.props.children}
+        </div>
 
-            <div className="App">
-             <div className="App-header">
-              
-                 <h2>Welcome to React</h2>
-              </div>
-              <Chart chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom"/>
-            </div>
-
-
-
-
-
-            </div>
-      </div>
       </div>
     );
   };

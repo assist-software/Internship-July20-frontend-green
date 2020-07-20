@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
      font-family: 'Inter', sans-serif;
      width: 1224px;
@@ -6,6 +7,9 @@ body {
      top: 0px;
      background: #F9F9F9;
  } 
+=======
+
+>>>>>>> 674e71e56ee9ff3a9eab07dc7373d222c332a643
  .sidebar{
      position: fixed;
      width: 216px;
@@ -204,6 +208,10 @@ top: 182px;
     flex: none;
     order: 1;
     align-self: center;
+<<<<<<< HEAD
+=======
+    /* margin: 16px 0px; */
+>>>>>>> 674e71e56ee9ff3a9eab07dc7373d222c332a643
     text-align: center;
 }
 .menu{

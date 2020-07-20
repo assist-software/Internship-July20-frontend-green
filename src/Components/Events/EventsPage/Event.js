@@ -28,7 +28,7 @@ const event = props => {
                         <img src={require('./img/avatar-3.png')} alt="" />
                         <img src={require('./img/avatar-4.png')} alt="" />
 
-                        <p>+ 20</p>
+                        <p>+ {props.participants}</p>
                     </div>
                 </div>
             </div>

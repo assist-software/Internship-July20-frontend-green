@@ -1,6 +1,11 @@
 import React from 'react';
 import './Leftsidebar.css';
+<<<<<<< HEAD
 import avatar from '../LeftSidebar/imgs/img_avatar.png'
+=======
+import avatar from '../LeftSidebar/imgs/img_avatar.png';
+import NavLinks from '../LeftSidebar/butoane';
+>>>>>>> 674e71e56ee9ff3a9eab07dc7373d222c332a643
 
 const leftSidebar = (props) => {
     return(
@@ -24,7 +29,11 @@ const leftSidebar = (props) => {
             <div className="button posti"> <button className='btnlog'  id='textlog'>Logout</button></div>    
 
             </div>
+<<<<<<< HEAD
        
+=======
+            <NavLinks />
+>>>>>>> 674e71e56ee9ff3a9eab07dc7373d222c332a643
         </div>
     );
 };
