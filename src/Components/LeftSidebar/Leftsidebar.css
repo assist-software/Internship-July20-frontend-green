@@ -76,7 +76,7 @@ top: 182px;
     }}
 .btncoaches{
     border: none;
-    padding: 20px 70px;
+    padding: 20px 50px;
     font-size: 16px;
     cursor: pointer;    
     background: #1a1a1a;
@@ -100,7 +100,7 @@ top: 182px;
 }
 .btnevents{
     border: none;
-    padding: 20px 75px;
+    padding: 20px 55px;
     font-size: 16px;
     cursor: pointer;    
     background: #1a1a1a;
@@ -124,7 +124,7 @@ top: 182px;
   }
 .btnclubs{
     border: none;
-    padding: 20px 80px;
+    padding: 20px 50px;
     font-size: 16px;
     cursor: pointer;    
     background: #1a1a1a;
@@ -148,7 +148,7 @@ top: 182px;
   }
 .btnath{
     border: none;
-    padding: 20px 75px;
+    padding: 20px 50px;
     font-size: 16px;
     cursor: pointer;    
     background: #1a1a1a;
