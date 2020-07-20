@@ -6,7 +6,9 @@ import './Event.css';
 const EventComponent = props => {
 
     return (
-        <div className='Events'>
+
+        <div className='Events' >
+
             <Events events={props.events}></Events>
         </div>
     );

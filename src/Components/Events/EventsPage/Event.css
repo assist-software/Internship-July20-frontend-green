@@ -3,7 +3,6 @@
 =================================*/
 
 .Events{
-    margin: 0 40px;
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 16px;
@@ -134,4 +133,32 @@
     font-size: 14px;
     line-height: 24px;
     color: #000000;
+}
+
+/*=================================
+            fillter
+=================================*/
+.eventsFilter{
+    margin: 33px 0 25px 0;
+    display: block;
+}
+
+
+.eventsFilter p{
+    display: inline;
+    padding: 15px 32px;
+    margin-right: 4px;
+    border-radius: 8px;
+    border: 1px solid #8E9296;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1A1A1A;
+    background-color: #ffffff;
+}
+
+.eventsFilter p.activeFilter{
+    color: #ffffff;
+    background-color: #1A1A1A;
 }

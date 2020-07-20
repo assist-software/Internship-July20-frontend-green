@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 .Header{
     font-family: 'Inter', sans-serif;
-    margin: calc(60px - 0.67em) 40px 0;
+    /* margin: calc(60px - 0.67em) 40px 0; */
     display: grid;
     grid-template-rows: 86px 86px;
 }
@@ -17,8 +17,9 @@
 
 .addNew input[type=text]{
     background-color: #ffffff;
-    /* background-image: url('./img/search.png'); */
-    /* background-position: 11px 6px 11px 14px; */
+    background-image: url('./img/search.png');
+    /* background-position: 11px 6px 11px 14px !important; */
+    background-position: 11px;
     background-repeat: no-repeat;
 
     border-radius: 8px;

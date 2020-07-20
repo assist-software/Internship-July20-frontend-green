@@ -6,25 +6,32 @@ import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { Route, Switch } from "react-router-dom";
 import Login from "./Components/Login/Login";
-// import Register from "./Components/Register/Register";
+import Register from "./Components/Register/Register";
 import Coaches from "./Components/Coaches/Coaches";
 import EventsLanding from "./Components/Events/EventsLanding";
 import Event from "./Components/Events/EventPage/EventPage";
-import ClubsLanding from "./Components/Clubs/ClubsComponent/ClubsComponent";
+import ClubsLanding from "./Components/Clubs/ClubsLanding";
+import AthletesLanding from "./Components/Athletes/Athletes/AthletesComponent";
+
+import './App.css';
 
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <Switch>
+      <Switch className="Switch">
         {/* <Route path="/login" component={Login} /> */}
-        <Layout>
+        <Layout className="Layout">
           <Route exact path="/" component={Login} />
+          <Route path="/register" component={Register} />
           <Route path="/coaches" component={Coaches} />
 
           <Route path="/events" component={EventsLanding} />
           <Route path="/events/:id" component={Event} />
 
           <Route path="/clubs" component={ClubsLanding} />
+
+          <Route path="/athletes" component={AthletesLanding} />
+
         </Layout>
       </Switch>
     </React.StrictMode>

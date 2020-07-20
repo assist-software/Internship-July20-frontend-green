@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import EventsPage from "./EventsPage/EventComponent";
 import Header from "../Header/Header";
+import './EventsPage/Event.css';
+import Pagination from '../Common/Pagination/Pagination';
+
 
 class EventsLanding extends Component {
   state = {
@@ -60,9 +63,20 @@ class EventsLanding extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ padding: '60px 40px' }}>
         <Header title="Events" />
+
+        <div className="eventsFilter">
+          <p className="activeFilter">Ongoing (<span>{this.state.events.length}</span>)</p>
+          <p>Future</p>
+          <p>Past</p>
+        </div>
+
         <EventsPage events={this.state.events} />
+
+        <Pagination />
+
+
       </div>
     );
   }

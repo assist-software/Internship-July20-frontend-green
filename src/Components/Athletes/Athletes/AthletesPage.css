@@ -1,6 +1,10 @@
 /*=================================
             Club Page Header
 =================================*/
+#AthletesWrapper{
+    padding: 60px 40px;
+}
+
 .ClubPage .club-title{
     font-size: 36px;
     line-height: 42px;
@@ -66,6 +70,9 @@
 
 .filterAdd input[type=text]{
     background-color: #ffffff;
+    background-image: url('./img/search.png');
+    /* background-position: 11px 6px 11px 14px !important; */
+    background-position: 11px;
     background-repeat: no-repeat;
 
     border-radius: 8px;
@@ -79,6 +86,7 @@
     width: 371px;
 
     float: left;
+    height: 46px;
 }
 
 .filterAdd button{
@@ -162,6 +170,7 @@
     display: grid;
     grid-template-columns: .4fr .6fr;
     /* column-gap: 20px; */
+    margin-top: 26px;
     float: left;
     width: 100%;
 }

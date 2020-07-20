@@ -3,3 +3,7 @@
     background-color: #f9f9f9;
     font-family: 'Inter', sans-serif;
 }
+
+.Layout{
+    width: 100% !important;
+}

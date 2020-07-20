@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Axios from '../../axios';
-import Pagination from './ClubPags';
 import Header from "../Header/Header";
 import ClubsComponent from "./ClubsComponent/ClubsComponent";
+import Pagination from '../Common/Pagination/Pagination';
 
 class ClubsLanding extends Component {
   state = {
@@ -15,21 +15,22 @@ class ClubsLanding extends Component {
         this.setState({ clubs: response.data });
         console.log(response);
       });
+  }
 
-    render() {
-      // let clubs = <p>No clubs yet!</p>;
-      // if (this.state.clubs) {
-      //   clubs = <ClubsComponent clubs={this.state.clubus} />;
-      // }
-      return (
-        <div>
-          <Header title="Clubs" />
-          {/* <ClubsComponent clubs={this.state.clubs} /> */}
-          {clubs}
-          <Pagination />
-        </div>
-      );
-    };
+  render() {
+    let clubs = <p>No clubs yet!</p>;
+    if (this.state.clubs) {
+      clubs = <ClubsComponent clubs={this.state.clubus} />;
+    }
+    return (
+      <div style={{ padding: '60px 40px' }}>
+        <Header title="Clubs" />
+        {/* <ClubsComponent clubs={this.state.clubs} /> */}
+        {clubs}
+        <Pagination />
+      </div>
+    );
   };
+};
 
-  export default ClubsLanding;
+export default ClubsLanding;
