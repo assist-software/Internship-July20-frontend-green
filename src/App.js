@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import LeftSidebar from './Components/LeftSidebar/LeftSidebar';
 import Butoane from './Components/LeftSidebar/butoane';
 import './App.css';
 import LeftSidebar from '../src/Components/LeftSidebar/LeftSidebar';

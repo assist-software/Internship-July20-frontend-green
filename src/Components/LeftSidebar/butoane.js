@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import './Leftsidebar.css';
-const butoane =() =>
-{
-    return(
-        
-        <div className="menu2">
-        <label class="switch">
-        <input type="checkbox"></input>
-        <span class="slider round"></span>
-        </label>
-        </div>
-        
-    );
-}
-export default butoane;
-=======
 import React from "react";
 import "./Leftsidebar.css";
 import { NavLink } from "react-router-dom";
@@ -53,4 +35,3 @@ const butoane = () => {
   );
 };
 export default butoane;
->>>>>>> 674e71e56ee9ff3a9eab07dc7373d222c332a643
