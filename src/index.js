@@ -26,7 +26,7 @@ ReactDOM.render(
           <Route path="/coaches" component={Coaches} />
 
           <Route path="/events" component={EventsLanding} />
-          <Route path="/events/:id" component={Event} />
+          <Route path="/event/" component={Event} />
 
           <Route path="/clubs" component={ClubsLanding} />
 

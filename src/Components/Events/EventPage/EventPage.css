@@ -1,6 +1,11 @@
 /*=================================
             Event page
 =================================*/
+.EventPage{
+    /* padding: 53px 234px 80px 233px; */
+    padding: 60px 40px;
+}
+
 
 .EventPage header p,
 .EventPage header h1{
@@ -129,6 +134,9 @@
 
 .eventParticipants p.p-title{
     display: inline;
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
 }
 
 .eventParticipants button{
@@ -164,7 +172,7 @@
     font-size: 14px;
     line-height: 24px;
     color: #1A1A1A;
-    margin-top: 0px;
+    margin-top: 40px;
 }
 
 
@@ -215,6 +223,7 @@
 /*=================================
             Compare
 =================================*/
+
 .compareParticipants .p-options{
     display: grid;
     grid-template-columns: .25fr .25fr .25fr .25fr;
