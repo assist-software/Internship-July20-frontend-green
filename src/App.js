@@ -1,33 +1,11 @@
 import React, { Component } from 'react';
-import Butoane from './Components/LeftSidebar/butoane';
+//import Butoane from './Components/LeftSidebar/butoane';
 import './App.css';
 import LeftSidebar from '../src/Components/LeftSidebar/LeftSidebar';
+//import Chart from '../src/chart'
 
 class App extends Component {
-  getChartData() {
-    // Ajax calls here
-    this.setState({
-      chartData: {
-        labels: ['Boston', 'Worcester', 'Springfield'],
-        datasets: [
-          {
-            label: 'Population',
-            data: [
-              217509,
-              181045,
-              153060
-
-            ],
-            backgroundColor: [
-              'rgba(black)',
-              'rgba(black)',
-              'rgba(black)'
-            ]
-          }
-        ]
-      }
-    });
-  }
+  
   render() {
     return (
       <div className="App layout">
@@ -37,6 +15,8 @@ class App extends Component {
         <div>
           {this.props.children}
         </div>
+
+        
 
       </div>
     );

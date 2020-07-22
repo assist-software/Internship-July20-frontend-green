@@ -1,5 +1,5 @@
 import React from 'react';
-import Clubs from './Clubs';
+//import Clubs from './Clubs';
 
 import './Clubs.css';
 
