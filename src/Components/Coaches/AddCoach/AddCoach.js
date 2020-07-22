@@ -175,6 +175,7 @@ class AddCoach extends Component {
 
   render() {
     const { errors } = this.state;
+    console.log(this.state.lastAdded.clubs, "cluuuuuubs");
     return (
       <div>
         <Modal

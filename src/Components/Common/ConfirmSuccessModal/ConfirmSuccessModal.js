@@ -36,7 +36,8 @@ class ConfirmSuccessModal extends Component {
           <Modal.Content id="delete-content">
             <p>
               Athlete {this.props.first_name + " " + this.props.last_name + " "}
-              was added on the {this.props.clubs}.
+              was added on the{" "}
+              {this.props.clubs ? this.props.clubs.join(", ") : null}.
             </p>
           </Modal.Content>
 
