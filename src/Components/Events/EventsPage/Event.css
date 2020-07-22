@@ -144,7 +144,7 @@
 }
 
 
-.eventsFilter p{
+.eventsFilter button{
     display: inline;
     padding: 15px 32px;
     margin-right: 4px;
@@ -158,7 +158,7 @@
     background-color: #ffffff;
 }
 
-.eventsFilter p.activeFilter{
+.eventsFilter button.activeFilter{
     color: #ffffff;
     background-color: #1A1A1A;
 }

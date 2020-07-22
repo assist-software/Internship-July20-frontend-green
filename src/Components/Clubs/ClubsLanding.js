@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from '../../axios';
 import Header from "../Header/Header";
+import { Redirect } from 'react-router-dom';
 import ClubsComponent from "./ClubsComponent/ClubsComponent";
 import Pagination from '../Common/Pagination/Pagination';
 
@@ -22,14 +23,22 @@ class ClubsLanding extends Component {
     if (this.state.clubs) {
       clubs = <ClubsComponent clubs={this.state.clubus} />;
     }
-    return (
-      <div style={{ padding: '60px 40px' }}>
-        <Header title="Clubs" />
-        {/* <ClubsComponent clubs={this.state.clubs} /> */}
-        {clubs}
-        <Pagination />
-      </div>
-    );
+
+    if (localStorage.getItem("token")) {
+      console.log("Already logged in!");
+      return (
+        <div style={{ padding: '60px 40px' }}>
+          <Header title="Clubs" />
+          {/* <ClubsComponent clubs={this.state.clubs} /> */}
+          {clubs}
+          <Pagination />
+        </div>
+      );
+    } else {
+      console.log("Please log in!");
+      return <Redirect to={{ pathname: "/login" }} />;
+
+    }
   };
 };
 
