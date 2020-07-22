@@ -1,31 +1,58 @@
-import React from 'react';
-import './Leftsidebar.css';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import avatar from '../LeftSidebar/imgs/img_avatar.png';
 import NavLinks from '../LeftSidebar/butoane';
+import './Leftsidebar.css';
 
-const leftSidebar = (props) => {
-    return (
+class LeftSidebar extends Component {
 
-        <div className="LeftSidebar">
-            <div className='sidebar'>
+    state = {
+        fullname: 'Connie Webb',
+        role: "Administrator"
+    }
 
-                <img className='elipse' src={avatar} alt='dad'></img>
-                <div classname="text">
-                    <p className='nume'>Connie Webb</p>
-                    <p className='functie'>Administrator</p>
+    logOut = () => {
+        localStorage.clear();
+        console.log("logout Success")
+        return <Redirect to={{ pathname: "/login" }} />;
+    }
+
+    render() {
+
+        if (localStorage.getItem("token")) {
+            console.log("Already logged in!");
+            return (
+
+                <div className="LeftSidebar" >
+                    <div className='sidebar'>
+
+                        <img className='elipse' src={avatar} alt='dad'></img>
+                        <div classname="text">
+                            <p className='nume'>{this.state.fullname}</p>
+                            <p className='functie'>{this.state.role}</p>
+                        </div>
+                        <div className='menu'>
+
+                            <NavLinks />
+
+                        </div>
+                        <div className="button posti"> <button className='btnlog' id='textlog' onClick={this.logOut}>Logout</button></div>
+
+                    </div>
                 </div>
-                <div className='menu'>
-
-                    <NavLinks />
-
+            );
+        } else {
+            console.log("Please log in!");
+            return (
+                <div style={{ padding: '60px 40px', height: '100vh' }}>
+                    {/* <p>Please log in!</p> */}
                 </div>
-                <div className="button posti"> <button className='btnlog' id='textlog'>Logout</button></div>
+            );
+        }
+    }
 
-            </div>
-        </div>
-    );
 };
 
-export default leftSidebar;
+export default LeftSidebar;
 
 

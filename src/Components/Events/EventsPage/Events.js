@@ -7,6 +7,7 @@ const events = props => {
 
     return props.events.map((event, index) => {
         return <Event
+            id={event.id}
             img={event.img}
             title={event.title}
             body={event.body}

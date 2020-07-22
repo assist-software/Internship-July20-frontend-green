@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Athletes from './Athletes';
+import { Redirect } from 'react-router-dom';
 import Axios from '../../../axios';
 import Pagination from '../../Common/Pagination/Pagination'
 
@@ -32,25 +33,44 @@ class athletesComponent extends Component {
             );
     }
 
+    filterHandler = (filter) => {
+        // const filterArr = event.target.value;
+        const members = this.state.members;
+        const newMembersList = members.filter(member => member.name.includes(filter));
+        console.log(newMembersList);
+        return newMembersList;
+    }
+
     render() {
-        return (
-            <div className='ClubPage' id="AthletesWrapper" >
 
-                <p className="club-title">Atheletes</p>
+        let members = this.state.members;
 
-                <div className="filterAdd">
-                    <input type="text" placeholder="Input Placeholder" />
-                    <button className="addBtn">Add new</button>
+        if (localStorage.getItem("token")) {
+            console.log("Already logged in!");
+
+            return (
+                <div className='ClubPage' id="AthletesWrapper" >
+
+                    <p className="club-title">Atheletes</p>
+
+                    <div className="filterAdd">
+                        <input type="text" placeholder="Input Placeholder (Case sensitive!!)" onChange={e => this.filterHandler(e.target.value)} />
+                        <button className="addBtn">Add new</button>
+                    </div>
+
+                    <div className="clubMembers">
+                        <Athletes members={members} />
+                    </div>
+
+                    <Pagination></Pagination>
+
                 </div>
+            );
+        } else {
+            console.log("Please log in!");
+            return <Redirect to={{ pathname: "/login" }} />;
 
-                <div className="clubMembers">
-                    <Athletes members={this.state.members} />
-                </div>
-
-                <Pagination></Pagination>
-
-            </div>
-        );
+        }
     };
 };
 
