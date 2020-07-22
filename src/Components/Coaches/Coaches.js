@@ -2,8 +2,9 @@ import React, { Component } from "react";
 //import CoachTable from "./CoachesTable/CoachTable";
 //import Header from "../Header/Header";
 import Axios from '../../axios';
-//import Pagination from '../Common/Pagination/Pagination'
-import Chart from '../Charts/Chart'
+import { Redirect } from 'react-router-dom';
+import Pagination from '../Common/Pagination/Pagination'
+
 import './CoachesTable/CoachTable.css';
 import { Checkbox } from "semantic-ui-react";
 
@@ -146,78 +147,25 @@ class Coaches extends Component {
     chartDataNew.hidden =true;
    
     }
-    else{
-      chartDataNew.hidden =false
-    }
-    this.setState({chartData})
-  }
-  changeLegendSpeed = (e, data) => 
-  {
-    this.setState((prevState) => ({ checkedSpeed: !prevState.checkedSpeed }))
-    const{chartData} = this.state;
-    let name = data.label;
-    let chartDataNew = chartData.datasets.find(item => item.label === name );
-    if(this.state.checkedSpeed)
-    {
-    chartDataNew.hidden =true;
-    }
-    else{
-      chartDataNew.hidden =false
-    }
-    this.setState({chartData})
-  }
-  changeLegendDistance = (e, data) => 
-  {
-    this.setState((prevState) => ({ checkedDistance: !prevState.checkedDistance }))
-    const{chartData} = this.state;
-    let name = data.label;
-    let chartDataNew = chartData.datasets.find(item => item.label === name );
-    if(this.state.checkedDistance)
-    {
-    chartDataNew.hidden =true;
-    }
-    else{
-      chartDataNew.hidden =false
-    }
-    this.setState({chartData})
-  }
- 
-  render() {
-    // let coaches = <p>No coaches yet!</p>;
-    // if (this.state.coaches) {
-    //   coaches = <CoachTable coaches={this.state.coaches} />;
-    // }
-    // console.log('chartDataNew', this.state.chartData)
-    return (
-      <div style={{ padding: '60px 40px' }}>
-        {/* <Header title="Coaches" />
-        {coaches}
 
-        <Pagination /> */}
-        <div className="App">
-        <div className="App-header">
-          <div>
-          <h1>Select metrics you want to be compared</h1>
-          <div className="ramabutoane">
 
-              <Checkbox label="Heart Rate" name="Heart Rate"  onChange={this.changeLegendHeart} value={this.state.checkedHeart}/>
+    if (localStorage.getItem("token")) {
+      console.log("Already logged in!");
+      return (
+        <div style={{ padding: '60px 40px' }}>
+          <Header title="Coaches" />
+          {coaches}
 
-              <Checkbox label="Calories" name="Calories"  onChange={this.changeLegendCalories} value={this.state.checkedCalories}/>
-              
-              <Checkbox label="Av. Speed" name="Av. Speed"  onChange={this.changeLegendSpeed} value={this.state.checkedSpeed}/>
-
-              <Checkbox label="Distance" name="Distance"  onChange={this.changeLegendDistance} value={this.state.checkedDistance}/>
-            
-          </div>
-
-          </div>
-          <h2>Graph</h2>
+          <Pagination />
         </div>
+      );
+    } else {
+      console.log("Please log in!");
+      return <Redirect to={{ pathname: "/login" }} />;
 
-        <Chart chartData={this.state.chartData} location="Participants" legendPosition="bottom"/>
-      </div>
-      </div>
-    );
+    };
+
+
   }
 }
 

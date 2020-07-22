@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './EventPage.css';
 
-const participant = props => {
+class Participant extends Component {
 
+    state = {
+        checkboxState: ['checkbox', 'checked'],
+        checked: false
+    }
 
-    return (
-        <div className="Participant">
-            <img src={require('./img/avatar.png')} alt="" />
-            <img src={require('./img/checkbox.png')} alt="" />
-            <p className="p-name">{props.name}</p>
-            <p className='p-details'>
-                {props.gender} <span>&#183;</span> {props.age} YEARS
-            </p>
+    // toggleCheck = (e) => {
+    //     if(!checked)
+    // }
 
-        </div>
-    )
+    render() {
+        return (
+
+            <div className="Participant">
+                <img src={require('./img/avatar.png')} alt="" />
+                <img onClick={this.toggleCheck} src={require(`./img/checkbox.png`)} alt="" />
+                <p className="p-name">{this.props.name}</p>
+                <p className='p-details'>
+                    {this.props.gender} <span>&#183;</span> {this.props.age} YEARS
+                </p>
+
+            </div>
+        )
+    }
 }
 
-export default participant;
+export default Participant;

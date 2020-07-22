@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App layout">
         <div>
-          <LeftSidebar />
+          <LeftSidebar fullname={this.props.fullname} role={this.props.role} />
         </div>
         <div>
           {this.props.children}
