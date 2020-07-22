@@ -1,28 +1,54 @@
-import React from 'react';
-import { Button, Header, Icon, Modal } from 'semantic-ui-react';
-import '../../Common/Styles.css';
+import React, { Component } from "react";
+import { Button, Header, Icon, Modal } from "semantic-ui-react";
+import "../../Common/Styles.css";
+import axios from "../../../axios";
 
-const ConfirmDeleteModal = () =>  (
-        <Modal trigger={<Button>Confirm Delete Modal</Button>} closeIcon>
-        <Header content='Delete Coach' />
-        
+class ConfirmDeleteModal extends Component {
+  onOpen = () => {
+    this.props.openClick();
+  };
+  onClose = () => {
+    this.props.closeClick();
+  };
+  DeleteCoachHandler = (id) => {
+    // axios.delete(`/users/${id}`).then((res) => res.data);
+    // axios.delete(`/users/`, {id}).then((res) => res.data);
+  };
+
+  render() {
+    return (
+      <Modal
+        closeIcon
+        open={this.props.open}
+        onOpen={this.onOpen}
+        onClose={this.onClose}
+        dimmer={true}
+      >
+        <Header content="Delete Coach" />
+
         <Modal.Content>
           <p>
-          Are you sure you want to delete Aubrey Miles coach? 
-          If you delete coach’s account, all data associated with this 
-          profile will permanently deleted.
+            Are you sure you want to delete Coach{" "}
+            {this.props.first_name + " " + this.props.last_name}? If you delete
+            coach’s account, all data associated with this profile will be
+            permanently deleted.
           </p>
         </Modal.Content>
-       
+
         <Modal.Actions>
-          <Button color='red'>
-             cancel
+          <Button color="red" onClick={this.onClose}>
+            cancel
           </Button>
-          <Button color='green'>
-             Delete
+          <Button
+            color="green"
+            onClick={this.DeleteCoachHandler(this.props.id)}
+          >
+            Delete
           </Button>
         </Modal.Actions>
       </Modal>
     );
+  }
+}
 
 export default ConfirmDeleteModal;

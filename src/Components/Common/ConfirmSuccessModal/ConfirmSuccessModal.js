@@ -10,14 +10,12 @@ class ConfirmSuccessModal extends Component {
 
   onOpen = () => {
     this.props.openClick();
-    console.log(this.props, "confirm props");
   };
   onClose = () => {
     this.props.closeClick();
   };
 
   render() {
-    console.log(this.props.clubs, "confirm options");
     return (
       <Modal
         closeIcon
