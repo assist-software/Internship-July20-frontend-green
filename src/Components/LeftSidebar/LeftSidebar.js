@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import avatar from '../LeftSidebar/imgs/img_avatar.png';
 import NavLinks from '../LeftSidebar/butoane';
 import './Leftsidebar.css';
@@ -14,7 +14,7 @@ class LeftSidebar extends Component {
     logOut = () => {
         localStorage.clear();
         console.log("logout Success")
-        return <Redirect to={{ pathname: "/login" }} />;
+        this.props.history.push(`/login`)
     }
 
     render() {
@@ -53,6 +53,6 @@ class LeftSidebar extends Component {
 
 };
 
-export default LeftSidebar;
+export default withRouter(LeftSidebar);
 
 

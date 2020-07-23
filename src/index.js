@@ -9,7 +9,7 @@ import { Route, Switch } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Coaches from "./Components/Coaches/Coaches";
 import EventsLanding from "./Components/Events/EventsLanding";
-import Event from "./Components/Events/EventPage/EventPage";
+import EventPage from "./Components/Events/EventPage/EventPage";
 import ClubsLanding from "./Components/Clubs/ClubsLanding";
 import AthletesLanding from "./Components/Athletes/Athletes/AthletesComponent";
 import './App.css';
@@ -26,7 +26,7 @@ ReactDOM.render(
           <Route exact path="/" component={Coaches} />
 
           <Route exact path="/events" component={EventsLanding} />
-          <Route exact path="/event/" component={Event} />
+          <Route exact path="/event/:id" component={EventPage} />
 
           <Route exact path="/clubs" component={ClubsLanding} />
 

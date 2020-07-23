@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import './Login.css';
 
 
@@ -33,6 +33,7 @@ class Login extends Component {
 
                 const token = res.data.token;
                 localStorage.setItem('token', token);
+                this.props.history.push(`/coaches`);
 
             })
             .catch(error => {
@@ -42,10 +43,6 @@ class Login extends Component {
     }
 
     render() {
-
-        if (this.state.isSignedUp) {
-            return <Redirect to={{ pathname: "/coaches" }} />;
-        }
 
         const { username, password } = this.state;
 
@@ -100,4 +97,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

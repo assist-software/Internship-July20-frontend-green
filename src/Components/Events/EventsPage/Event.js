@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import './Event.css';
 
 
 class Event extends Component {
+    state = {
+        pageID: null
+    }
 
-    goToEventPage = () => {
-        return <Redirect to={{ pathname: "/event:id=" }} />;
+    goToPage = () => {
+        this.props.history.push(`/event/${this.state.pageID}`)
+    }
+
+    componentDidMount() {
+        const id = this.props.id;
+        this.setState({ pageID: this.props.id })
+        console.log(id)
     }
 
     render() {
+
         return (
             <div className="Event" >
-                <div className="event-img"
-                >
+                <div
+                    className="event-img"
+                    onClick={() => this.goToPage()}>
                 </div>
                 <div className="event-body">
                     <div className="wrapper">
-                        <h1>Running for Life</h1>
+                        <h1 onClick={() => this.goToPage()}>Running for Life</h1>
                         <p className="description">Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat
                         reprehenderit id.
                         </p>
@@ -45,4 +56,4 @@ class Event extends Component {
     }
 };
 
-export default Event;
+export default withRouter(Event);
