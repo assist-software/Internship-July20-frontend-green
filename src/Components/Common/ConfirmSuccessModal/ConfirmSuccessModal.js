@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
+import { Button, Header, Modal } from "semantic-ui-react";
 import "../../Common/Styles.css";
 import "./ConfirmSuccessModal.css";
 
@@ -10,14 +10,12 @@ class ConfirmSuccessModal extends Component {
 
   onOpen = () => {
     this.props.openClick();
-    console.log(this.props, "confirm props");
   };
   onClose = () => {
     this.props.closeClick();
   };
 
   render() {
-    console.log(this.props.clubs, "confirm options");
     return (
       <Modal
         closeIcon

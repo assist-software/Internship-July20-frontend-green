@@ -1,31 +1,21 @@
-import React, { Component } from 'react';
-import Butoane from './Components/LeftSidebar/butoane';
-import './App.css';
-import LeftSidebar from '../src/Components/LeftSidebar/LeftSidebar';
+import React, { Component } from "react";
+import "./App.css";
+import LeftSidebar from "../src/Components/LeftSidebar/LeftSidebar";
 
 class App extends Component {
   getChartData() {
     // Ajax calls here
     this.setState({
       chartData: {
-        labels: ['Boston', 'Worcester', 'Springfield'],
+        labels: ["Boston", "Worcester", "Springfield"],
         datasets: [
           {
-            label: 'Population',
-            data: [
-              217509,
-              181045,
-              153060
-
-            ],
-            backgroundColor: [
-              'rgba(black)',
-              'rgba(black)',
-              'rgba(black)'
-            ]
-          }
-        ]
-      }
+            label: "Population",
+            data: [217509, 181045, 153060],
+            backgroundColor: ["rgba(black)", "rgba(black)", "rgba(black)"],
+          },
+        ],
+      },
     });
   }
   render() {
@@ -34,13 +24,10 @@ class App extends Component {
         <div>
           <LeftSidebar fullname={this.props.fullname} role={this.props.role} />
         </div>
-        <div>
-          {this.props.children}
-        </div>
-
+        <div>{this.props.children}</div>
       </div>
     );
-  };
-};
+  }
+}
 
 export default App;

@@ -1,36 +1,39 @@
 import React, { Component } from "react";
 import CoachTable from "./CoachesTable/CoachTable";
 import Header from "../Header/Header";
-import Axios from '../../axios';
-import { Redirect } from 'react-router-dom';
-import Pagination from '../Common/Pagination/Pagination'
+import { Redirect } from "react-router-dom";
+import Pagination from "../Common/Pagination/Pagination";
+import "./CoachesTable/CoachTable.css";
+import Spinner from "../Common/LoadingSpinner/Spinner";
 
-import './CoachesTable/CoachTable.css';
+import axios from "axios";
 
 class Coaches extends Component {
   state = {
-    coaches: null
+    coaches: null,
   };
 
   componentDidMount() {
-    Axios.get('/coaches')
-      .then(response => {
+    axios
+      .get(
+        "http://192.168.149.51:8002/api/coach/"
+        //  {pageNr:1, pageSize:10}
+      )
+      .then((response) => {
         this.setState({ coaches: response.data });
-        console.log(response);
+        console.log(response, "respoonseeeee");
       });
-
   }
   render() {
-    let coaches = <p>No coaches yet!</p>;
+    let coaches = <Spinner />;
     if (this.state.coaches) {
       coaches = <CoachTable coaches={this.state.coaches} />;
     }
 
-
     if (localStorage.getItem("token")) {
       console.log("Already logged in!");
       return (
-        <div style={{ padding: '60px 40px' }}>
+        <div style={{ padding: "60px 40px" }}>
           <Header title="Coaches" />
           {coaches}
 
@@ -40,10 +43,7 @@ class Coaches extends Component {
     } else {
       console.log("Please log in!");
       return <Redirect to={{ pathname: "/login" }} />;
-
-    };
-
-
+    }
   }
 }
 

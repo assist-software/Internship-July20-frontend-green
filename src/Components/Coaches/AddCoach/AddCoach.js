@@ -1,21 +1,14 @@
 import React, { Component } from "react";
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
+import { Button, Header, Modal } from "semantic-ui-react";
 import "../../Common/Styles.css";
 import axios from "../../../axios";
-import { Form, Input, TextArea, Select, Dropdown } from "semantic-ui-react";
+import { Form, Dropdown } from "semantic-ui-react";
 import ConfirmSuccessModal from "../../Common/ConfirmSuccessModal/ConfirmSuccessModal";
+import Aux from "../../Common/Auxiliary";
 
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
-// const validateForm = (errors) => {
-//   let valid = true;
-//   Object.values(errors).forEach(
-//     // if we have an error string set valid to false
-//     (val) => val.length > 0 && (valid = false)
-//   );
-//   return valid;
-// };
 const initialState = {
   fields: {
     first_name: "",
@@ -50,7 +43,7 @@ class AddCoach extends Component {
     this.setState({ showConfirmModal: false });
   };
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get("/clubs").then((response) => {
       let obj = { ...response.data };
       console.log(obj, "the obj");
@@ -73,15 +66,6 @@ class AddCoach extends Component {
         // });
       }
     });
-
-    // this.setState({
-    //   options: [
-    //     { value: "1", text: "Biking Club" }, // value = id , text = title
-    //     { value: "2", text: "Running Club" },
-    //     { value: "3", text: "Climbing Club" },
-    //   ],
-    // });
-    console.log(this.state.options, "optiooons");
   }
 
   onOpen = () => {
@@ -99,6 +83,10 @@ class AddCoach extends Component {
     fields[data.name] = data.value;
     this.setState({ fields: fields });
   }
+  deleteHandler = (event) => {
+    document.getElementById("theform").reset();
+    this.setState({ clubs: "" });
+  };
   handleValidation() {
     let fields = this.state.fields;
     let errors = this.state.errors;
@@ -168,16 +156,13 @@ class AddCoach extends Component {
     } else {
       console.log("Form has errors.");
     }
-    console.log(this.state.lastAdded, "last added in state");
-    console.log(this.state.fields, "state on submit");
-    console.log(this.state.errors, "errors on submit");
   };
 
   render() {
-    const { errors } = this.state;
-    console.log(this.state.lastAdded.clubs, "cluuuuuubs");
+    const { errors, fields } = this.state;
+
     return (
-      <div>
+      <Aux>
         <Modal
           closeIcon
           open={this.props.open}
@@ -256,7 +241,7 @@ class AddCoach extends Component {
                 options={this.state.options}
                 onChange={this.handleChange}
                 placeholder="Club Assign"
-                value={this.props.clubs}
+                defaultValue={this.state.clubs}
                 required
                 error={
                   errors.clubs.length > 0 && {
@@ -268,7 +253,9 @@ class AddCoach extends Component {
             </Form>
           </Modal.Content>
           <Modal.Actions className="form-btns">
-            <Button color="black">delete</Button>
+            <Button color="black" onClick={this.deleteHandler}>
+              delete
+            </Button>
             <Button color="red" onClick={this.onClose}>
               Cancel
             </Button>
@@ -287,7 +274,7 @@ class AddCoach extends Component {
           openClick={this.openConfirmModal}
           closeClick={this.closeConfirmModal}
         />
-      </div>
+      </Aux>
     );
   }
 }

@@ -15,169 +15,15 @@
   ],
   "coaches": [
     {
-      "fields": {
-        "first_name": "Raluca",
-        "last_name": "Hladiuc",
-        "email": "ralucasorina.hladiuc@gmail.com",
-        "clubs": "2",
-        "options": null
-      },
-      "errors": {
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "clubs": ""
-      },
-      "showConfirmModal": false,
-      "lastAdded": {},
-      "options": [
-        {
-          "value": "1",
-          "text": "Biking Club"
-        },
-        {
-          "value": "2",
-          "text": "Running Club"
-        },
-        {
-          "value": "3",
-          "text": "Climbing Club"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "fields": {
-        "first_name": "Max",
-        "last_name": "Max",
-        "email": "test@test.com",
-        "clubs": "3",
-        "options": null
-      },
-      "errors": {
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "clubs": ""
-      },
-      "showConfirmModal": false,
-      "lastAdded": {},
-      "options": [
-        {
-          "value": "1",
-          "text": "Biking Club"
-        },
-        {
-          "value": "2",
-          "text": "Running Club"
-        },
-        {
-          "value": "3",
-          "text": "Climbing Club"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "fields": {
-        "first_name": "Ralucass",
-        "last_name": "Hladiuc",
-        "email": "ralucasorina.hladiuc@gmail.com",
-        "clubs": "Swimming club"
-      },
-      "options": [
-        {
-          "key": 1,
-          "value": "Running club",
-          "text": "Running club"
-        },
-        {
-          "key": 2,
-          "value": "Biking Club",
-          "text": "Biking Club"
-        },
-        {
-          "key": 3,
-          "value": "Swimming club",
-          "text": "Swimming club"
-        }
-      ],
-      "errors": {
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "clubs": ""
-      },
-      "showConfirmModal": false,
-      "lastAdded": {},
-      "id": 6
-    },
-    {
-      "fields": {
-        "first_name": "TRaa",
-        "last_name": "afdgad",
-        "email": "ralucasorina.hladiuc@gmail.com",
-        "clubs": "Biking Club"
-      },
-      "options": [
-        {
-          "key": 1,
-          "value": "Running club",
-          "text": "Running club"
-        },
-        {
-          "key": 2,
-          "value": "Biking Club",
-          "text": "Biking Club"
-        },
-        {
-          "key": 3,
-          "value": "Swimming club",
-          "text": "Swimming club"
-        }
-      ],
-      "errors": {
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "clubs": ""
-      },
-      "showConfirmModal": false,
-      "lastAdded": {},
+      "first_name": "Raluca",
+      "last_name": "Hladiuc",
+      "email": "ralucasorina.hladiuc@gmail.com",
       "id": 7
     },
     {
-      "fields": {
-        "first_name": "Multiple",
-        "last_name": "dadada",
-        "email": "gdsgds@gmail.com",
-        "clubs": ["Biking Club", "Swimming club"]
-      },
-      "options": [
-        {
-          "key": 1,
-          "value": "Running club",
-          "text": "Running club"
-        },
-        {
-          "key": 2,
-          "value": "Biking Club",
-          "text": "Biking Club"
-        },
-        {
-          "key": 3,
-          "value": "Swimming club",
-          "text": "Swimming club"
-        }
-      ],
-      "errors": {
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "clubs": ""
-      },
-      "showConfirmModal": false,
-      "lastAdded": {},
+      "first_name": "Raluca",
+      "last_name": "Hladiuc",
+      "email": "ralucasorina.hladiuc@gmail.com",
       "id": 8
     },
     {
@@ -185,7 +31,10 @@
         "first_name": "Raluca",
         "last_name": "Hladiuc",
         "email": "ralucasorina.hladiuc@gmail.com",
-        "clubs": ["Swimming club", "Biking Club"]
+        "clubs": [
+          "Running club",
+          "Biking Club"
+        ]
       },
       "options": [
         {
@@ -213,74 +62,6 @@
       "showConfirmModal": false,
       "lastAdded": {},
       "id": 9
-    },
-    {
-      "fields": {
-        "first_name": "Raluca",
-        "last_name": "Hladiuc",
-        "email": "ralucasorina.hladiuc@gmail.com",
-        "clubs": ["Biking Club", "Swimming club"]
-      },
-      "options": [
-        {
-          "key": 1,
-          "value": "Running club",
-          "text": "Running club"
-        },
-        {
-          "key": 2,
-          "value": "Biking Club",
-          "text": "Biking Club"
-        },
-        {
-          "key": 3,
-          "value": "Swimming club",
-          "text": "Swimming club"
-        }
-      ],
-      "errors": {
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "clubs": ""
-      },
-      "showConfirmModal": false,
-      "lastAdded": {},
-      "id": 10
-    },
-    {
-      "fields": {
-        "first_name": "Raluca",
-        "last_name": "Hladiuc",
-        "email": "ralucasorina.hladiuc@gmail.com",
-        "clubs": ["Biking Club", "Swimming club"]
-      },
-      "options": [
-        {
-          "key": 1,
-          "value": "Running club",
-          "text": "Running club"
-        },
-        {
-          "key": 2,
-          "value": "Biking Club",
-          "text": "Biking Club"
-        },
-        {
-          "key": 3,
-          "value": "Swimming club",
-          "text": "Swimming club"
-        }
-      ],
-      "errors": {
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "clubs": ""
-      },
-      "showConfirmModal": false,
-      "lastAdded": {},
-      "id": 11
     }
   ],
   "comments": [
