@@ -161,6 +161,12 @@ class EventsLanding extends Component {
         }
       ]
   };
+  componentDidMount() {
+    axios.get("/events").then((response) => {
+      this.setState({ events: response.data });
+      console.log(response, "respoonseeeee");
+    });
+  }
 
   // componentDidMount() {
   //   axios.get('/events')
@@ -173,27 +179,31 @@ class EventsLanding extends Component {
 
 
   render() {
-
+    let events = <Spinner />;
+    if (this.state.events) {
+      events = <EventsPage events={this.state.events} />;
+    }
     if (localStorage.getItem("token")) {
       console.log("Already logged in!");
       return (
-        <div style={{ padding: '60px 40px' }}>
+        <div style={{ padding: "60px 40px" }}>
           <Header title="Events" />
 
           <div className="eventsFilter">
-            <button
-              className="activeFilter">
-              Ongoing<span> ({this.state.events.length})</span>
+            <button className="activeFilter">
+              Ongoing
+              <span>
+                {" "}
+                ({this.state.events ? this.state.events.length : null})
+              </span>
             </button>
             <button value="Future">Future</button>
             <button>Past</button>
           </div>
 
-          <EventsPage events={this.state.events} />
+          {events}
 
           <Pagination />
-
-
         </div>
       );
     } else {

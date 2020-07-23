@@ -4,11 +4,15 @@ import "../Common/Styles.css";
 import { Button } from "semantic-ui-react";
 import AddCoach from "../Coaches/AddCoach/AddCoach";
 import AddEvent from "../Events/AddEvent/AddEvent";
+import AddClub from "../Clubs/AddClub/AddClub";
+import AddAthlete from "../Athletes/AddAthlete/AddAthlete";
 
 class Header extends Component {
   state = {
     openAddCoach: false,
     openAddEvents: false,
+    openAddClub: false,
+    openAddAthlete: false,
   };
   openCoachModal = () => {
     this.setState({ openAddCoach: true });
@@ -21,6 +25,18 @@ class Header extends Component {
   };
   closeEventsModal = () => {
     this.setState({ openAddEvents: false });
+  };
+  openClubsModal = () => {
+    this.setState({ openAddClub: true });
+  };
+  closeClubsModal = () => {
+    this.setState({ openAddClub: false });
+  };
+  openAthleteModal = () => {
+    this.setState({ openAddAthlete: true });
+  };
+  closeAthleteModal = () => {
+    this.setState({ openAddAthlete: false });
   };
   render() {
     const currentRoute = window.location.pathname;
@@ -35,7 +51,13 @@ class Header extends Component {
             onClick={
               currentRoute.includes("coaches")
                 ? this.openCoachModal
-                : this.openEventsModal
+                : currentRoute.includes("events")
+                ? this.openEventsModal
+                : currentRoute.includes("clubs")
+                ? this.openClubsModal
+                : currentRoute.includes("athletes")
+                ? this.openAthleteModal
+                : null
             }
           >
             Add new
@@ -52,6 +74,18 @@ class Header extends Component {
           open={this.state.openAddEvents}
           openClick={this.openEventsModal}
           closeClick={this.closeEventsModal}
+        />
+        <AddClub
+          title="Add Club"
+          open={this.state.openAddClub}
+          openClick={this.openClubsModal}
+          closeClick={this.closeClubsModal}
+        />
+        <AddAthlete
+          title="Add Athlete"
+          open={this.state.openAddAthlete}
+          openClick={this.openAthleteModal}
+          closeClick={this.closeAthleteModal}
         />
       </div>
     );

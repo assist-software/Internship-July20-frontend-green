@@ -7,10 +7,12 @@ const TableRow = (props) => {
   return props.coaches.map((coach, index) => {
     return (
       <Row
-        first_name={coach.fields.first_name}
-        last_name={coach.fields.last_name}
-        email={coach.fields.email}
-        club={coach.fields.clubs}
+        key={coach.id}
+        first_name={coach.first_name}
+        last_name={coach.last_name}
+        email={coach.email}
+        club={coach.clubs}
+        id={coach.id}
       />
     );
   });

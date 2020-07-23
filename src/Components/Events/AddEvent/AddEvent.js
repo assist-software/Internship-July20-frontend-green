@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
+import { Button, Header, Modal, Form } from "semantic-ui-react";
 import "../../Common/Styles.css";
 
 class AddEvent extends Component {
@@ -10,6 +10,10 @@ class AddEvent extends Component {
     this.props.closeClick();
   };
   render() {
+    const options = [
+      { key: 1, text: "Running Club", value: "Running Club" },
+      { key: 2, text: "Biking Club", value: "Biking Club" },
+    ];
     return (
       <Modal
         closeIcon
@@ -22,12 +26,12 @@ class AddEvent extends Component {
 
         <Modal.Content>
           <form className="form-inputs">
-            <label for="name">Name</label>
+            <label htmlFor="name">Name</label>
             <input name="name" type="text" placeholder="Name" required />
 
             <div className="grid-2-col">
               <div>
-                <label for="date">Date</label>
+                <label htmlFor="date">Date</label>
                 <input
                   name="date"
                   type="date"
@@ -36,7 +40,7 @@ class AddEvent extends Component {
                 />
               </div>
               <div>
-                <label for="Time">Time</label>
+                <label htmlFor="Time">Time</label>
                 <input
                   name="time"
                   type="time"
@@ -46,7 +50,7 @@ class AddEvent extends Component {
               </div>
             </div>
 
-            <label for="location">Location </label>
+            {/* <label for="location">Location </label>
             <select
               name="location"
               type="select"
@@ -55,9 +59,18 @@ class AddEvent extends Component {
             >
               <option value="clubX">Club X</option>
               <option value="clubY">Club Y</option>
-            </select>
+            </select> */}
 
-            <label for="description">Description</label>
+            <Form.Dropdown
+              label="Club Assign"
+              name="clubs"
+              options={options}
+              selection
+              multiple
+              placeholder="Club Assign"
+              required
+            />
+            <label htmlFor="description">Description</label>
             <textarea
               rows="6"
               name="description"
