@@ -1,43 +1,60 @@
-import React from 'react';
-import { Button, Header, Icon, Modal } from 'semantic-ui-react';
-import '../../Common/Styles.css';
+import React, { Component } from "react";
+import { Button, Header, Modal, Form } from "semantic-ui-react";
+import "../../Common/Styles.css";
 
-const AddClub = () =>  (
-        <Modal trigger={<Button>Add / Edit Club</Button>} closeIcon>
-        <Header content='Add / Edit Club' />
-        
+class AddClub extends Component {
+  onOpen = () => {
+    this.props.openClick();
+  };
+  onClose = () => {
+    this.props.closeClick();
+  };
+  render() {
+    const options = [
+      { key: 1, text: "coach X", value: "coach X" },
+      { key: 2, text: "coach Y", value: "coach Y" },
+    ];
+    return (
+      <Modal
+        closeIcon
+        open={this.props.open}
+        onOpen={this.onOpen}
+        onClose={this.onClose}
+        dimmer={true}
+      >
+        <Header content={this.props.title} />
+
         <Modal.Content>
           <form className="form-inputs">
             <label for="name">Name</label>
-                <input name="name" type="text" placeholder="Name" required/>
+            <input name="name" type="text" placeholder="Name" required />
 
-            <label for="coach">Assign a Coach </label>
-                  <select name="coach" type="select" placeholder="Coach" required>
-                      <option value="coachX">Coach X</option>
-                      <option value="coachY">Coach Y</option>
-                  </select>
-            
+            <Form.Dropdown
+              label="Assign a Coach"
+              name="coach"
+              options={options}
+              selection
+              multiple
+              placeholder="Pick a Coach"
+              required
+            />
+
             <div className="invite-members">
-            <Button color='blue'>
-                        invite members
-                    </Button>
-            <p>(Optional)</p>
+              <Button color="blue">invite members</Button>
+              <p>(Optional)</p>
             </div>
-        </form>
+          </form>
         </Modal.Content>
-        
+
         <Modal.Actions className="form-btns">
-        <Button color='black'>
-             delete
+          <Button color="black">delete</Button>
+          <Button color="red" onClick={this.onClose}>
+            Cancel
           </Button>
-          <Button color='red'>
-             Cancel
-          </Button>
-          <Button color='green'>
-             Add
-          </Button>
+          <Button color="green">Add</Button>
         </Modal.Actions>
       </Modal>
     );
-
+  }
+}
 export default AddClub;

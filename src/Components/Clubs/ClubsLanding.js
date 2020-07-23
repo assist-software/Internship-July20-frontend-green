@@ -1,36 +1,35 @@
 import React, { Component } from "react";
-import Axios from '../../axios';
+import Axios from "../../axios";
 import Header from "../Header/Header";
 import ClubsComponent from "./ClubsComponent/ClubsComponent";
-import Pagination from '../Common/Pagination/Pagination';
+import Pagination from "../Common/Pagination/Pagination";
+import Spinner from "../Common/LoadingSpinner/Spinner";
 
 class ClubsLanding extends Component {
   state = {
-    clubs: null
+    clubs: null,
   };
 
   componentDidMount() {
-    Axios.get('/clubs')
-      .then(response => {
-        this.setState({ clubs: response.data });
-        console.log(response);
-      });
+    Axios.get("http://192.168.149.51:8002/api/clubs/").then((response) => {
+      this.setState({ clubs: response.data });
+      console.log(response);
+    });
   }
 
   render() {
-    let clubs = <p>No clubs yet!</p>;
+    let clubs = <Spinner />;
     if (this.state.clubs) {
-      clubs = <ClubsComponent clubs={this.state.clubus} />;
+      clubs = <ClubsComponent clubs={this.state.clubs} />;
     }
     return (
-      <div style={{ padding: '60px 40px' }}>
+      <div style={{ padding: "60px 40px" }}>
         <Header title="Clubs" />
-        {/* <ClubsComponent clubs={this.state.clubs} /> */}
         {clubs}
         <Pagination />
       </div>
     );
-  };
-};
+  }
+}
 
 export default ClubsLanding;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
+import { Button, Header, Modal } from "semantic-ui-react";
 import "../../Common/Styles.css";
-import axios from "../../../axios";
+// import axios from "../../../axios";
 
 class ConfirmDeleteModal extends Component {
   onOpen = () => {

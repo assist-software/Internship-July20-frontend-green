@@ -86,6 +86,43 @@
       "showConfirmModal": false,
       "lastAdded": {},
       "id": 10
+    },
+    {
+      "fields": {
+        "first_name": "Raluca",
+        "last_name": "Hladiuc",
+        "email": "ralucasorina.hladiuc@gmail.com",
+        "clubs": [
+          "Biking Club",
+          "Running club"
+        ]
+      },
+      "options": [
+        {
+          "key": 1,
+          "value": "Running club",
+          "text": "Running club"
+        },
+        {
+          "key": 2,
+          "value": "Biking Club",
+          "text": "Biking Club"
+        },
+        {
+          "key": 3,
+          "value": "Swimming club",
+          "text": "Swimming club"
+        }
+      ],
+      "errors": {
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "clubs": ""
+      },
+      "showConfirmModal": false,
+      "lastAdded": {},
+      "id": 11
     }
   ],
   "comments": [

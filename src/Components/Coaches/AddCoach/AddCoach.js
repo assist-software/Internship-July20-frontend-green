@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
+import { Button, Header, Modal } from "semantic-ui-react";
 import "../../Common/Styles.css";
 import axios from "../../../axios";
-import { Form, Input, TextArea, Select, Dropdown } from "semantic-ui-react";
+import { Form, Dropdown } from "semantic-ui-react";
 import ConfirmSuccessModal from "../../Common/ConfirmSuccessModal/ConfirmSuccessModal";
 import Aux from "../../Common/Auxiliary";
 
@@ -43,7 +43,7 @@ class AddCoach extends Component {
     this.setState({ showConfirmModal: false });
   };
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get("/clubs").then((response) => {
       let obj = { ...response.data };
       console.log(obj, "the obj");

@@ -144,6 +144,26 @@ p.form-subtitle:first-of-type {
   color: #000000;
 }
 
+.form-inputs input,
+select,
+textarea {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  margin-top: 0.8vh;
+  margin-bottom: 15px;
+  background: #ffffff;
+  border: 1px solid #8e9296;
+  border-radius: 8px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  color: #8e9296;
+  padding: 13.6px;
+}
+
 .ui.form .ui.input > input,
 .ui.select > select,
 .ui.textarea > textarea {
@@ -162,6 +182,28 @@ p.form-subtitle:first-of-type {
   line-height: 14px;
   color: #8e9296;
   padding: 13.6px;
+}
+.ui.multiple.dropdown {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  margin-top: 0.8vh;
+  margin-bottom: 15px;
+  background: #ffffff;
+  border: 1px solid #8e9296;
+  border-radius: 8px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  color: #8e9296;
+  padding: 7.28px;
+}
+.ui.selection.dropdown > .dropdown.icon {
+  padding: 12px;
+  top: 30%;
+  color: #000;
 }
 .form-inputs input[type="file"] {
   border: 1px dashed #8e9296;

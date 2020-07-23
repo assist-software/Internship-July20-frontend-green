@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
+import { Button, Header, Modal } from "semantic-ui-react";
 import "../../Common/Styles.css";
 import axios from "../../../axios";
-import { Form, Input, TextArea, Select, Dropdown } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import Aux from "../../Common/Auxiliary";
 
 class EditCoach extends Component {
@@ -29,7 +29,7 @@ class EditCoach extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get("/clubs").then((response) => {
       let obj = { ...response.data };
       console.log(obj, "the obj");
