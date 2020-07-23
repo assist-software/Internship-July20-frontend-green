@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from '../../axios';
 import Header from "../Header/Header";
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import ClubsComponent from "./ClubsComponent/ClubsComponent";
 import Pagination from '../Common/Pagination/Pagination';
 
@@ -35,11 +35,11 @@ class ClubsLanding extends Component {
         </div>
       );
     } else {
-      console.log("Please log in!");
-      return <Redirect to={{ pathname: "/login" }} />;
-
+      localStorage.clear();
+      console.log("logout Success")
+      this.props.history.push(`/login`)
     }
   };
 };
 
-export default ClubsLanding;
+export default withRouter(ClubsLanding);

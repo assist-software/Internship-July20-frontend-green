@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Athletes from './Athletes';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Axios from '../../../axios';
 import Pagination from '../../Common/Pagination/Pagination'
 
@@ -67,11 +67,11 @@ class athletesComponent extends Component {
                 </div>
             );
         } else {
-            console.log("Please log in!");
-            return <Redirect to={{ pathname: "/login" }} />;
-
+            localStorage.clear();
+            console.log("logout Success")
+            this.props.history.push(`/login`)
         }
     };
 };
 
-export default athletesComponent;
+export default withRouter(athletesComponent);

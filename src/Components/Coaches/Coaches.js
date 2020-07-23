@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CoachTable from "./CoachesTable/CoachTable";
 import Header from "../Header/Header";
 import Axios from '../../axios';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Pagination from '../Common/Pagination/Pagination'
 
 import './CoachesTable/CoachTable.css';
@@ -38,13 +38,13 @@ class Coaches extends Component {
         </div>
       );
     } else {
-      console.log("Please log in!");
-      return <Redirect to={{ pathname: "/login" }} />;
-
+      localStorage.clear();
+      console.log("logout Success")
+      this.props.history.push(`/login`)
     };
 
 
   }
 }
 
-export default Coaches;
+export default withRouter(Coaches);
