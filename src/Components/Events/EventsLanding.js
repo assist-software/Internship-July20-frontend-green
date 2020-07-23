@@ -4,6 +4,8 @@ import "./EventsPage/Event.css";
 import Pagination from "../Common/Pagination/Pagination";
 import axios from "../../axios";
 import Spinner from "../Common/LoadingSpinner/Spinner";
+import EventsPage from "../Events/EventsPage/EventComponent";
+import { Redirect } from "react-router-dom";
 
 class EventsLanding extends Component {
   state = {
