@@ -10,18 +10,11 @@ class ClubsLanding extends Component {
   state = {
     "clubs": [
       {
-        "id": 0,
+        "id": 1,
         "title": "Running club",
         "img": "",
         "members": "22",
         "coach": "Esther Wilson"
-      },
-      {
-        "id": 1,
-        "title": "Biking Club",
-        "img": "",
-        "members": "22",
-        "coach": "Esther"
       },
       {
         "id": 2,
@@ -39,6 +32,13 @@ class ClubsLanding extends Component {
       },
       {
         "id": 4,
+        "title": "Biking Club",
+        "img": "",
+        "members": "22",
+        "coach": "Esther"
+      },
+      {
+        "id": 5,
         "title": "Swimming club",
         "img": "",
         "members": "22",

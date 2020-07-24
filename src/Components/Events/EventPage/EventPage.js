@@ -203,18 +203,18 @@ class EventPage extends Component {
                     <header>
                         <p>Events</p>
                         <img src={require('./img/arrow-ios-right.png')} alt="" ></img>
-                        <h1>{this.state.pageID ? this.state.singleEvents[iD]["event-title"] : null}</h1>
+                        <h1>{this.state.pageID ? this.state.singleEvents[iD - 1]["event-title"] : null}</h1>
                     </header>
 
                     <div className='main-header'>
 
-                        <p className="title">{this.state.pageID ? this.state.singleEvents[iD]["event-title"] : null}</p>
+                        <p className="title">{this.state.pageID ? this.state.singleEvents[iD - 1]["event-title"] : null}</p>
                         <button>Edit</button>
 
                         <div className="dateTime">
-                            <div><p><img src={require('./img/calendar.png')} alt="" /> {this.state.pageID ? this.state.singleEvents[iD]["event-date"] : null}</p></div>
-                            <div><p><img src={require('./img/clock.png')} alt="" /> {this.state.pageID ? this.state.singleEvents[iD]["event-time"] : null}</p></div>
-                            <div><p><img src={require('./img/pin.png')} alt="" /> {this.state.pageID ? this.state.singleEvents[iD]["event-place"] : null}</p></div>
+                            <div><p><img src={require('./img/calendar.png')} alt="" /> {this.state.pageID ? this.state.singleEvents[iD - 1]["event-date"] : null}</p></div>
+                            <div><p><img src={require('./img/clock.png')} alt="" /> {this.state.pageID ? this.state.singleEvents[iD - 1]["event-time"] : null}</p></div>
+                            <div><p><img src={require('./img/pin.png')} alt="" /> {this.state.pageID ? this.state.singleEvents[iD - 1]["event-place"] : null}</p></div>
                         </div>
                     </div>
 
@@ -225,8 +225,8 @@ class EventPage extends Component {
                         </div>
 
                         <div className="text-content">
-                            <p className="title-content">{this.state.pageID ? this.state.singleEvents[iD]["article-title"] : null}</p>
-                            <p>{this.state.pageID ? this.state.singleEvents[iD]["article-body"] : null}</p>
+                            <p className="title-content">{this.state.pageID ? this.state.singleEvents[iD - 1]["article-title"] : null}</p>
+                            <p>{this.state.pageID ? this.state.singleEvents[iD - 1]["article-body"] : null}</p>
 
                         </div>
                     </div>
@@ -235,13 +235,13 @@ class EventPage extends Component {
                         <div className="eventParticipants">
                             <button className="btn-compare">Compare Performance</button>
                             {/* <button className="btn-done">Done</button> */}
-                            <p className="p-title">Participants (<span>{this.state.pageID ? this.state.singleEvents[iD].participants.length : null}</span>)</p>
+                            <p className="p-title">Participants (<span>{this.state.pageID ? this.state.singleEvents[iD - 1].participants.length : null}</span>)</p>
                             <p className="p-select">Select participants you want to compare</p>
                         </div>
 
                         {this.state.pageID ? (
                             <div className="Participants">
-                                <Participants participants={this.state.singleEvents[iD].participants} />
+                                {iD ? <Participants participants={this.state.singleEvents[iD - 1].participants} /> : null}
                             </div>
                         ) : <p>No participants</p>}
 

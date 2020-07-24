@@ -14,7 +14,7 @@ class EventsLanding extends Component {
     events:
       [
         {
-          id: 0,
+          id: 1,
           img: "./bg-1.png",
           title: "Running for Life - now",
           body:
@@ -26,7 +26,7 @@ class EventsLanding extends Component {
           currentState: 'ongoing'
         },
         {
-          id: 1,
+          id: 2,
           img: "./bg-2.png",
           title: "Running for Life - part 2 this summer",
           body:
@@ -38,7 +38,7 @@ class EventsLanding extends Component {
           currentState: 'future'
         },
         {
-          id: 2,
+          id: 3,
           img: "./bg-3.png",
           title: "Running for Life",
           body:
@@ -51,7 +51,7 @@ class EventsLanding extends Component {
 
         },
         {
-          id: 3,
+          id: 4,
           img: "./bg-4.png",
           title: "Running for Life",
           body:
@@ -64,7 +64,7 @@ class EventsLanding extends Component {
 
         },
         {
-          id: 4,
+          id: 5,
           img: "./bg-5.png",
           title: "Running for Life",
           body:

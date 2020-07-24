@@ -14,22 +14,6 @@ class ClubPage extends Component {
                 members: [
                     {
                         "img": "",
-                        "name": "Dianne Robertson",
-                        "gender": "female",
-                        "age": "22",
-                        "primary": "Running",
-                        "secondary": "Biking"
-                    },
-                    {
-                        "img": "",
-                        "name": "Eduardo Miles",
-                        "gender": "male",
-                        "age": "22",
-                        "primary": "Biking",
-                        "secondary": "Running"
-                    },
-                    {
-                        "img": "",
                         "name": "Lily Jones",
                         "gender": "female",
                         "age": "22",
@@ -49,14 +33,6 @@ class ClubPage extends Component {
                         "age": "22",
                         "primary": "Running",
                         "secondary": "Biking"
-                    },
-                    {
-                        "img": "",
-                        "name": "Eduardo Miles",
-                        "gender": "male",
-                        "age": "22",
-                        "primary": "Biking",
-                        "secondary": "Running"
                     },
                     {
                         "img": "",
@@ -120,6 +96,14 @@ class ClubPage extends Component {
                     },
                     {
                         "img": "",
+                        "name": "Eduardo Miles",
+                        "gender": "male",
+                        "age": "22",
+                        "primary": "Biking",
+                        "secondary": "Running"
+                    },
+                    {
+                        "img": "",
                         "name": "Lily Jones",
                         "gender": "female",
                         "age": "22",
@@ -139,6 +123,22 @@ class ClubPage extends Component {
                         "age": "22",
                         "primary": "Running",
                         "secondary": "Biking"
+                    },
+                    {
+                        "img": "",
+                        "name": "Eduardo Miles",
+                        "gender": "male",
+                        "age": "22",
+                        "primary": "Biking",
+                        "secondary": "Running"
+                    },
+                    {
+                        "img": "",
+                        "name": "Eduardo Miles",
+                        "gender": "male",
+                        "age": "22",
+                        "primary": "Biking",
+                        "secondary": "Running"
                     },
                     {
                         "img": "",
@@ -178,16 +178,16 @@ class ClubPage extends Component {
             return (
                 <div className='ClubPage' style={{ padding: '60px 40px' }}>
 
-                    <p className="club-title">{iD ? this.state.clubs[iD].title : null}</p>
+                    <p className="club-title">{iD ? this.state.clubs[iD - 1].title : null}</p>
                     <img className="club-edit" src={require('./img/edit.png')} />
 
                     <div className="club-coach">
                         <p>Coach</p>
-                        <p>{iD ? this.state.clubs[iD].coach : null}</p>
+                        <p>{iD ? this.state.clubs[iD - 1].coach : null}</p>
                     </div>
 
                     <div className='club-btns'>
-                        <p className="active-btn">Members (<span>{iD ? this.state.clubs[iD].members.length : null}</span>)</p>
+                        <p className="active-btn">Members (<span>{iD ? this.state.clubs[iD - 1].members.length : null}</span>)</p>
                         <p>Requests</p>
                     </div>
 
@@ -197,7 +197,7 @@ class ClubPage extends Component {
                     </div>
 
                     <div className="clubMembers">
-                        {/* <Members members={iD ? this.state.clubs[iD].members : null} /> */}
+                        {iD ? <Members members={iD ? this.state.clubs[iD - 1].members : null} /> : null}
                     </div>
 
                 </div>
