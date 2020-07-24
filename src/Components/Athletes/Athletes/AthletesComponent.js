@@ -9,7 +9,32 @@ import "./AthletesPage.css";
 
 class athletesComponent extends Component {
   state = {
-    members: null,
+    "members": [
+      {
+        "img": "",
+        "name": "Dianne Robertson",
+        "gender": "female",
+        "age": "22",
+        "primary": "Running",
+        "secondary": "Biking"
+      },
+      {
+        "img": "",
+        "name": "Eduardo Miles",
+        "gender": "male",
+        "age": "22",
+        "primary": "Biking",
+        "secondary": "Running"
+      },
+      {
+        "img": "",
+        "name": "Lily Jones",
+        "gender": "female",
+        "age": "22",
+        "primary": "Running",
+        "secondary": "Biking"
+      }
+    ],
   };
 
   componentDidMount() {
@@ -53,6 +78,7 @@ class athletesComponent extends Component {
       localStorage.clear();
       console.log("logout Success")
       this.props.history.push(`/login`)
+      return console.log("logout")
     }
   };
 };

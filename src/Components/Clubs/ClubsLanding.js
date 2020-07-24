@@ -8,15 +8,51 @@ import Spinner from "../Common/LoadingSpinner/Spinner";
 
 class ClubsLanding extends Component {
   state = {
-    clubs: null,
+    "clubs": [
+      {
+        "id": 0,
+        "title": "Running club",
+        "img": "",
+        "members": "22",
+        "coach": "Esther Wilson"
+      },
+      {
+        "id": 1,
+        "title": "Biking Club",
+        "img": "",
+        "members": "22",
+        "coach": "Esther"
+      },
+      {
+        "id": 2,
+        "title": "Biking Club",
+        "img": "",
+        "members": "22",
+        "coach": "Esther"
+      },
+      {
+        "id": 3,
+        "title": "Biking Club",
+        "img": "",
+        "members": "22",
+        "coach": "Esther"
+      },
+      {
+        "id": 4,
+        "title": "Swimming club",
+        "img": "",
+        "members": "22",
+        "coach": "Wilson"
+      }
+    ]
   };
 
-  componentDidMount() {
-    Axios.get("http://192.168.149.51:8002/api/clubs/").then((response) => {
-      this.setState({ clubs: response.data });
-      console.log(response);
-    });
-  }
+  // componentDidMount() {
+  //   Axios.get("http://192.168.149.51:8002/api/clubs/").then((response) => {
+  //     this.setState({ clubs: response.data });
+  //     console.log(response);
+  //   });
+  // }
 
   render() {
     let clubs = <Spinner />;

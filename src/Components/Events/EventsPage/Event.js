@@ -5,7 +5,8 @@ import './Event.css';
 
 class Event extends Component {
     state = {
-        pageID: null
+        pageID: null,
+        singleEvents: null
     }
 
     goToPage = () => {
@@ -16,7 +17,6 @@ class Event extends Component {
     componentDidMount() {
         const id = this.props.id;
         this.setState({ pageID: this.props.id })
-        // console.log(id)
 
     }
 

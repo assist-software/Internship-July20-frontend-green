@@ -42,8 +42,9 @@ class Coaches extends Component {
       );
     } else {
       localStorage.clear();
-      console.log("logout Success")
-      this.props.history.push(`/login`)
+      console.log("logout Success");
+      this.props.history.push(`/login`);
+      return console.log("LogOut");
     };
 
 

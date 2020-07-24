@@ -11,6 +11,7 @@ import Coaches from "./Components/Coaches/Coaches";
 import EventsLanding from "./Components/Events/EventsLanding";
 import EventPage from "./Components/Events/EventPage/EventPage";
 import ClubsLanding from "./Components/Clubs/ClubsLanding";
+import ClubPage from './Components/Clubs/ClubPage/ClubPage';
 import AthletesLanding from "./Components/Athletes/Athletes/AthletesComponent";
 import './App.css';
 
@@ -29,6 +30,7 @@ ReactDOM.render(
           <Route exact path="/event/:id" component={EventPage} />
 
           <Route exact path="/clubs" component={ClubsLanding} />
+          <Route exact path="/club/:id" component={ClubPage} />
 
           <Route exact path="/athletes" component={AthletesLanding} />
 
