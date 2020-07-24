@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import CoachTable from "./CoachesTable/CoachTable";
 import Header from "../Header/Header";
-import Axios from '../../axios';
-import { withRouter } from 'react-router-dom';
-import Pagination from '../Common/Pagination/Pagination'
+import Axios from "../../axios";
+import { withRouter } from "react-router-dom";
+import Pagination from "../Common/Pagination/Pagination";
 import "./CoachesTable/CoachTable.css";
 import Spinner from "../Common/LoadingSpinner/Spinner";
 import axios from "axios";
@@ -20,17 +20,16 @@ class Coaches extends Component {
         //  {pageNr:1, pageSize:10}
       )
       .then((response) => {
-        console.log(response, "response");
-        axios
-          .get(
-            "http://192.168.149.51:8002/api/coach/clubs/" +
-              response.data.id +
-              "/"
-          )
-          .then((res) => {
-            console.log("teeext");
-            console.log(res, "rees");
-          });
+        // axios
+        //   .get(
+        //     "http://192.168.149.51:8002/api/coach/clubs/" +
+        //       response.data.id +
+        //       "/"
+        //   )
+        //   .then((res) => {
+        //     console.log("teeext");
+        //     console.log(res, "rees");
+        //   });
 
         this.setState({ coaches: response.data });
         console.log(response, "respoonseeeee");
@@ -57,9 +56,7 @@ class Coaches extends Component {
       console.log("logout Success");
       this.props.history.push(`/login`);
       return console.log("LogOut");
-    };
-
-
+    }
   }
 }
 
