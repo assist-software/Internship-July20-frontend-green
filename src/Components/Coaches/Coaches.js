@@ -20,6 +20,18 @@ class Coaches extends Component {
         //  {pageNr:1, pageSize:10}
       )
       .then((response) => {
+        console.log(response, "response");
+        axios
+          .get(
+            "http://192.168.149.51:8002/api/coach/clubs/" +
+              response.data.id +
+              "/"
+          )
+          .then((res) => {
+            console.log("teeext");
+            console.log(res, "rees");
+          });
+
         this.setState({ coaches: response.data });
         console.log(response, "respoonseeeee");
       });
