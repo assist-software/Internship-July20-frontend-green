@@ -83,6 +83,7 @@ a.menuLink button {
   border-radius: 12px;
   background-repeat: no-repeat;
   background-position: 20px;
+  transition: 0.3s ease-in;
 }
 a.menuLink.active button {
   background-color: white;
@@ -106,14 +107,14 @@ a.menuLink .btnevents {
 }
 a.menuLink button.btnevents:hover,
 a.menuLink.active .btnevents {
-  background-image: url("imgs/CoachescoachesBlack.png");
+  background-image: url("imgs/EventseventsBlack.png");
 }
 a.menuLink .btnclubs {
   background-image: url("imgs/clubsgri.png"); /* The image used */
 }
 a.menuLink button.btnclubs:hover,
 a.menuLink.active .btnclubs {
-  background-image: url("imgs/CoachescoachesBlack.png");
+  background-image: url("imgs/Clubsclubs.png");
 }
 
 a.menuLink .btnath {

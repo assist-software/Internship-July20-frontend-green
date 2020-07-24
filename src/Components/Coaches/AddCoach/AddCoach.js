@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Header, Modal } from "semantic-ui-react";
 import "../../Common/Styles.css";
-import axios from "../../../axios";
+import axios from "axios";
 import { Form, Dropdown } from "semantic-ui-react";
 import ConfirmSuccessModal from "../../Common/ConfirmSuccessModal/ConfirmSuccessModal";
 import Aux from "../../Common/Auxiliary";
@@ -44,12 +44,12 @@ class AddCoach extends Component {
   };
 
   componentDidMount() {
-    axios.get("/clubs").then((response) => {
+    axios.get("http://192.168.149.51:8002/api/clubs/").then((response) => {
       let obj = { ...response.data };
       console.log(obj, "the obj");
       for (let index in obj) {
         let id = obj[index].id;
-        let text = obj[index].title;
+        let text = obj[index].name;
         let newClub = {
           key: id,
           value: text,
@@ -62,7 +62,11 @@ class AddCoach extends Component {
         // this.setState({ options: [...this.state.options, newClub] });
 
         // this.setState({
-        //   options: [{ value: id, text: text }],
+        //   options: [{ key:id, value: text, text: text },
+        //  { key:id, value: text, text: text },
+        //  { key:id, value: text, text: text },
+        //  { key:id, value: text, text: text },
+        //  { key:id, value: text, text: text }]
         // });
       }
     });
@@ -78,9 +82,19 @@ class AddCoach extends Component {
   handleChange(event, data) {
     let fields = this.state.fields;
 
-    // fields[data.name] = data.options[data.value - 1].text;
+    if (data.name == "clubs") {
+      let pickedOption = this.state.options.find((o) => o.value === data.value);
+      // let value = data.name;
+      // const id = this.state.options.map((option, index) => {
+      //   if (value === option.value) {
+      //     return option.key;
+      //   }
+      // });
+      fields[data.name] = pickedOption.key;
+    } else {
+      fields[data.name] = data.value;
+    }
 
-    fields[data.name] = data.value;
     this.setState({ fields: fields });
   }
   deleteHandler = (event) => {
@@ -122,7 +136,7 @@ class AddCoach extends Component {
       errors.email = "Email is not valid";
     }
     //Select
-    if (!fields.clubs.length) {
+    if (!fields.clubs) {
       formIsValid = false;
       errors.clubs = "Please pick a club";
     }
@@ -133,11 +147,12 @@ class AddCoach extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log(this.state.fields, "fields on submit");
 
     if (this.handleValidation()) {
       //post obj
       axios
-        .post("/coaches", this.state)
+        .post("http://192.168.149.51:8000/api/coach/", this.state.fields)
         .then(function (response) {})
         .catch(function (error) {
           console.log(error);
@@ -237,11 +252,11 @@ class AddCoach extends Component {
                 label="Club Assign"
                 name="clubs"
                 selection
-                multiple
                 options={this.state.options}
                 onChange={this.handleChange}
                 placeholder="Club Assign"
                 defaultValue={this.state.clubs}
+                value={this.state.clubs}
                 required
                 error={
                   errors.clubs.length > 0 && {

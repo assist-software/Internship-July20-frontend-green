@@ -3,39 +3,25 @@ import "./Leftsidebar.css";
 import { NavLink } from "react-router-dom";
 
 class Butoane extends Component {
-  state = { active: false };
-  handleActiveBtn = (e) => {
-    let active = !this.state.active;
-    this.setState({ active: active });
-  };
   render() {
     return (
       <div>
         <div className="menu">
           <NavLink to="/coaches" activeClassName="active" className="menuLink">
-            <button
-              id={this.state.active ? "active" : ""}
-              className="btncoaches"
-              id="text"
-              onClick={this.handleActiveBtn}
-            >
-              Coaches
-            </button>
+            <button className="btncoaches">Coaches</button>
           </NavLink>
           <NavLink to="/events" activeClassName="active" className="menuLink">
-            <button className="btnevents btn" id="text">
-              Events
-            </button>
+            <button className="btnevents">Events</button>
           </NavLink>
           <NavLink to="/clubs" activeClassName="active" className="menuLink">
-            <button className="btnclubs btn" id="text">
-              Clubs
-            </button>
+            <button className="btnclubs">Clubs</button>
           </NavLink>
-          <NavLink to="/athletes" activeClassName="active" className="menuLink">
-            <button className="btnath btn" id="text">
-              Athletes
-            </button>
+          <NavLink
+            to="/athletes/"
+            activeClassName="active"
+            className="menuLink"
+          >
+            <button className="btnath ">Athletes</button>
           </NavLink>
         </div>
 

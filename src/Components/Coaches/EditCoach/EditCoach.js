@@ -73,7 +73,7 @@ class EditCoach extends Component {
 
   handleSubmit = (id) => {
     let fields = this.state.fields;
-    console.log(fields, id, "fields and id on save");
+
     // if (this.handleValidation()) {
     //update obj
     // axios
