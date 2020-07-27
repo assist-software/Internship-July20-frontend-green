@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import axios from "axios";
+// import axios from "../../axios";
 import { withRouter } from "react-router-dom";
 import EventsPage from "./EventsPage/EventComponent";
 import Pagination from "../Common/Pagination/Pagination";
@@ -15,11 +16,15 @@ class EventsLanding extends Component {
   };
   componentDidMount() {
     axios
-      .get("http://192.168.149.51:8001/api/events/10/1/", {
-        headers: {
-          Authorization: `token ${token}`,
-        },
-      })
+      .get(
+        // "/events"
+        "http://192.168.149.51:8001/api/events/10/1/",
+        {
+          headers: {
+            Authorization: `token ${token}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response, "respoonsEvents");
         this.setState({ events: response.data });

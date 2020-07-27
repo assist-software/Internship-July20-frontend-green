@@ -7,14 +7,16 @@ import PlacesAutocomplete, {
   getLatLng,
 } from "react-places-autocomplete";
 
+const token = localStorage.getItem("token");
+
 const initialState = {
   event: {
     img: "",
-    title: "",
-    body: "",
+    name: "",
+    description1: "",
     date: "",
     time: "",
-    address: "",
+    location: "Suceava",
     participants: "",
   },
 };
@@ -50,21 +52,26 @@ class AddEvent extends Component {
     this.setState({ address });
   };
   takeSelect = (e) => {
-    const cacat = e.target.innerHTML;
-    this.setState({ mortiitai: cacat });
+    const x = e.target.innerHTML;
+    this.setState({ adresa: x });
     console.log(this.state, "4444", e.target.innerHTML);
   };
   handleSubmmit = (e) => {
     e.preventDefault();
     console.log(this.state.event, "pe submit");
     axios
-      .post("/events", this.state.event)
+      .post("http://192.168.149.51:8001/api/events/", this.state.event, {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response, "postResponse");
       })
       .catch(function (error) {
         console.log(error);
       });
+    this.onClose();
   };
   render() {
     return (
@@ -85,7 +92,7 @@ class AddEvent extends Component {
           >
             <label htmlFor="name">Name</label>
             <input
-              name="title"
+              name="name"
               type="text"
               onChange={this.handleChange}
               placeholder="Name"
@@ -175,7 +182,7 @@ class AddEvent extends Component {
             <label htmlFor="description">Description</label>
             <textarea
               rows="6"
-              name="body"
+              name="description1"
               type="textarea"
               placeholder="Description"
               required
