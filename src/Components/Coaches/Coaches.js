@@ -11,13 +11,19 @@ import axios from "axios";
 class Coaches extends Component {
   state = {
     coaches: null,
+    page: 1
   };
 
   componentDidMount() {
     axios
       .get(
-        "http://192.168.149.51:8002/api/coach/"
+        `http://192.168.149.51:8001/api/coach/10/${this.state.page}`,
         //  {pageNr:1, pageSize:10}
+        {
+          headers: {
+            'Authorization': `token ${localStorage.getItem("token")}`
+          }
+        }
       )
       .then((response) => {
         // axios

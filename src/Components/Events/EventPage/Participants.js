@@ -4,12 +4,17 @@ import './EventPage.css';
 
 const participants = props => {
 
+
+
     return props.participants.map((participant, index) => {
         return <Participant
+            id={participant.id}
             img={participant.img}
             name={participant.name}
             gender={participant.gender}
             age={participant.age}
+            compare={props.compare}
+            showGraphic={props.showGraphic}
         />
     });
 };

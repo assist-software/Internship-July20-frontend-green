@@ -35,5 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.149.51:8002"
+  "proxy": "http://192.168.149.51:8001"
 }

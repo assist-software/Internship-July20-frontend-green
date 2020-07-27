@@ -8,7 +8,12 @@ import './EventPage.css';
 class EventPage extends Component {
 
     state = {
+        compare: false,
+        btnClass: "btn-compare",
+        btnText: 'Compare Performance',
         pageID: null,
+        arrayGraphic: [''],
+        displayGraphic: false,
         "singleEvents": [
             {
                 "event-title": "Running For Life",
@@ -19,24 +24,28 @@ class EventPage extends Component {
                 "article-body": "Est amet incididunt proident proident ipsum incididunt non sint cillum amet ullamco proident ut. Consectetur irure quis adipisicing occaecat eiusmod esse nostrud mollit et. Excepteur anim aliquip consequat sint ad ut enim mollit. Amet esse adipisicing aute reprehenderit labore enim exercitation. Dolor laboris irure exercitation elit. Labore labore pariatur deserunt Lorem veniam Lorem incididunt labore sint. Ut laboris ex in nostrud irure fugiat duis nisi non deserunt et. Labore sunt culpa cupidatat non irure duis ipsum nulla dolor in ipsum sint aliqua. Labore ipsum adipisicing id aliquip id qui duis. Laborum ut consectetur esse aliquip anim consectetur dolore mollit anim quis consequat anim proident.",
                 "participants": [
                     {
+                        "id": "1",
                         "img": "",
                         "name": "Harold Howard",
                         "gender": "male",
                         "age": "22"
                     },
                     {
+                        "id": "2",
                         "img": "",
                         "name": "Regina Cooper",
                         "gender": "female",
                         "age": "22"
                     },
                     {
+                        "id": "3",
                         "img": "",
                         "name": "Brandon Wilson",
                         "gender": "male",
                         "age": "22"
                     },
                     {
+                        "id": "4",
                         "img": "",
                         "name": "Shane Black",
                         "gender": "male",
@@ -53,24 +62,28 @@ class EventPage extends Component {
                 "article-body": "Est amet incididunt proident proident ipsum incididunt non sint cillum amet ullamco proident ut. Consectetur irure quis adipisicing occaecat eiusmod esse nostrud mollit et. Excepteur anim aliquip consequat sint ad ut enim mollit. Amet esse adipisicing aute reprehenderit labore enim exercitation. Dolor laboris irure exercitation elit. Labore labore pariatur deserunt Lorem veniam Lorem incididunt labore sint. Ut laboris ex in nostrud irure fugiat duis nisi non deserunt et. Labore sunt culpa cupidatat non irure duis ipsum nulla dolor in ipsum sint aliqua. Labore ipsum adipisicing id aliquip id qui duis. Laborum ut consectetur esse aliquip anim consectetur dolore mollit anim quis consequat anim proident.",
                 "participants": [
                     {
+                        "id": "1",
                         "img": "",
                         "name": "Harold Howard",
                         "gender": "male",
                         "age": "22"
                     },
                     {
+                        "id": "2",
                         "img": "",
                         "name": "Regina Cooper",
                         "gender": "female",
                         "age": "22"
                     },
                     {
+                        "id": "3",
                         "img": "",
                         "name": "Brandon Wilson",
                         "gender": "male",
                         "age": "22"
                     },
                     {
+                        "id": "4",
                         "img": "",
                         "name": "Shane Black",
                         "gender": "male",
@@ -87,24 +100,28 @@ class EventPage extends Component {
                 "article-body": "Est amet incididunt proident proident ipsum incididunt non sint cillum amet ullamco proident ut. Consectetur irure quis adipisicing occaecat eiusmod esse nostrud mollit et. Excepteur anim aliquip consequat sint ad ut enim mollit. Amet esse adipisicing aute reprehenderit labore enim exercitation. Dolor laboris irure exercitation elit. Labore labore pariatur deserunt Lorem veniam Lorem incididunt labore sint. Ut laboris ex in nostrud irure fugiat duis nisi non deserunt et. Labore sunt culpa cupidatat non irure duis ipsum nulla dolor in ipsum sint aliqua. Labore ipsum adipisicing id aliquip id qui duis. Laborum ut consectetur esse aliquip anim consectetur dolore mollit anim quis consequat anim proident.",
                 "participants": [
                     {
+                        "id": "1",
                         "img": "",
                         "name": "Harold Howard",
                         "gender": "male",
                         "age": "22"
                     },
                     {
+                        "id": "2",
                         "img": "",
                         "name": "Regina Cooper",
                         "gender": "female",
                         "age": "22"
                     },
                     {
+                        "id": "3",
                         "img": "",
                         "name": "Brandon Wilson",
                         "gender": "male",
                         "age": "22"
                     },
                     {
+                        "id": "4",
                         "img": "",
                         "name": "Shane Black",
                         "gender": "male",
@@ -121,24 +138,28 @@ class EventPage extends Component {
                 "article-body": "Est amet incididunt proident proident ipsum incididunt non sint cillum amet ullamco proident ut. Consectetur irure quis adipisicing occaecat eiusmod esse nostrud mollit et. Excepteur anim aliquip consequat sint ad ut enim mollit. Amet esse adipisicing aute reprehenderit labore enim exercitation. Dolor laboris irure exercitation elit. Labore labore pariatur deserunt Lorem veniam Lorem incididunt labore sint. Ut laboris ex in nostrud irure fugiat duis nisi non deserunt et. Labore sunt culpa cupidatat non irure duis ipsum nulla dolor in ipsum sint aliqua. Labore ipsum adipisicing id aliquip id qui duis. Laborum ut consectetur esse aliquip anim consectetur dolore mollit anim quis consequat anim proident.",
                 "participants": [
                     {
+                        "id": "1",
                         "img": "",
                         "name": "Harold Howard",
                         "gender": "male",
                         "age": "22"
                     },
                     {
+                        "id": "2",
                         "img": "",
                         "name": "Regina Cooper",
                         "gender": "female",
                         "age": "22"
                     },
                     {
+                        "id": "3",
                         "img": "",
                         "name": "Brandon Wilson",
                         "gender": "male",
                         "age": "22"
                     },
                     {
+                        "id": "4",
                         "img": "",
                         "name": "Shane Black",
                         "gender": "male",
@@ -155,24 +176,28 @@ class EventPage extends Component {
                 "article-body": "Est amet incididunt proident proident ipsum incididunt non sint cillum amet ullamco proident ut. Consectetur irure quis adipisicing occaecat eiusmod esse nostrud mollit et. Excepteur anim aliquip consequat sint ad ut enim mollit. Amet esse adipisicing aute reprehenderit labore enim exercitation. Dolor laboris irure exercitation elit. Labore labore pariatur deserunt Lorem veniam Lorem incididunt labore sint. Ut laboris ex in nostrud irure fugiat duis nisi non deserunt et. Labore sunt culpa cupidatat non irure duis ipsum nulla dolor in ipsum sint aliqua. Labore ipsum adipisicing id aliquip id qui duis. Laborum ut consectetur esse aliquip anim consectetur dolore mollit anim quis consequat anim proident.",
                 "participants": [
                     {
+                        "id": "1",
                         "img": "",
                         "name": "Harold Howard",
                         "gender": "male",
                         "age": "123"
                     },
                     {
+                        "id": "2",
                         "img": "",
                         "name": "Regina Cooper",
                         "gender": "female",
                         "age": "142"
                     },
                     {
+                        "id": "3",
                         "img": "",
                         "name": "Brandon Wilson",
                         "gender": "male",
                         "age": "1151"
                     },
                     {
+                        "id": "4",
                         "img": "",
                         "name": "Shane Black",
                         "gender": "male",
@@ -189,9 +214,43 @@ class EventPage extends Component {
         console.log(pageID);
     }
 
+    compare = (e) => {
+        const valid = this.state.compare;
+        if (!valid) {
+            this.setState({ btnClass: 'btn-done', btnText: 'Done', compare: true });
+            console.log("you can compare");
+            console.log(this.state.compare);
+        } else {
+            this.setState({ btnClass: 'btn-compare', btnText: 'Compare Performance', compare: false, displayGraphic: false });
+            console.log("you ended comparisons >))");
+            console.log(this.state.compare);
+        }
+    }
+
+    showGraphic = (checked, id) => {
+
+        //adding or removing checked to array
+        console.log(checked, id);
+        let checking = this.state.arrayGraphic;
+        if (checked) {
+            checking[id] = '1';
+        } else {
+            checking[id] = '0';
+        }
+        this.setState({ arrayGraphic: checking })
+
+        //checking if there is a participant checked
+        if (checking.includes('1')) {
+            this.setState({ displayGraphic: true });
+
+        } else {
+            this.setState({ displayGraphic: false });
+
+        }
+    }
+
 
     render() {
-
 
         if (localStorage.getItem("token")) {
 
@@ -233,28 +292,30 @@ class EventPage extends Component {
 
                     <div>
                         <div className="eventParticipants">
-                            <button className="btn-compare">Compare Performance</button>
-                            {/* <button className="btn-done">Done</button> */}
+                            <button className={this.state.btnClass} onClick={this.compare}>{this.state.btnText}</button>
                             <p className="p-title">Participants (<span>{this.state.pageID ? this.state.singleEvents[iD - 1].participants.length : null}</span>)</p>
                             <p className="p-select">Select participants you want to compare</p>
                         </div>
 
                         {this.state.pageID ? (
                             <div className="Participants">
-                                {iD ? <Participants participants={this.state.singleEvents[iD - 1].participants} /> : null}
+                                {iD ? <Participants participants={this.state.singleEvents[iD - 1].participants} showGraphic={this.showGraphic} compare={this.state.compare} /> : null}
                             </div>
                         ) : <p>No participants</p>}
 
-
-                        <div className="compareParticipants">
-                            <p className="p-select">Select metrics you want to be compared</p>
-                            <div className="p-options">
-                                <p className="p-option"><img src={require('./img/checkbox.png')} alt="" />Heart Rate</p>
-                                <p className="p-option"><img src={require('./img/checkbox.png')} alt="" />Calories</p>
-                                <p className="p-option"><img src={require('./img/checked.png')} alt="" />Av. Speed</p>
-                                <p className="p-option"><img src={require('./img/checkbox.png')} alt="" />Distance</p>
-                            </div>
-                        </div>
+                        {
+                            this.state.displayGraphic ? (
+                                <div className="compareParticipants">
+                                    <p className="p-select">Select metrics you want to be compared</p>
+                                    <div className="p-options">
+                                        <p className="p-option"><img src={require('./img/checkbox.png')} alt="" />Heart Rate</p>
+                                        <p className="p-option"><img src={require('./img/checkbox.png')} alt="" />Calories</p>
+                                        <p className="p-option"><img src={require('./img/checked.png')} alt="" />Av. Speed</p>
+                                        <p className="p-option"><img src={require('./img/checkbox.png')} alt="" />Distance</p>
+                                    </div>
+                                </div>
+                            ) : null
+                        }
 
                     </div>
 
