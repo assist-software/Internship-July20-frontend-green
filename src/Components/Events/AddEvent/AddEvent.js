@@ -18,6 +18,7 @@ const initialState = {
     time: "",
     location: "Suceava",
     participants: "",
+    address: "",
   },
 };
 
@@ -49,7 +50,7 @@ class AddEvent extends Component {
   // };
 
   handleChangeAddress = (address) => {
-    this.setState({ address });
+    this.setState({ event: { address: address } });
   };
   takeSelect = (e) => {
     const x = e.target.innerHTML;
@@ -74,6 +75,7 @@ class AddEvent extends Component {
     this.onClose();
   };
   render() {
+    console.log(this.state, "@@");
     return (
       <Modal
         closeIcon
@@ -133,7 +135,7 @@ class AddEvent extends Component {
             /> */}
 
             <PlacesAutocomplete
-              value={this.state.address}
+              value={this.state.event.address}
               onChange={this.handleChangeAddress}
               onSelect={this.handleSelect}
             >
@@ -145,7 +147,7 @@ class AddEvent extends Component {
               }) => (
                 <div>
                   <input
-                    // name="address"
+                    name="address"
                     {...getInputProps({
                       placeholder: "Search Places ...",
                       className: "location-search-input",
@@ -153,10 +155,11 @@ class AddEvent extends Component {
                   />
                   <div className="autocomplete-dropdown-container">
                     {loading && <div>Loading...</div>}
-                    {suggestions.map((suggestion) => {
+                    {suggestions.map((suggestion, index) => {
                       const className = suggestion.active
                         ? "suggestion-item--active"
                         : "suggestion-item";
+                      suggestion.key = index;
                       // inline style for demonstration purpose
                       const style = suggestion.active
                         ? { backgroundColor: "#fafafa", cursor: "pointer" }
@@ -167,8 +170,9 @@ class AddEvent extends Component {
                             className,
                             style,
                           })}
+                          key={index}
                         >
-                          <span onClick={this.takeSelect}>
+                          <span onClick={this.takeSelect} key={index}>
                             {suggestion.description}
                           </span>
                         </div>

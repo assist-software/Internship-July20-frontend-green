@@ -37,7 +37,7 @@ class EventsLanding extends Component {
       events = (
         <EventsPage
           events={this.state.events}
-          // eventPages={this.state.singleEvents}
+          eventPages={this.state.singleEvents}
         />
       );
     }
