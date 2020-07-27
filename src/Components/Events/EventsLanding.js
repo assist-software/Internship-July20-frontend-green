@@ -13,8 +13,8 @@ class EventsLanding extends Component {
   };
   componentDidMount() {
     axios.get("/events").then((response) => {
-      this.setState({ events: response.data });
       console.log(response, "respoonsEvents");
+      this.setState({ events: response.data });
     });
   }
 
@@ -24,7 +24,7 @@ class EventsLanding extends Component {
       events = (
         <EventsPage
           events={this.state.events}
-          eventPages={this.state.singleEvents}
+          // eventPages={this.state.singleEvents}
         />
       );
     }

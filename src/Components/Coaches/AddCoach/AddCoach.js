@@ -44,9 +44,9 @@ class AddCoach extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://192.168.149.51:8002/api/clubs/").then((response) => {
+    axios.get("http://192.168.149.51:8001/api/clubs/").then((response) => {
       let obj = { ...response.data };
-      console.log(obj, "the obj");
+
       for (let index in obj) {
         let id = obj[index].id;
         let text = obj[index].name;
@@ -58,16 +58,6 @@ class AddCoach extends Component {
 
         let joined = this.state.options.concat(newClub);
         this.setState({ options: joined });
-
-        // this.setState({ options: [...this.state.options, newClub] });
-
-        // this.setState({
-        //   options: [{ key:id, value: text, text: text },
-        //  { key:id, value: text, text: text },
-        //  { key:id, value: text, text: text },
-        //  { key:id, value: text, text: text },
-        //  { key:id, value: text, text: text }]
-        // });
       }
     });
   }
@@ -152,7 +142,7 @@ class AddCoach extends Component {
     if (this.handleValidation()) {
       //post obj
       axios
-        .post("http://192.168.149.51:8000/api/coach/", this.state.fields)
+        .post("http://192.168.149.51:8001/api/coach/", this.state.fields)
         .then(function (response) {})
         .catch(function (error) {
           console.log(error);

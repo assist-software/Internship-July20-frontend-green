@@ -16,13 +16,13 @@ class Coaches extends Component {
   componentDidMount() {
     axios
       .get(
-        "http://192.168.149.51:8002/api/coach/"
+        "http://192.168.149.51:8001/api/coach/"
         //  {pageNr:1, pageSize:10}
       )
       .then((response) => {
         // axios
         //   .get(
-        //     "http://192.168.149.51:8002/api/coach/clubs/" +
+        //     "http://192.168.149.51:8001/api/coach/clubs/" +
         //       response.data.id +
         //       "/"
         //   )
@@ -30,9 +30,8 @@ class Coaches extends Component {
         //     console.log("teeext");
         //     console.log(res, "rees");
         //   });
-
+        console.log(response, "coach res");
         this.setState({ coaches: response.data });
-        console.log(response, "respoonseeeee");
       });
   }
   render() {

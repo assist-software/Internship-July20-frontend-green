@@ -9,7 +9,7 @@ class ConfirmSuccessModal extends Component {
     options: [],
   };
   componentDidMount() {
-    axios.get("http://192.168.149.51:8002/api/clubs/").then((response) => {
+    axios.get("http://192.168.149.51:8001/api/clubs/").then((response) => {
       let obj = { ...response.data };
       console.log(obj, "the obj");
       for (let index in obj) {

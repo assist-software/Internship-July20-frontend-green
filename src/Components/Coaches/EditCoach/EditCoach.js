@@ -32,7 +32,7 @@ class EditCoach extends Component {
   componentDidMount() {
     axios.get("/clubs").then((response) => {
       let obj = { ...response.data };
-      console.log(obj, "the obj");
+
       for (let index in obj) {
         let id = obj[index].id;
         let text = obj[index].title;
@@ -74,8 +74,19 @@ class EditCoach extends Component {
   handleSubmit = (id) => {
     let fields = this.state.fields;
 
+    // axios
+    //   .get(
+    //     "http://192.168.149.51:8001/api/coach/clubs/" +
+    //       response.data.id +
+    //       "/"
+    //   )
+    //   .then((res) => {
+    //     console.log("teeext");
+    //     console.log(res, "rees");
+    //   });
+
     // if (this.handleValidation()) {
-    //update obj
+
     // axios
     //   .put(`/coaches/${id}`, fields)
     //   .then((res) => {
