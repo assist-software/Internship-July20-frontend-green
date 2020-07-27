@@ -5,6 +5,8 @@ import axios from "../../../axios";
 import { Form } from "semantic-ui-react";
 import Aux from "../../Common/Auxiliary";
 
+const token = localStorage.getItem("token");
+
 class EditCoach extends Component {
   constructor(props) {
     super(props);
@@ -24,28 +26,28 @@ class EditCoach extends Component {
   }
 
   componentDidMount() {
-    axios.get("/clubs").then((response) => {
-      let obj = { ...response.data };
+    axios
+      .get("http://192.168.149.51:8001/api/clubs/", {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      })
+      .then((response) => {
+        let obj = { ...response.data };
 
-      for (let index in obj) {
-        let id = obj[index].id;
-        let text = obj[index].title;
-        let newClub = {
-          key: id,
-          value: text,
-          text: text,
-        };
+        for (let index in obj) {
+          let id = obj[index].id;
+          let text = obj[index].name;
+          let newClub = {
+            key: id,
+            value: text,
+            text: text,
+          };
 
-        let joined = this.state.options.concat(newClub);
-        this.setState({ options: joined });
-
-        // this.setState({ options: [...this.state.options, newClub] });
-
-        // this.setState({
-        //   options: [{ value: id, text: text }],
-        // });
-      }
-    });
+          let joined = this.state.options.concat(newClub);
+          this.setState({ options: joined });
+        }
+      });
   }
 
   onOpen = () => {
@@ -68,6 +70,9 @@ class EditCoach extends Component {
   handleSubmit = (id) => {
     let fields = this.state.fields;
 
+    // this.props.history.push("/fields");
+    console.log(fields, "@fields pe submit");
+
     // axios
     //   .get(
     //     "http://192.168.149.51:8001/api/coach/clubs/" +
@@ -82,32 +87,19 @@ class EditCoach extends Component {
     // if (this.handleValidation()) {
 
     // axios
-    //   .put(`/coaches/${id}`, fields)
+    //   .put(`http://192.168.149.51:8001/api/coach/${fields.id}/`, fields, {
+    //     headers: {
+    //       Authorization: `token ${token}`,
+    //     },
+    //   })
     //   .then((res) => {
-    //     this.setState({ fields: res.data });
-    //     this.props.history.push("/fields");
+    //     console.log("success");
+    //     this.setState({ fields: fields });
     //   })
     //   .catch((err) => console.log(err));
-
-    // let lastAdded = JSON.parse(JSON.stringify(this.state.fields));
-
-    // this.setState({ lastAdded: lastAdded });
-    // this.onClose(); //close form modal
-    // this.openConfirmModal(); // open confirmation
-
-    // console.log(initialState, "initial state");
-    // this.setState({
-    //   errrors: initialState.errors,
-    //   fields: initialState.fields,
-    // });
-    // } else {
-    //   console.log("Form has errors.");
-    // }
   };
 
   render() {
-    // const { errors, fields } = this.state;
-
     return (
       <Aux>
         <Modal
@@ -120,7 +112,7 @@ class EditCoach extends Component {
           <Header content={this.props.title} />
           <Modal.Content>
             <Form
-              id="theform"
+              id="editform"
               className="form-inputs"
               onSubmit={this.handleSubmit(this.state.id)}
               noValidate
@@ -184,11 +176,10 @@ class EditCoach extends Component {
                 label="Club Assign"
                 name="clubs"
                 selection
-                multiple
                 options={this.state.options}
                 onChange={this.handleChange}
                 placeholder="Club Assign"
-                defaultValue={this.state.clubs}
+                defaultValue={this.state.fields.clubs[0]}
                 required
                 // error={
                 //   errors.clubs.length > 0 && {
@@ -206,7 +197,7 @@ class EditCoach extends Component {
             <Button color="red" onClick={this.onClose}>
               Cancel
             </Button>
-            <Button color="green" type="submit" value="submit" form="theform">
+            <Button color="green" type="submit" value="submit" form="editform">
               Save
             </Button>
           </Modal.Actions>{" "}
