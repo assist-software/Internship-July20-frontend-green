@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./CoachTable.css";
-import EditCoach from "../EditCoach/EditCoach";
+import AddCoach from "../AddCoach/AddCoach";
 import ConfirmDeleteModal from "../../Common/ConfirmDeleteModal/ConfirmDeleteModal";
 // import { render } from '@testing-library/react';
 
@@ -9,13 +9,13 @@ class Row extends Component {
     openEditCoach: false,
     title: "Edit Coach",
     openDeleteModal: false,
+    editMode: false,
   };
   openEditModal = () => {
-    this.setState({ openEditCoach: true });
-    console.log("...");
+    this.setState({ openEditCoach: true, editMode: true });
   };
   closeEditModal = () => {
-    this.setState({ openEditCoach: false });
+    this.setState({ openEditCoach: false, editMode: false });
   };
   openDeleteModal = () => {
     this.setState({ openDeleteModal: true });
@@ -46,11 +46,12 @@ class Row extends Component {
             ></button>
           </td>
         </tr>
-        <EditCoach
+        <AddCoach
           title={this.state.title}
           open={this.state.openEditCoach}
           openClick={this.openEditModal}
           closeClick={this.closeEditModal}
+          editMode={this.editMode}
           coach={coach}
         />
         <ConfirmDeleteModal
