@@ -67,9 +67,8 @@ class EditCoach extends Component {
     this.setState({ clubs: "" });
   };
 
-  handleSubmit = (id) => {
+  handleSubmit = (event, id) => {
     let fields = this.state.fields;
-
     // this.props.history.push("/fields");
     console.log(fields, "@fields pe submit");
 
@@ -97,6 +96,8 @@ class EditCoach extends Component {
     //     this.setState({ fields: fields });
     //   })
     //   .catch((err) => console.log(err));
+
+    this.onClose(); //close form modal
   };
 
   render() {
@@ -114,7 +115,7 @@ class EditCoach extends Component {
             <Form
               id="editform"
               className="form-inputs"
-              onSubmit={this.handleSubmit(this.state.id)}
+              onSubmit={this.handleSubmit(event, this.state.id)}
               noValidate
             >
               <Form.Input
