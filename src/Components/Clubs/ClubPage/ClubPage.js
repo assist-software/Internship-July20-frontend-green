@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import Members from './Members';
 import './ClubPage.css';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 class ClubPage extends Component {
 
     state = {
-        pageID: null,
+
         clubs: [
             {
                 title: 'club 1',
@@ -158,20 +159,38 @@ class ClubPage extends Component {
                     }
                 ]
             }
-        ]
-
+        ],
+        club: null,
+        pageID: null,
+        showMembers: [true, "active-btn"],
+        showRequests: [false, ""]
     }
 
     componentDidMount() {
         const pageID = parseInt(this.props.match.params.id);
         this.setState({ pageID: pageID });
-        console.log(pageID);
+
+        axios.get("/events").then((response) => {
+            this.setState({ club: response.data });
+            console.log(response);
+        });
+    }
+
+    showingMembers = (event) => {
+        this.setState({ showMembers: [true, "active-btn"], showRequests: [false, ""] });
+        console.log('this classname> ', event.target.className);
+        event.target.className = this.state.showMembers[1];
+    }
+
+    showingRequests = (event) => {
+        this.setState({ showMembers: [false, ""], showRequests: [true, "active-btn"] });
+        console.log('this classname> ', event.target.className);
+        event.target.className = this.state.showRequests[1];
     }
 
     render() {
 
         if (localStorage.getItem("token")) {
-
             const iD = this.state.pageID;
 
 
@@ -186,9 +205,10 @@ class ClubPage extends Component {
                         <p>{iD ? this.state.clubs[iD - 1].coach : null}</p>
                     </div>
 
+                    {/* butoane de membri sau requests ---------------------------------*/}
                     <div className='club-btns'>
-                        <p className="active-btn">Members (<span>{iD ? this.state.clubs[iD - 1].members.length : null}</span>)</p>
-                        <p>Requests</p>
+                        <p className={this.state.showMembers[1]} onClick={(event) => this.showingMembers(event)}>Members (<span>{iD ? this.state.clubs[iD - 1].members.length : null}</span>)</p>
+                        <p className={this.state.showRequests[1]} onClick={(event) => this.showingRequests(event)}>Requests (<span>{iD ? this.state.clubs[iD - 1].members.length : null}</span>)</p>
                     </div>
 
                     <div className="filterAdd">
@@ -196,9 +216,16 @@ class ClubPage extends Component {
                         <button className="addBtn">Add new</button>
                     </div>
 
-                    <div className="clubMembers">
-                        {iD ? <Members members={iD ? this.state.clubs[iD - 1].members : null} /> : null}
-                    </div>
+                    {
+                        this.state.club ? (
+                            <div className="clubMembers">
+                                {iD ? <Members members={iD ? this.state.clubs[iD - 1].members : null} /> : null}
+                            </div>
+                        ) : (<div className="clubMembers">
+                            <p>no members to show</p>
+                        </div>)
+                    }
+
 
                 </div>
             );

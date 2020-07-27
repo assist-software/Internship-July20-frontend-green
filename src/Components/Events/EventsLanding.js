@@ -10,12 +10,42 @@ import Spinner from "../Common/LoadingSpinner/Spinner";
 class EventsLanding extends Component {
   state = {
     events: null,
+    showOngoing: [true, 'activeFilter'],
+    showFuture: [false, ''],
+    showPast: [false, '']
   };
+
   componentDidMount() {
-    axios.get("/events").then((response) => {
-      this.setState({ events: response.data });
-      console.log(response, "respoonsEvents");
-    });
+    axios
+      .get("http://192.168.149.51:8001/api/events/10/1/", {
+        headers: {
+          Authorization: `token ${localStorage.getItem[0]}`,
+        },
+      })
+      .then((response) => {
+        console.log(response, "respoonsEvents");
+        this.setState({ events: response.data });
+      });
+  }
+
+  showOngoing = (event) => {
+    this.setState({ showOngoing: [true, "active-btn"], showFuture: [false, ""], showPast: [false, ''] });
+    event.target.className = this.state.showOngoing[1];
+    console.log('ongoing...');
+  }
+
+  showFuture = (event) => {
+    this.setState({ showOngoing: [false, ""], showFuture: [true, "active-btn"], showPast: [false, ''] });
+    event.target.className = this.state.showFuture[1];
+    console.log('ongoing...');
+
+  }
+
+  showPast = (event) => {
+    this.setState({ showOngoing: [false, ""], showFuture: [false, ""], showPast: [true, 'active-btn'] });
+    event.target.className = this.state.showPast[1];
+    console.log('ongoing...');
+
   }
 
   render() {
@@ -35,15 +65,18 @@ class EventsLanding extends Component {
           <Header title="Events" />
 
           <div className="eventsFilter">
-            <button className="activeFilter">
+            <button onClick={(event) => this.showOngoing(event)} className={this.state.showOngoing[1]}>
               Ongoing
-              <span>
-                {" "}
-                ({this.state.events ? this.state.events.length : null})
-              </span>
+              <span>({this.state.events ? this.state.events.length : null})</span>
             </button>
-            <button value="Future">Future</button>
-            <button>Past</button>
+            <button onClick={(event) => this.showFuture(event)} className={this.state.showFuture[1]}>
+              Future
+              <span>({this.state.events ? this.state.events.length : null})</span>
+            </button>
+            <button onClick={(event) => this.showPast(event)} className={this.state.showPast[1]}>
+              Past
+              <span>({this.state.events ? this.state.events.length : null})</span>
+            </button>
           </div>
 
           {events}

@@ -45,7 +45,7 @@ class ClubsLanding extends Component {
     //       "coach": "Wilson"
     //     }
     //   ]
-    clubs: null,
+    clubs: null
   };
 
   componentDidMount() {
@@ -64,7 +64,7 @@ class ClubsLanding extends Component {
     if (localStorage.getItem("token")) {
       console.log("Already logged in!");
       return (
-        <div style={{ padding: "60px 40px" }}>
+        <div style={{ padding: "60px 40px", }}>
           <Header title="Clubs" />
           {/* <ClubsComponent clubs={this.state.clubs} /> */}
           {clubs}
