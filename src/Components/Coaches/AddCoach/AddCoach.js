@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Header, Modal } from "semantic-ui-react";
 import "../../Common/Styles.css";
-import axios from "../../../axios";
+import axios from "axios";
 import { Form, Dropdown } from "semantic-ui-react";
 import ConfirmSuccessModal from "../../Common/ConfirmSuccessModal/ConfirmSuccessModal";
 import Aux from "../../Common/Auxiliary";
@@ -9,6 +9,7 @@ import Aux from "../../Common/Auxiliary";
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
+const token = localStorage.getItem("token");
 const initialState = {
   fields: {
     first_name: "",
@@ -44,28 +45,28 @@ class AddCoach extends Component {
   };
 
   componentDidMount() {
-    axios.get("/clubs").then((response) => {
-      let obj = { ...response.data };
-      console.log(obj, "the obj");
-      for (let index in obj) {
-        let id = obj[index].id;
-        let text = obj[index].title;
-        let newClub = {
-          key: id,
-          value: text,
-          text: text,
-        };
+    axios
+      .get("http://192.168.149.51:8001/api/clubs/", {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      })
+      .then((response) => {
+        let obj = { ...response.data };
 
-        let joined = this.state.options.concat(newClub);
-        this.setState({ options: joined });
+        for (let index in obj) {
+          let id = obj[index].id;
+          let text = obj[index].name;
+          let newClub = {
+            key: id,
+            value: text,
+            text: text,
+          };
 
-        // this.setState({ options: [...this.state.options, newClub] });
-
-        // this.setState({
-        //   options: [{ value: id, text: text }],
-        // });
-      }
-    });
+          let joined = this.state.options.concat(newClub);
+          this.setState({ options: joined });
+        }
+      });
   }
 
   onOpen = () => {
@@ -78,9 +79,20 @@ class AddCoach extends Component {
   handleChange(event, data) {
     let fields = this.state.fields;
 
-    // fields[data.name] = data.options[data.value - 1].text;
+    if (data.name == "clubs") {
+      let pickedOption = this.state.options.find((o) => o.value === data.value);
+      // let value = data.name;
+      // const id = this.state.options.map((option, index) => {
+      //   if (value === option.value) {
+      //     return option.key;
+      //   }
+      // });
+      fields[data.name] = pickedOption.key;
+      this.setState({ clubName: pickedOption.value });
+    } else {
+      fields[data.name] = data.value;
+    }
 
-    fields[data.name] = data.value;
     this.setState({ fields: fields });
   }
   deleteHandler = (event) => {
@@ -122,7 +134,7 @@ class AddCoach extends Component {
       errors.email = "Email is not valid";
     }
     //Select
-    if (!fields.clubs.length) {
+    if (!fields.clubs) {
       formIsValid = false;
       errors.clubs = "Please pick a club";
     }
@@ -133,11 +145,16 @@ class AddCoach extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log(this.state.fields, "fields on submit");
 
     if (this.handleValidation()) {
       //post obj
       axios
-        .post("/coaches", this.state)
+        .post("http://192.168.149.51:8001/api/coach/", this.state.fields, {
+          headers: {
+            Authorization: `token ${token}`,
+          },
+        })
         .then(function (response) {})
         .catch(function (error) {
           console.log(error);
@@ -237,11 +254,11 @@ class AddCoach extends Component {
                 label="Club Assign"
                 name="clubs"
                 selection
-                multiple
                 options={this.state.options}
                 onChange={this.handleChange}
                 placeholder="Club Assign"
                 defaultValue={this.state.clubs}
+                value={this.state.clubs}
                 required
                 error={
                   errors.clubs.length > 0 && {
@@ -269,7 +286,7 @@ class AddCoach extends Component {
           title="Coach Added"
           first_name={this.state.lastAdded.first_name}
           last_name={this.state.lastAdded.last_name}
-          clubs={this.state.lastAdded.clubs}
+          clubs={this.state.clubName}
           open={this.state.showConfirmModal}
           openClick={this.openConfirmModal}
           closeClick={this.closeConfirmModal}

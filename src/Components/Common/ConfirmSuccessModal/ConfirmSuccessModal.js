@@ -4,10 +4,6 @@ import "../../Common/Styles.css";
 import "./ConfirmSuccessModal.css";
 
 class ConfirmSuccessModal extends Component {
-  state = {
-    options: [],
-  };
-
   onOpen = () => {
     this.props.openClick();
   };
@@ -34,8 +30,7 @@ class ConfirmSuccessModal extends Component {
           <Modal.Content id="delete-content">
             <p>
               Athlete {this.props.first_name + " " + this.props.last_name + " "}
-              was added on the{" "}
-              {this.props.clubs ? this.props.clubs.join(", ") : null}.
+              was added on the {this.props.clubs}.
             </p>
           </Modal.Content>
 

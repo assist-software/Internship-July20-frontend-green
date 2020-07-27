@@ -1,248 +1,169 @@
- .sidebar{
-     position: fixed;
-     width: 216px;
-     height: 100%;
-     left: 0px;
-     top: 0px;
-     background-color: #1a1a1a;
+.sidebar {
+  position: fixed;
+  width: 216px;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background-color: #1a1a1a;
 }
-.textad
-{
-position: absolute;
-width: 152px;
-height: 52px;
-left: 32px;
-top: 182px;
+.textad {
+  position: absolute;
+  width: 152px;
+  height: 52px;
+  left: 32px;
+  top: 182px;
 }
-.elipse{
-    position: relative;
-    width: 96px;
-    height: 96px;
-    left: 60px;
-    top: 60px;  
-    background: #C4C4C4;
-    border-radius: 50%;
-}   
- .nume{
-    position: fixed;
-    width: 152px;
-    height: 32px;
-    left: 32px;
-    top: 182px;
-    font-family: Inter;
-    font-size: 24px;
-    line-height: 32px;
-    display: flex;
-    align-items: center;
-    color: #FFFFFF;
+.elipse {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  left: 60px;
+  top: 60px;
+  background: #c4c4c4;
+  border-radius: 50%;
 }
-.functie{
-    position: absolute;
-    width: 128px;
-    height: 14px;
-    left: 44px;
-    top: 220px;
-    padding-top: 5px;
-    font-family: Inter;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #8E9296;
+.nume {
+  position: fixed;
+  width: 152px;
+  height: 32px;
+  left: 32px;
+  top: 182px;
+  font-family: Inter;
+  font-size: 24px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+.functie {
+  position: absolute;
+  width: 128px;
+  height: 14px;
+  left: 44px;
+  top: 220px;
+  padding-top: 5px;
+  font-family: Inter;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8e9296;
 }
 /* Buttons design */
-@media only screen and (max-width: 1400px){
-    .btncoaches{
-        padding: 20px 40px;
-        font-size: 16px;
-        cursor: pointer;    
-        background: #1a1a1a;
-        border-radius: 12px;
-        background-image: url("imgs/Coachesgri.png"); /* The image used */
-        background-repeat: no-repeat;
-        background-position: 20px;  
-    }
-}
-.btncoaches{
-    margin: 12px 22px;
-    padding: 20px 50px 20px 56px;
-    border: none;
+/* @media only screen and (max-width: 1400px) {
+  .btncoaches {
+    padding: 20px 40px;
     font-size: 16px;
-    cursor: pointer;    
+    cursor: pointer;
     background: #1a1a1a;
     border-radius: 12px;
     background-image: url("imgs/Coachesgri.png"); /* The image used */
-    background-repeat: no-repeat;
-    background-position: 20px;  
-}
-.btncoaches:hover {
-    margin: 12px 22px;
-    padding: 20px 50px 20px 56px;
-    background-color: white;
-    font-family: Inter;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    text-transform: capitalize;
-    color: #1A1A1A;
-    background-image: url("imgs/coachesnegru.png"); /* The image used */
-    background-repeat: no-repeat;
+/* background-repeat: no-repeat;
     background-position: 20px;
-}
-.btnevents{
-    margin: 12px 22px;
-    padding: 20px 60px 20px 56px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;    
-    background: #1a1a1a;
-    border-radius: 12px;
-    background-image: url("imgs/eventsgri.png"); /* The image used */
-    background-repeat: no-repeat;
-    background-position: 16px;
-}
-.btnevents:hover {
-    margin: 12px 22px;
-    padding: 20px 60px 20px 56px;
-    background-color: white;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    text-transform: capitalize;
-    color: #1A1A1A;
-    background-image: url("imgs/eventnegru.png"); /* The image used */
-    background-repeat: no-repeat;
-    background-position: 16px;
   }
-.btnclubs{
-    margin: 12px 22px;
-    padding: 20px 70px 20px 56px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;    
-    background: #1a1a1a;
-    border-radius: 12px;
-    background-image: url("imgs/clubsgri.png"); /* The image used */
-    background-repeat: no-repeat;
-    background-position: 12px;
+} */
+
+a.menuLink button {
+  width: 80%;
+  margin-bottom: 24px;
+  padding: 20px 50px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: capitalize;
+  cursor: pointer;
+  background: none;
+  color: #8e9296;
+  border-radius: 12px;
+  background-repeat: no-repeat;
+  background-position: 20px;
+  transition: 0.3s ease-in;
 }
-.btnclubs:hover {
-    margin: 12px 22px;
-    padding: 20px 70px 20px 56px;
-    background-color: white;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    text-transform: capitalize;
-    color: #1A1A1A;
-    background-image: url("imgs/clubnegru.png"); /* The image used */
-    background-repeat: no-repeat;
-    background-position: 12px;
-  }
-.btnath{
-    margin: 12px 22px;
-    padding: 20px 60px 20px 56px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;    
-    background: #1a1a1a;
-    border-radius: 12px;
-    background-image: url("imgs/athgri.png"); /* The image used */
-    background-repeat: no-repeat;
-    background-position: 17px;
+a.menuLink.active button {
+  background-color: white;
 }
-.btnath:hover {
-    margin: 12px 22px;
-    padding: 20px 60px 20px 56px;
-    border: none;
-    background-color: white;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    text-transform: capitalize;
-    color: #1A1A1A;
-    background-image: url("imgs/athnegru.png"); /* The image used */
-    background-repeat: no-repeat;
-    background-position: 17px;
-  }
-#text:hover{
-    position: static;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    text-transform: capitalize;
-    color: #1a1a1a;
-    flex: none;
-    order: 1;
-    align-self: center;
+a.menuLink.active button {
+  color: #000;
 }
-#text{
-    position: static;      
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    text-transform: capitalize;
-    color:#8E9296;
-    flex: none;
-    order: 1;
-    align-self: center;
-    /* margin: 16px 0px; */
-    text-align: center;
+a.menuLink button:hover {
+  background-color: white;
+  color: #000;
 }
-.menu{
-    display: block;
-    margin: 253px 0 0 0;
+a.menuLink .btncoaches {
+  background-image: url("imgs/Coachesgri.png");
+}
+a.menuLink button.btncoaches:hover,
+a.menuLink.active .btncoaches {
+  background-image: url("imgs/CoachescoachesBlack.png");
+}
+a.menuLink .btnevents {
+  background-image: url("imgs/eventsgri.png");
+}
+a.menuLink button.btnevents:hover,
+a.menuLink.active .btnevents {
+  background-image: url("imgs/EventseventsBlack.png");
+}
+a.menuLink .btnclubs {
+  background-image: url("imgs/clubsgri.png"); /* The image used */
+}
+a.menuLink button.btnclubs:hover,
+a.menuLink.active .btnclubs {
+  background-image: url("imgs/Clubsclubs.png");
+}
+
+a.menuLink .btnath {
+  background-image: url("imgs/athgri.png"); /* The image used */
+}
+a.menuLink button.btnath:hover,
+a.menuLink.active .btnath {
+  background-image: url("imgs/Athletesathletes.png");
+}
+
+.menu {
+  display: block;
+  text-align: center;
+  margin: 253px 0 0 0;
 }
 @media only screen and (max-width: 1400px) {
-  .menu{ 
+  .menu {
     display: block;
     margin: 253px 0 0 0;
-    
-    
-}}
-.btnlog{
-    border: none;
-    padding: 20px 80px;
-    cursor: pointer;    
-    background: #1a1a1a;
-    border-radius: 12px;
-    background-image: url("imgs/log-out.png"); /* The image used */
-    background-repeat: no-repeat;
-    background-position: 20% 20%;  
-    bottom: 0;
-    padding-bottom: 40px;
-}
-@media only screen and (max-width: 800px) {
-    #textlog {  
-        display: none !important;
-    }
   }
-#textlog {  
-    position: fixed;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: bold;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color:#FFFFFF;
-    flex: none;
-    order: 1; 
-    width: 59px;
-    height: 24px; 
-    left: 0px;
-    text-align: center;
+}
+.btnlog {
+  border: none;
+  padding: 20px 80px;
+  cursor: pointer;
+  background: #1a1a1a;
+  border-radius: 12px;
+  background-image: url("imgs/log-out.png"); /* The image used */
+  background-repeat: no-repeat;
+  background-position: 20% 20%;
+  bottom: 0;
+  padding-bottom: 40px;
+}
+
+#textlog {
+  position: fixed;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  flex: none;
+  order: 1;
+  width: 59px;
+  height: 24px;
+  left: 0px;
+  text-align: center;
 }

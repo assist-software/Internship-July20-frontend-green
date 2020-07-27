@@ -5,17 +5,13 @@ import axios from "../../../axios";
 import { Form } from "semantic-ui-react";
 import Aux from "../../Common/Auxiliary";
 
+const token = localStorage.getItem("token");
+
 class EditCoach extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fields: {
-        first_name: props.first_name,
-        last_name: props.last_name,
-        email: props.email,
-        clubs: props.clubs,
-      },
-      id: props.id,
+      fields: this.props.coach,
       options: [],
       errors: {
         first_name: "",
@@ -30,28 +26,28 @@ class EditCoach extends Component {
   }
 
   componentDidMount() {
-    axios.get("/clubs").then((response) => {
-      let obj = { ...response.data };
-      console.log(obj, "the obj");
-      for (let index in obj) {
-        let id = obj[index].id;
-        let text = obj[index].title;
-        let newClub = {
-          key: id,
-          value: text,
-          text: text,
-        };
+    axios
+      .get("http://192.168.149.51:8001/api/clubs/", {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      })
+      .then((response) => {
+        let obj = { ...response.data };
 
-        let joined = this.state.options.concat(newClub);
-        this.setState({ options: joined });
+        for (let index in obj) {
+          let id = obj[index].id;
+          let text = obj[index].name;
+          let newClub = {
+            key: id,
+            value: text,
+            text: text,
+          };
 
-        // this.setState({ options: [...this.state.options, newClub] });
-
-        // this.setState({
-        //   options: [{ value: id, text: text }],
-        // });
-      }
-    });
+          let joined = this.state.options.concat(newClub);
+          this.setState({ options: joined });
+        }
+      });
   }
 
   onOpen = () => {
@@ -71,38 +67,40 @@ class EditCoach extends Component {
     this.setState({ clubs: "" });
   };
 
-  handleSubmit = (id) => {
+  handleSubmit = (event, id) => {
     let fields = this.state.fields;
-    console.log(fields, id, "fields and id on save");
-    // if (this.handleValidation()) {
-    //update obj
+    // this.props.history.push("/fields");
+    console.log(fields, "@fields pe submit");
+
     // axios
-    //   .put(`/coaches/${id}`, fields)
+    //   .get(
+    //     "http://192.168.149.51:8001/api/coach/clubs/" +
+    //       response.data.id +
+    //       "/"
+    //   )
     //   .then((res) => {
-    //     this.setState({ fields: res.data });
-    //     this.props.history.push("/fields");
+    //     console.log("teeext");
+    //     console.log(res, "rees");
+    //   });
+
+    // if (this.handleValidation()) {
+
+    // axios
+    //   .put(`http://192.168.149.51:8001/api/coach/${fields.id}/`, fields, {
+    //     headers: {
+    //       Authorization: `token ${token}`,
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log("success");
+    //     this.setState({ fields: fields });
     //   })
     //   .catch((err) => console.log(err));
 
-    // let lastAdded = JSON.parse(JSON.stringify(this.state.fields));
-
-    // this.setState({ lastAdded: lastAdded });
-    // this.onClose(); //close form modal
-    // this.openConfirmModal(); // open confirmation
-
-    // console.log(initialState, "initial state");
-    // this.setState({
-    //   errrors: initialState.errors,
-    //   fields: initialState.fields,
-    // });
-    // } else {
-    //   console.log("Form has errors.");
-    // }
+    this.onClose(); //close form modal
   };
 
   render() {
-    // const { errors, fields } = this.state;
-
     return (
       <Aux>
         <Modal
@@ -115,9 +113,9 @@ class EditCoach extends Component {
           <Header content={this.props.title} />
           <Modal.Content>
             <Form
-              id="theform"
+              id="editform"
               className="form-inputs"
-              onSubmit={this.handleSubmit(this.state.id)}
+              onSubmit={this.handleSubmit(event, this.state.id)}
               noValidate
             >
               <Form.Input
@@ -179,11 +177,10 @@ class EditCoach extends Component {
                 label="Club Assign"
                 name="clubs"
                 selection
-                multiple
                 options={this.state.options}
                 onChange={this.handleChange}
                 placeholder="Club Assign"
-                defaultValue={this.state.clubs}
+                defaultValue={this.state.fields.clubs[0]}
                 required
                 // error={
                 //   errors.clubs.length > 0 && {
@@ -201,7 +198,7 @@ class EditCoach extends Component {
             <Button color="red" onClick={this.onClose}>
               Cancel
             </Button>
-            <Button color="green" type="submit" value="submit" form="theform">
+            <Button color="green" type="submit" value="submit" form="editform">
               Save
             </Button>
           </Modal.Actions>{" "}

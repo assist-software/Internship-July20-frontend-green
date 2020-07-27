@@ -1,23 +1,13 @@
-import React from 'react';
-import Event from './Event';
+import React from "react";
+import Event from "./Event";
 
-import './Event.css';
+import "./Event.css";
 
-const events = props => {
-
-    return props.events.map((event, index) => {
-        return <Event
-            id={event.id}
-            img={event.img}
-            title={event.title}
-            body={event.body}
-            date={event.date}
-            time={event.time}
-            location={event.location}
-            participants={event.participants}
-        />
-    });
-
+const events = (props) => {
+  return props.events.map((event, index) => {
+    console.log(event, "aici event");
+    return <Event event={event} />;
+  });
 };
 
 export default events;
