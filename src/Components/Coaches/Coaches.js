@@ -8,15 +8,22 @@ import "./CoachesTable/CoachTable.css";
 import Spinner from "../Common/LoadingSpinner/Spinner";
 import axios from "axios";
 
+const token = localStorage.getItem("token");
 class Coaches extends Component {
   state = {
     coaches: null,
   };
 
   componentDidMount() {
+    console.log(token, "coach token");
     axios
       .get(
-        "http://192.168.149.51:8001/api/coach/"
+        "http://192.168.149.51:8001/api/coach/10/1/",
+        {
+          headers: {
+            Authorization: `token ${token}`,
+          },
+        }
         //  {pageNr:1, pageSize:10}
       )
       .then((response) => {
@@ -30,7 +37,7 @@ class Coaches extends Component {
         //     console.log("teeext");
         //     console.log(res, "rees");
         //   });
-        console.log(response, "coach res");
+
         this.setState({ coaches: response.data });
       });
   }

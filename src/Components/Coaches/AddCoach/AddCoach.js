@@ -9,6 +9,7 @@ import Aux from "../../Common/Auxiliary";
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
+const token = localStorage.getItem("token");
 const initialState = {
   fields: {
     first_name: "",
@@ -44,22 +45,28 @@ class AddCoach extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://192.168.149.51:8001/api/clubs/").then((response) => {
-      let obj = { ...response.data };
+    axios
+      .get("http://192.168.149.51:8001/api/clubs/", {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      })
+      .then((response) => {
+        let obj = { ...response.data };
 
-      for (let index in obj) {
-        let id = obj[index].id;
-        let text = obj[index].name;
-        let newClub = {
-          key: id,
-          value: text,
-          text: text,
-        };
+        for (let index in obj) {
+          let id = obj[index].id;
+          let text = obj[index].name;
+          let newClub = {
+            key: id,
+            value: text,
+            text: text,
+          };
 
-        let joined = this.state.options.concat(newClub);
-        this.setState({ options: joined });
-      }
-    });
+          let joined = this.state.options.concat(newClub);
+          this.setState({ options: joined });
+        }
+      });
   }
 
   onOpen = () => {
@@ -81,6 +88,7 @@ class AddCoach extends Component {
       //   }
       // });
       fields[data.name] = pickedOption.key;
+      this.setState({ clubName: pickedOption.value });
     } else {
       fields[data.name] = data.value;
     }
@@ -142,7 +150,11 @@ class AddCoach extends Component {
     if (this.handleValidation()) {
       //post obj
       axios
-        .post("http://192.168.149.51:8001/api/coach/", this.state.fields)
+        .post("http://192.168.149.51:8001/api/coach/", this.state.fields, {
+          headers: {
+            Authorization: `token ${token}`,
+          },
+        })
         .then(function (response) {})
         .catch(function (error) {
           console.log(error);
@@ -274,7 +286,7 @@ class AddCoach extends Component {
           title="Coach Added"
           first_name={this.state.lastAdded.first_name}
           last_name={this.state.lastAdded.last_name}
-          clubs={this.state.lastAdded.clubs}
+          clubs={this.state.clubName}
           open={this.state.showConfirmModal}
           openClick={this.openConfirmModal}
           closeClick={this.closeConfirmModal}

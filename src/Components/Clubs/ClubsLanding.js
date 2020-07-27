@@ -1,18 +1,23 @@
 import React, { Component } from "react";
-import Axios from "../../axios";
+import Axios from "axios";
 import Header from "../Header/Header";
 import { withRouter } from "react-router-dom";
 import ClubsComponent from "./ClubsComponent/ClubsComponent";
 import Pagination from "../Common/Pagination/Pagination";
 import Spinner from "../Common/LoadingSpinner/Spinner";
 
+const token = localStorage.getItem("token");
 class ClubsLanding extends Component {
   state = {
     clubs: null,
   };
 
   componentDidMount() {
-    Axios.get("http://192.168.149.51:8001/api/clubs/").then((response) => {
+    Axios.get("http://192.168.149.51:8001/api/clubs/10/1/", {
+      headers: {
+        Authorization: `token ${token}`,
+      },
+    }).then((response) => {
       this.setState({ clubs: response.data });
       console.log(response);
     });

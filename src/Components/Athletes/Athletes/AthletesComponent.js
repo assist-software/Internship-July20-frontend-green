@@ -7,13 +7,19 @@ import Spinner from "../../Common/LoadingSpinner/Spinner";
 import Header from "../../Header/Header";
 import "./AthletesPage.css";
 
+const token = localStorage.getItem("token");
+
 class athletesComponent extends Component {
   state = {
     members: null,
   };
 
   componentDidMount() {
-    Axios.get("/members").then((response) => {
+    Axios.get("http://192.168.149.51:8001/api/athletes/10/1/", {
+      headers: {
+        Authorization: `token ${token}`,
+      },
+    }).then((response) => {
       this.setState({ members: response.data });
       console.log(response, "athhhhh");
     });

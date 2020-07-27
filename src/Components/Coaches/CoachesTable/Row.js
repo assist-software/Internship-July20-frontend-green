@@ -24,6 +24,8 @@ class Row extends Component {
     this.setState({ openDeleteModal: false });
   };
   render() {
+    console.log(this.props.coach, "aici e coaach");
+    const coach = this.props.coach;
     return (
       <tbody>
         <tr className="Row">
@@ -31,10 +33,10 @@ class Row extends Component {
             <input type="checkbox" />
           </td>
           <td>
-            {this.props.first_name} {this.props.last_name}
+            {coach.first_name} {coach.last_name}
           </td>
-          <td>{this.props.email}</td>
-          <td>{this.props.club}</td>
+          <td>{coach.email}</td>
+          <td>{coach.clubs}</td>
           {/* <td>{this.props.club ? this.props.club.join(", ") : null}</td> */}
           <td>
             <button className="btn-edit" onClick={this.openEditModal}></button>
@@ -49,11 +51,7 @@ class Row extends Component {
           open={this.state.openEditCoach}
           openClick={this.openEditModal}
           closeClick={this.closeEditModal}
-          first_name={this.props.first_name}
-          last_name={this.props.last_name}
-          email={this.props.email}
-          club={this.props.club}
-          id={this.props.id}
+          coach={coach}
         />
         <ConfirmDeleteModal
           open={this.state.openDeleteModal}

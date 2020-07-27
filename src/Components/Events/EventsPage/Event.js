@@ -27,8 +27,8 @@ class Event extends Component {
 
         <div className="event-body">
           <div className="wrapper">
-            <h1 onClick={() => this.goToPage()}>{event.title}</h1>
-            <p className="description">{event.body}</p>
+            <h1 onClick={() => this.goToPage()}>{event.name}</h1>
+            <p className="description">{event.description1}</p>
             <div className="dateTime">
               <p>
                 <img src={require("./img/calendar.png")} alt="" /> {event.date}
@@ -38,7 +38,7 @@ class Event extends Component {
               </p>
               <br />
               <p>
-                <img src={require("./img/pin.png")} alt="" /> {event.address}
+                <img src={require("./img/pin.png")} alt="" /> {event.location}
               </p>
             </div>
 

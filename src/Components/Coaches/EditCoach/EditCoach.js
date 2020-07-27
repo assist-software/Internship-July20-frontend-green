@@ -9,13 +9,7 @@ class EditCoach extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fields: {
-        first_name: props.first_name,
-        last_name: props.last_name,
-        email: props.email,
-        clubs: props.clubs,
-      },
-      id: props.id,
+      fields: this.props.coach,
       options: [],
       errors: {
         first_name: "",
