@@ -30,9 +30,22 @@ const initialState = {
 class AddCoach extends Component {
   constructor(props) {
     super(props);
-    // this.state = {};
-
-    this.state = JSON.parse(JSON.stringify(initialState));
+    if (this.props.editMode) {
+      this.state = {
+        fields: this.props.coach,
+        options: [],
+        errors: {
+          first_name: "",
+          last_name: "",
+          email: "",
+          clubs: "",
+        },
+        showConfirmModal: false,
+        lastAdded: {},
+      };
+    } else {
+      this.state = JSON.parse(JSON.stringify(initialState));
+    }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

@@ -67,7 +67,7 @@ class EditCoach extends Component {
     this.setState({ clubs: "" });
   };
 
-  handleSubmit = (event, id) => {
+  handleSubmit = (id) => {
     let fields = this.state.fields;
     // this.props.history.push("/fields");
     console.log(fields, "@fields pe submit");
@@ -86,7 +86,7 @@ class EditCoach extends Component {
     // if (this.handleValidation()) {
 
     // axios
-    //   .put(`http://192.168.149.51:8001/api/coach/${fields.id}/`, fields, {
+    //   .put(`http://192.168.149.51:8001/api/coach/${id}/`, fields, {
     //     headers: {
     //       Authorization: `token ${token}`,
     //     },
@@ -115,7 +115,7 @@ class EditCoach extends Component {
             <Form
               id="editform"
               className="form-inputs"
-              onSubmit={this.handleSubmit(event, this.state.id)}
+              onSubmit={this.handleSubmit(this.state.id)}
               noValidate
             >
               <Form.Input
