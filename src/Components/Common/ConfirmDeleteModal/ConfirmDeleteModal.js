@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Button, Header, Modal } from "semantic-ui-react";
 import "../../Common/Styles.css";
-// import axios from "../../../axios";
+import axios from "axios";
+
+const token = localStorage.getItem("token");
 
 class ConfirmDeleteModal extends Component {
   onOpen = () => {
@@ -10,12 +12,28 @@ class ConfirmDeleteModal extends Component {
   onClose = () => {
     this.props.closeClick();
   };
-  DeleteCoachHandler = (id) => {
-    // axios.delete(`/users/${id}`).then((res) => res.data);
-    // axios.delete(`/users/`, {id}).then((res) => res.data);
+  DeleteCoachHandler = (itemId) => {
+    axios
+      .delete(
+        `http://192.168.149.51:8001/api/coach/${itemId}/`,
+        // { params: { id: itemId } },
+        {
+          headers: {
+            Authorization: `token ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log("success");
+        // this.setState({ fields: fields });
+      })
+      .catch((err) => console.log(err));
+
+    this.onClose();
   };
 
   render() {
+    console.log(this.props, "delete props");
     return (
       <Modal
         closeIcon
@@ -41,7 +59,7 @@ class ConfirmDeleteModal extends Component {
           </Button>
           <Button
             color="green"
-            onClick={this.DeleteCoachHandler(this.props.id)}
+            onClick={() => this.DeleteCoachHandler(this.props.coach.id)}
           >
             Delete
           </Button>

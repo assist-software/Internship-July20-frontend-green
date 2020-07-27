@@ -151,7 +151,10 @@
         "first_name": "Multiple",
         "last_name": "dadada",
         "email": "gdsgds@gmail.com",
-        "clubs": ["Biking Club", "Swimming club"]
+        "clubs": [
+          "Biking Club",
+          "Swimming club"
+        ]
       },
       "options": [
         {
@@ -185,7 +188,10 @@
         "first_name": "Raluca",
         "last_name": "Hladiuc",
         "email": "ralucasorina.hladiuc@gmail.com",
-        "clubs": ["Swimming club", "Biking Club"]
+        "clubs": [
+          "Swimming club",
+          "Biking Club"
+        ]
       },
       "options": [
         {
@@ -219,7 +225,10 @@
         "first_name": "Raluca",
         "last_name": "Hladiuc",
         "email": "ralucasorina.hladiuc@gmail.com",
-        "clubs": ["Biking Club", "Swimming club"]
+        "clubs": [
+          "Biking Club",
+          "Swimming club"
+        ]
       },
       "options": [
         {
@@ -253,7 +262,10 @@
         "first_name": "Raluca",
         "last_name": "Hladiuc",
         "email": "ralucasorina.hladiuc@gmail.com",
-        "clubs": ["Biking Club", "Swimming club"]
+        "clubs": [
+          "Biking Club",
+          "Swimming club"
+        ]
       },
       "options": [
         {
@@ -295,49 +307,145 @@
   },
   "events": [
     {
+      "id": 1,
       "img": "",
-      "title": "Running for Life",
+      "title": "Running",
       "body": "Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.",
       "date": "20.06.2020",
       "time": "09:00 AM",
-      "location": "Suceava Fortress, Main Enter",
+      "address": "Suceava Fortress, Main Enter",
+      "participants": "11"
+    },
+    {
+      "id": 2,
+      "img": "",
+      "title": "Biking",
+      "body": "Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.",
+      "date": "20.06.2020",
+      "time": "09:00 AM",
+      "address": "Suceava Fortress, Main Enter",
+      "participants": "11"
+    },
+    {
+      "id": 3,
+      "img": "",
+      "title": "Swimming",
+      "body": "Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.",
+      "date": "20.06.2020",
+      "time": "09:00 AM",
+      "address": "Suceava Fortress, Main Enter",
       "participants": "11"
     },
     {
       "img": "",
-      "title": "Running for Life",
-      "body": "Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.",
-      "date": "20.06.2020",
-      "time": "09:00 AM",
-      "location": "Suceava Fortress, Main Enter",
-      "participants": "11"
+      "title": "Swim Together",
+      "body": "Swimmiiiiiing",
+      "date": "2020-07-15",
+      "time": "12:12",
+      "address": "",
+      "participants": "",
+      "location": "Lake",
+      "id": 4
     },
     {
       "img": "",
-      "title": "Running for Life",
-      "body": "Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.",
-      "date": "20.06.2020",
-      "time": "09:00 AM",
-      "location": "Suceava Fortress, Main Enter",
-      "participants": "11"
+      "title": "Swim Together",
+      "body": "swiiiiiiiiiiiiiiiim",
+      "date": "2020-07-10",
+      "time": "12:12",
+      "address": "Lake by The Sea",
+      "participants": "",
+      "id": 5
     },
     {
       "img": "",
-      "title": "Running for Life",
-      "body": "Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.",
-      "date": "20.06.2020",
-      "time": "09:00 AM",
-      "location": "Suceava Fortress, Main Enter",
-      "participants": "11"
+      "title": "Forest Run",
+      "body": "asasasa",
+      "date": "2020-07-22",
+      "time": "12:00",
+      "address": "",
+      "participants": "",
+      "id": 6
     },
     {
       "img": "",
-      "title": "Running for Life",
-      "body": "Ad enim sit commodo laborum mollit. Incididunt Lorem exercitation ad occaecat reprehenderit id.",
-      "date": "20.06.2020",
-      "time": "09:00 AM",
-      "location": "Suceava Fortress, Main Enter",
-      "participants": "11"
+      "title": "sfafsasfas",
+      "body": "fasfasfa",
+      "date": "2020-07-08",
+      "time": "03:34",
+      "address": "",
+      "participants": "",
+      "id": 7
+    },
+    {
+      "img": "",
+      "title": "sfafsasfas",
+      "body": "fasfasfa",
+      "date": "2020-07-08",
+      "time": "03:34",
+      "address": "",
+      "participants": "",
+      "id": 8
+    },
+    {
+      "img": "",
+      "title": "rrrrrrrrrrrrrrrrrrrr",
+      "body": "rfwrgw",
+      "date": "2020-07-01",
+      "time": "12:21",
+      "address": "",
+      "participants": "",
+      "id": 9
+    },
+    {
+      "img": "",
+      "title": "efwgewg",
+      "body": "dwdw",
+      "date": "2020-07-15",
+      "time": "12:12",
+      "address": "",
+      "participants": "",
+      "id": 10
+    },
+    {
+      "img": "",
+      "title": "geste",
+      "body": "fsfa",
+      "date": "2020-07-17",
+      "time": "04:24",
+      "address": "",
+      "participants": "",
+      "id": 11
+    },
+    {
+      "img": "",
+      "title": "asdasd",
+      "body": "sadaas",
+      "date": "2020-07-09",
+      "time": "12:12",
+      "address": "",
+      "participants": "",
+      "id": 12
+    },
+    {
+      "img": "",
+      "title": "dsds",
+      "body": "dada",
+      "date": "2020-07-17",
+      "time": "12:01",
+      "address": "",
+      "participants": "",
+      "id": 13
+    },
+    {
+      "img": "",
+      "title": "sectiune about us",
+      "body": "sfsfd",
+      "date": "2020-07-10",
+      "time": "12:12",
+      "address": "",
+      "participants": "",
+      "id": 14
     }
   ],
   "participants": [

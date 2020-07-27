@@ -148,11 +148,7 @@ a.menuLink.active .btnath {
   bottom: 0;
   padding-bottom: 40px;
 }
-@media only screen and (max-width: 800px) {
-  #textlog {
-    display: none !important;
-  }
-}
+
 #textlog {
   position: fixed;
   font-family: Inter;

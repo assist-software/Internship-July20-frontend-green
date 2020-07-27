@@ -8,6 +8,7 @@ import "./CoachesTable/CoachTable.css";
 import Spinner from "../Common/LoadingSpinner/Spinner";
 import axios from "axios";
 
+const token = localStorage.getItem("token");
 class Coaches extends Component {
   state = {
     coaches: null,
@@ -15,20 +16,21 @@ class Coaches extends Component {
   };
 
   componentDidMount() {
+    console.log(token, "coach token");
     axios
       .get(
-        `http://192.168.149.51:8001/api/coach/10/${this.state.page}`,
-        //  {pageNr:1, pageSize:10}
+        "http://192.168.149.51:8001/api/coach/10/1/",
         {
           headers: {
-            'Authorization': `token ${localStorage.getItem("token")}`
-          }
+            Authorization: `token ${token}`,
+          },
         }
+        //  {pageNr:1, pageSize:10}
       )
       .then((response) => {
         // axios
         //   .get(
-        //     "http://192.168.149.51:8002/api/coach/clubs/" +
+        //     "http://192.168.149.51:8001/api/coach/clubs/" +
         //       response.data.id +
         //       "/"
         //   )
@@ -38,7 +40,6 @@ class Coaches extends Component {
         //   });
 
         this.setState({ coaches: response.data });
-        console.log(response, "respoonseeeee");
       });
   }
   render() {

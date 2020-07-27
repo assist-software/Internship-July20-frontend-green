@@ -2,31 +2,8 @@ import React, { Component } from "react";
 import { Button, Header, Modal } from "semantic-ui-react";
 import "../../Common/Styles.css";
 import "./ConfirmSuccessModal.css";
-import axios from "axios";
 
 class ConfirmSuccessModal extends Component {
-  state = {
-    options: [],
-  };
-  componentDidMount() {
-    axios.get("http://192.168.149.51:8002/api/clubs/").then((response) => {
-      let obj = { ...response.data };
-      console.log(obj, "the obj");
-      for (let index in obj) {
-        let id = obj[index].id;
-        let text = obj[index].name;
-        let newClub = {
-          key: id,
-          value: text,
-          text: text,
-        };
-
-        let joined = this.state.options.concat(newClub);
-        this.setState({ options: joined });
-      }
-    });
-  }
-
   onOpen = () => {
     this.props.openClick();
   };

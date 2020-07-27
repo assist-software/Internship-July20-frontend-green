@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./CoachTable.css";
-import EditCoach from "../EditCoach/EditCoach";
+import AddCoach from "../AddCoach/AddCoach";
 import ConfirmDeleteModal from "../../Common/ConfirmDeleteModal/ConfirmDeleteModal";
 // import { render } from '@testing-library/react';
 
@@ -9,13 +9,15 @@ class Row extends Component {
     openEditCoach: false,
     title: "Edit Coach",
     openDeleteModal: false,
+    editMode: true,
   };
   openEditModal = () => {
     this.setState({ openEditCoach: true });
-    console.log("...");
+    this.setState({ editMode: true });
+    console.log(this.state.openEditCoach, this.state.editMode, "!!!");
   };
   closeEditModal = () => {
-    this.setState({ openEditCoach: false });
+    this.setState({ openEditCoach: false, editMode: false });
   };
   openDeleteModal = () => {
     this.setState({ openDeleteModal: true });
@@ -24,6 +26,7 @@ class Row extends Component {
     this.setState({ openDeleteModal: false });
   };
   render() {
+    const coach = this.props.coach;
     return (
       <tbody>
         <tr className="Row">
@@ -31,37 +34,35 @@ class Row extends Component {
             <input type="checkbox" />
           </td>
           <td>
-            {this.props.first_name} {this.props.last_name}
+            {coach.first_name} {coach.last_name}
           </td>
-          <td>{this.props.email}</td>
-          <td>{this.props.club}</td>
+          <td>{coach.email}</td>
+          <td>{coach.clubs}</td>
           {/* <td>{this.props.club ? this.props.club.join(", ") : null}</td> */}
           <td>
-            <button className="btn-edit" onClick={this.openEditModal}></button>
+            <button
+              className="btn-edit"
+              onClick={() => this.openEditModal()}
+            ></button>
             <button
               className="btn-delete"
-              onClick={this.openDeleteModal}
+              onClick={() => this.openDeleteModal()}
             ></button>
           </td>
         </tr>
-        <EditCoach
+        <AddCoach
           title={this.state.title}
           open={this.state.openEditCoach}
           openClick={this.openEditModal}
           closeClick={this.closeEditModal}
-          first_name={this.props.first_name}
-          last_name={this.props.last_name}
-          email={this.props.email}
-          club={this.props.club}
-          id={this.props.id}
+          editMode={this.state.editMode}
+          coach={coach}
         />
         <ConfirmDeleteModal
           open={this.state.openDeleteModal}
           openClick={this.openDeleteModal}
           closeClick={this.closeDeleteModal}
-          id={this.props.id}
-          first_name={this.props.first_name}
-          last_name={this.props.last_name}
+          coach={coach}
         />
       </tbody>
     );

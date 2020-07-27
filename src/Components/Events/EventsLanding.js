@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
-import axios from "../../axios";
+import axios from "axios";
+// import axios from "../../axios";
 import { withRouter } from "react-router-dom";
 import EventsPage from "./EventsPage/EventComponent";
 import Pagination from "../Common/Pagination/Pagination";
 import "./EventsPage/Event.css";
 import Spinner from "../Common/LoadingSpinner/Spinner";
+
+const token = localStorage.getItem("token");
 
 class EventsLanding extends Component {
   state = {
@@ -17,11 +20,15 @@ class EventsLanding extends Component {
 
   componentDidMount() {
     axios
-      .get("http://192.168.149.51:8001/api/events/10/1/", {
-        headers: {
-          Authorization: `token ${localStorage.getItem[0]}`,
-        },
-      })
+      .get(
+        // "/events"
+        "http://192.168.149.51:8001/api/events/10/1/",
+        {
+          headers: {
+            Authorization: `token ${token}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response, "respoonsEvents");
         this.setState({ events: response.data });
@@ -54,7 +61,7 @@ class EventsLanding extends Component {
       events = (
         <EventsPage
           events={this.state.events}
-          eventPages={this.state.singleEvents}
+        // eventPages={this.state.singleEvents}
         />
       );
     }
