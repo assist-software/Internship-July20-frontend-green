@@ -7,16 +7,16 @@ import PlacesAutocomplete, {
   getLatLng,
 } from "react-places-autocomplete";
 
+const token = localStorage.getItem("token");
+
 const initialState = {
-  event: {
-    img: "",
-    title: "",
-    body: "",
-    date: "",
-    time: "",
-    address: "",
-    participants: "",
-  },
+  img: "",
+  name: "",
+  description1: "",
+  date: "",
+  time: "",
+  location: "",
+  participants: "",
 };
 
 class AddEvent extends Component {
@@ -35,38 +35,45 @@ class AddEvent extends Component {
   };
 
   handleChange = (e) => {
-    let event = this.state.event;
+    // let event = this.state;
 
-    event[e.target.name] = e.target.value;
+    // event[e.target.name] = e.target.value;
 
-    this.setState({ event: event });
+    this.setState({ [e.target.name]: e.target.value });
   };
   // handleChangeAddress = (address) => {
   //   this.setState({ address });
   //   console.log(this.state.address, "adresa");
   // };
 
-  handleChangeAddress = (address) => {
-    this.setState({ address });
+  handleChangeAddress = (location) => {
+    this.setState({ location: location });
   };
-  takeSelect = (e) => {
-    const cacat = e.target.innerHTML;
-    this.setState({ mortiitai: cacat });
-    console.log(this.state, "4444", e.target.innerHTML);
-  };
+  // takeSelect = (e) => {
+  //   const x = e.target.innerHTML;
+  //   this.setState({ adresa: x });
+  //   console.log(this.state, "4444", e.target.innerHTML);
+  // };
   handleSubmmit = (e) => {
     e.preventDefault();
-    console.log(this.state.event, "pe submit");
+
+    console.log(this.state, "pe submit");
     axios
-      .post("/events", this.state.event)
+      .post("http://192.168.149.51:8001/api/events/", this.state, {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response, "postResponse");
       })
       .catch(function (error) {
         console.log(error);
       });
+    this.onClose();
   };
   render() {
+    // console.log(this.state, "@@");
     return (
       <Modal
         closeIcon
@@ -85,7 +92,7 @@ class AddEvent extends Component {
           >
             <label htmlFor="name">Name</label>
             <input
-              name="title"
+              name="name"
               type="text"
               onChange={this.handleChange}
               placeholder="Name"
@@ -126,7 +133,7 @@ class AddEvent extends Component {
             /> */}
 
             <PlacesAutocomplete
-              value={this.state.address}
+              value={this.state.location}
               onChange={this.handleChangeAddress}
               onSelect={this.handleSelect}
             >
@@ -138,7 +145,7 @@ class AddEvent extends Component {
               }) => (
                 <div>
                   <input
-                    // name="address"
+                    name="location"
                     {...getInputProps({
                       placeholder: "Search Places ...",
                       className: "location-search-input",
@@ -146,10 +153,11 @@ class AddEvent extends Component {
                   />
                   <div className="autocomplete-dropdown-container">
                     {loading && <div>Loading...</div>}
-                    {suggestions.map((suggestion) => {
+                    {suggestions.map((suggestion, index) => {
                       const className = suggestion.active
                         ? "suggestion-item--active"
                         : "suggestion-item";
+                      suggestion.key = index;
                       // inline style for demonstration purpose
                       const style = suggestion.active
                         ? { backgroundColor: "#fafafa", cursor: "pointer" }
@@ -160,8 +168,9 @@ class AddEvent extends Component {
                             className,
                             style,
                           })}
+                          key={index}
                         >
-                          <span onClick={this.takeSelect}>
+                          <span onClick={this.takeSelect} key={index}>
                             {suggestion.description}
                           </span>
                         </div>
@@ -175,7 +184,7 @@ class AddEvent extends Component {
             <label htmlFor="description">Description</label>
             <textarea
               rows="6"
-              name="body"
+              name="description1"
               type="textarea"
               placeholder="Description"
               required

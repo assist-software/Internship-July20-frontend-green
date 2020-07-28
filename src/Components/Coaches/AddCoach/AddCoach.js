@@ -16,6 +16,7 @@ const initialState = {
     last_name: "",
     email: "",
     clubs: "",
+    id: "",
   },
   options: [],
   errors: {
@@ -26,11 +27,15 @@ const initialState = {
   },
   showConfirmModal: false,
   lastAdded: {},
+  editMode: "",
 };
 class AddCoach extends Component {
   constructor(props) {
     super(props);
-    if (this.props.editMode) {
+
+    if (this.props.coach) {
+      console.log(this.props.editMode, "@@@");
+
       this.state = {
         fields: this.props.coach,
         options: [],
@@ -42,6 +47,7 @@ class AddCoach extends Component {
         },
         showConfirmModal: false,
         lastAdded: {},
+        editMode: this.props.editMode,
       };
     } else {
       this.state = JSON.parse(JSON.stringify(initialState));
@@ -158,31 +164,47 @@ class AddCoach extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.fields, "fields on submit");
+    let fields = this.state.fields;
+    let id = this.state.fields.id;
+    console.log(id, "id on submit");
 
     if (this.handleValidation()) {
-      //post obj
-      axios
-        .post("http://192.168.149.51:8001/api/coach/", this.state.fields, {
-          headers: {
-            Authorization: `token ${token}`,
-          },
-        })
-        .then(function (response) {})
-        .catch(function (error) {
-          console.log(error);
+      if (this.state.editMode === true) {
+        axios
+          .put(`http://192.168.149.51:8001/api/coach/${id}/`, fields, {
+            headers: {
+              Authorization: `token ${token}`,
+            },
+          })
+          .then((res) => {
+            console.log("success");
+            // this.setState({ fields: fields });
+          })
+          .catch((err) => console.log(err));
+      } else {
+        //post obj
+        axios
+          .post("http://192.168.149.51:8001/api/coach/", fields, {
+            headers: {
+              Authorization: `token ${token}`,
+            },
+          })
+          .then(function (response) {})
+          .catch(function (error) {
+            console.log(error);
+          });
+        let lastAdded = JSON.parse(JSON.stringify(fields));
+
+        this.setState({ lastAdded: lastAdded });
+        this.onClose(); //close form modal
+        this.openConfirmModal(); // open confirmation
+
+        console.log(initialState, "initial state");
+        this.setState({
+          errrors: initialState.errors,
+          fields: initialState.fields,
         });
-      let lastAdded = JSON.parse(JSON.stringify(this.state.fields));
-
-      this.setState({ lastAdded: lastAdded });
-      this.onClose(); //close form modal
-      this.openConfirmModal(); // open confirmation
-
-      console.log(initialState, "initial state");
-      this.setState({
-        errrors: initialState.errors,
-        fields: initialState.fields,
-      });
+      }
     } else {
       console.log("Form has errors.");
     }
@@ -213,7 +235,7 @@ class AddCoach extends Component {
                 placeholder="First name"
                 name="first_name"
                 id="first_name"
-                value={this.props.first_name}
+                value={fields.first_name}
                 onChange={this.handleChange}
                 type="text"
                 required
@@ -231,7 +253,7 @@ class AddCoach extends Component {
                 placeholder="Last name"
                 name="last_name"
                 id="last_name"
-                value={this.props.last_name}
+                value={fields.last_name}
                 onChange={this.handleChange}
                 type="text"
                 required
@@ -250,7 +272,7 @@ class AddCoach extends Component {
                 // control={Input}
                 label="Email"
                 placeholder="test@test.com"
-                value={this.props.email}
+                value={fields.email}
                 onChange={this.handleChange}
                 type="email"
                 required
@@ -270,8 +292,7 @@ class AddCoach extends Component {
                 options={this.state.options}
                 onChange={this.handleChange}
                 placeholder="Club Assign"
-                defaultValue={this.state.clubs}
-                value={this.state.clubs}
+                defaultValue={fields.clubs[0]}
                 required
                 error={
                   errors.clubs.length > 0 && {

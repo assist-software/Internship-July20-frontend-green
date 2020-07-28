@@ -9,10 +9,12 @@ class Row extends Component {
     openEditCoach: false,
     title: "Edit Coach",
     openDeleteModal: false,
-    editMode: false,
+    editMode: true,
   };
   openEditModal = () => {
-    this.setState({ openEditCoach: true, editMode: true });
+    this.setState({ openEditCoach: true });
+    this.setState({ editMode: true });
+    console.log(this.state.openEditCoach, this.state.editMode, "!!!");
   };
   closeEditModal = () => {
     this.setState({ openEditCoach: false, editMode: false });
@@ -24,7 +26,6 @@ class Row extends Component {
     this.setState({ openDeleteModal: false });
   };
   render() {
-    console.log(this.props.coach, "aici e coaach");
     const coach = this.props.coach;
     return (
       <tbody>
@@ -39,10 +40,13 @@ class Row extends Component {
           <td>{coach.clubs}</td>
           {/* <td>{this.props.club ? this.props.club.join(", ") : null}</td> */}
           <td>
-            <button className="btn-edit" onClick={this.openEditModal}></button>
+            <button
+              className="btn-edit"
+              onClick={() => this.openEditModal()}
+            ></button>
             <button
               className="btn-delete"
-              onClick={this.openDeleteModal}
+              onClick={() => this.openDeleteModal()}
             ></button>
           </td>
         </tr>
@@ -51,16 +55,14 @@ class Row extends Component {
           open={this.state.openEditCoach}
           openClick={this.openEditModal}
           closeClick={this.closeEditModal}
-          editMode={this.editMode}
+          editMode={this.state.editMode}
           coach={coach}
         />
         <ConfirmDeleteModal
           open={this.state.openDeleteModal}
           openClick={this.openDeleteModal}
           closeClick={this.closeDeleteModal}
-          id={this.props.id}
-          first_name={this.props.first_name}
-          last_name={this.props.last_name}
+          coach={coach}
         />
       </tbody>
     );

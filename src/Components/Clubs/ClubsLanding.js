@@ -24,6 +24,7 @@ class ClubsLanding extends Component {
   }
 
   render() {
+    console.log(token, "token clubs");
     let clubs = <Spinner />;
     if (this.state.clubs) {
       clubs = <ClubsComponent clubs={this.state.clubs} />;
