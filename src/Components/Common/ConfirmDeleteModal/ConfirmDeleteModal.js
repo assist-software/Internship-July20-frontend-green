@@ -11,6 +11,7 @@ class ConfirmDeleteModal extends Component {
   };
   onClose = () => {
     this.props.closeClick();
+    window.location.reload(true);
   };
   DeleteCoachHandler = (itemId) => {
     axios
@@ -46,10 +47,13 @@ class ConfirmDeleteModal extends Component {
 
         <Modal.Content>
           <p>
-            Are you sure you want to delete Coach{" "}
-            {this.props.first_name + " " + this.props.last_name}? If you delete
-            coach’s account, all data associated with this profile will be
-            permanently deleted.
+            Are you sure you want to delete{" "}
+            <strong>
+              Coach{" "}
+              {this.props.coach.first_name + " " + this.props.coach.last_name}
+            </strong>
+            ? If you delete coach’s account, all data associated with this
+            profile will be permanently deleted.
           </p>
         </Modal.Content>
 

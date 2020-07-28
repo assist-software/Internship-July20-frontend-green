@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import "./Login.css";
-
+import { Input, Icon } from "semantic-ui-react";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -11,12 +11,21 @@ class Login extends Component {
       username: "",
       password: "",
       isSignedUp: false,
+      type: "password",
     };
+    this.showHide = this.showHide.bind(this);
   }
 
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  showHide(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.setState({
+      type: this.state.type === "input" ? "password" : "input",
+    });
+  }
 
   submitHandler = (e) => {
     e.preventDefault();
@@ -28,6 +37,11 @@ class Login extends Component {
         console.log(res);
         if (res.status === 200) {
           this.setState({ isSignedUp: true });
+          //   const token = res.data.token;
+          //   localStorage.setItem("token", token);
+          //   this.props.history.push(`/coaches`);
+          // } else {
+          //   alert("Login Failed");
         }
 
         const token = res.data.token;
@@ -53,8 +67,8 @@ class Login extends Component {
             </div>
 
             <form onSubmit={this.submitHandler} className="login-form">
-              <label for="email">Email Address</label>
-              <input
+              <label htmlFor="email">Email Address</label>
+              <Input
                 name="username"
                 type="email"
                 placeholder="enter your email"
@@ -62,11 +76,12 @@ class Login extends Component {
                 onChange={this.changeHandler}
               />
 
-              <label for="password">Password </label>
-              <input
-                name="password"
-                type="text"
+              <label htmlFor="password">Password </label>
+              <Input
+                icon={<Icon name="eye" link onClick={this.showHide} />}
                 placeholder="enter your password"
+                name="password"
+                type={this.state.type}
                 value={password}
                 onChange={this.changeHandler}
               />
