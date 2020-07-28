@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Button, Header, Modal, Form, Dropdown } from "semantic-ui-react";
 import "../../Common/Styles.css";
 import axios from "axios";
+import Aux from "../../Common/Auxiliary";
+import ConfirmSuccessModal from "../../Common/ConfirmSuccessModal/ConfirmSuccessModal";
 
 const token = localStorage.getItem("token");
 
@@ -16,6 +18,8 @@ class AddClub extends Component {
         owner: "",
       },
       options: [],
+      lastAdded: {},
+      showConfirmModal: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,6 +32,12 @@ class AddClub extends Component {
   };
   onClose = () => {
     this.props.closeClick();
+  };
+  openConfirmModal = () => {
+    this.setState({ showConfirmModal: true });
+  };
+  closeConfirmModal = () => {
+    this.setState({ showConfirmModal: false });
     window.location.reload(true);
   };
   componentDidMount() {
@@ -87,62 +97,77 @@ class AddClub extends Component {
       .catch(function (error) {
         console.log(error);
       });
+    let lastAdded = JSON.parse(JSON.stringify(club));
+
+    this.setState({ lastAdded: lastAdded });
     this.onClose();
+    this.openConfirmModal(); // open confirmation
   };
   render() {
     let { club } = this.state;
     return (
-      <Modal
-        closeIcon
-        open={this.props.open}
-        onOpen={this.onOpen}
-        onClose={this.onClose}
-        dimmer={true}
-      >
-        <Header content={this.props.title} />
+      <Aux>
+        <Modal
+          closeIcon
+          open={this.props.open}
+          onOpen={this.onOpen}
+          onClose={this.onClose}
+          dimmer={true}
+        >
+          <Header content={this.props.title} />
 
-        <Modal.Content>
-          <form
-            className="form-inputs"
-            id="addCoach"
-            onSubmit={this.handleSubmit}
-          >
-            <label htmlFor="name">Name</label>
-            <input
-              name="name"
-              onChange={this.handleChange}
-              type="text"
-              placeholder="Name"
-              required
-            />
+          <Modal.Content>
+            <form
+              className="form-inputs"
+              id="addCoach"
+              onSubmit={this.handleSubmit}
+            >
+              <label htmlFor="name">Name</label>
+              <input
+                name="name"
+                onChange={this.handleChange}
+                type="text"
+                placeholder="Name"
+                required
+              />
 
-            <Form.Dropdown
-              label="Assign a Coach"
-              name="coach"
-              options={this.state.options}
-              onChange={this.handleChangeSelect}
-              selection
-              placeholder="Pick a Coach"
-              required
-            />
+              <Form.Dropdown
+                label="Assign a Coach"
+                name="coach"
+                options={this.state.options}
+                onChange={this.handleChangeSelect}
+                selection
+                placeholder="Pick a Coach"
+                required
+              />
 
-            <div className="invite-members">
-              <Button color="blue">invite members</Button>
-              <p>(Optional)</p>
-            </div>
-          </form>
-        </Modal.Content>
+              <div className="invite-members">
+                <Button color="blue">invite members</Button>
+                <p>(Optional)</p>
+              </div>
+            </form>
+          </Modal.Content>
 
-        <Modal.Actions className="form-btns">
-          <Button color="black">delete</Button>
-          <Button color="red" onClick={this.onClose}>
-            Cancel
-          </Button>
-          <Button color="green" type="submit" form="addCoach">
-            Add
-          </Button>
-        </Modal.Actions>
-      </Modal>
+          <Modal.Actions className="form-btns">
+            <Button color="black">delete</Button>
+            <Button color="red" onClick={this.onClose}>
+              Cancel
+            </Button>
+            <Button color="green" type="submit" form="addCoach">
+              Add
+            </Button>
+          </Modal.Actions>
+        </Modal>
+
+        <ConfirmSuccessModal
+          title="Club Added"
+          name={this.state.lastAdded.name}
+          open={this.state.showConfirmModal}
+          openClick={this.openConfirmModal}
+          closeClick={this.closeConfirmModal}
+          type={"club"}
+        />
+      </Aux>
     );
   }
 }

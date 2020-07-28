@@ -13,6 +13,28 @@ class ConfirmSuccessModal extends Component {
   };
 
   render() {
+    let modalContent = "";
+    if (this.props.type == "club") {
+      modalContent = (
+        <Modal.Content id="delete-content">
+          <p>
+            New club:
+            <strong> {this.props.name + " "}</strong>
+            has been added.
+          </p>
+        </Modal.Content>
+      );
+    } else {
+      modalContent = (
+        <Modal.Content id="delete-content">
+          <p>
+            Athlete
+            {" " + this.props.first_name + " " + this.props.last_name + " "}
+            was added on the {this.props.clubs}.
+          </p>
+        </Modal.Content>
+      );
+    }
     return (
       <Modal
         closeIcon
@@ -28,12 +50,7 @@ class ConfirmSuccessModal extends Component {
             content={this.props.title}
           />
 
-          <Modal.Content id="delete-content">
-            <p>
-              Athlete {this.props.first_name + " " + this.props.last_name + " "}
-              was added on the {this.props.clubs}.
-            </p>
-          </Modal.Content>
+          {modalContent}
 
           <Modal.Actions>
             <Button color="green" onClick={this.onClose}>
