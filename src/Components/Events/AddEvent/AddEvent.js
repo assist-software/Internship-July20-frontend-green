@@ -10,16 +10,13 @@ import PlacesAutocomplete, {
 const token = localStorage.getItem("token");
 
 const initialState = {
-  event: {
-    img: "",
-    name: "",
-    description1: "",
-    date: "",
-    time: "",
-    location: "Suceava",
-    participants: "",
-    address: "",
-  },
+  img: "",
+  name: "",
+  description1: "",
+  date: "",
+  time: "",
+  location: "",
+  participants: "",
 };
 
 class AddEvent extends Component {
@@ -38,30 +35,31 @@ class AddEvent extends Component {
   };
 
   handleChange = (e) => {
-    let event = this.state.event;
+    // let event = this.state;
 
-    event[e.target.name] = e.target.value;
+    // event[e.target.name] = e.target.value;
 
-    this.setState({ event: event });
+    this.setState({ [e.target.name]: e.target.value });
   };
   // handleChangeAddress = (address) => {
   //   this.setState({ address });
   //   console.log(this.state.address, "adresa");
   // };
 
-  handleChangeAddress = (address) => {
-    this.setState({ event: { address: address } });
+  handleChangeAddress = (location) => {
+    this.setState({ location: location });
   };
-  takeSelect = (e) => {
-    const x = e.target.innerHTML;
-    this.setState({ adresa: x });
-    console.log(this.state, "4444", e.target.innerHTML);
-  };
+  // takeSelect = (e) => {
+  //   const x = e.target.innerHTML;
+  //   this.setState({ adresa: x });
+  //   console.log(this.state, "4444", e.target.innerHTML);
+  // };
   handleSubmmit = (e) => {
     e.preventDefault();
-    console.log(this.state.event, "pe submit");
+
+    console.log(this.state, "pe submit");
     axios
-      .post("http://192.168.149.51:8001/api/events/", this.state.event, {
+      .post("http://192.168.149.51:8001/api/events/", this.state, {
         headers: {
           Authorization: `token ${token}`,
         },
@@ -75,7 +73,7 @@ class AddEvent extends Component {
     this.onClose();
   };
   render() {
-    console.log(this.state, "@@");
+    // console.log(this.state, "@@");
     return (
       <Modal
         closeIcon
@@ -135,7 +133,7 @@ class AddEvent extends Component {
             /> */}
 
             <PlacesAutocomplete
-              value={this.state.event.address}
+              value={this.state.location}
               onChange={this.handleChangeAddress}
               onSelect={this.handleSelect}
             >
@@ -147,7 +145,7 @@ class AddEvent extends Component {
               }) => (
                 <div>
                   <input
-                    name="address"
+                    name="location"
                     {...getInputProps({
                       placeholder: "Search Places ...",
                       className: "location-search-input",

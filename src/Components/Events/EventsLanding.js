@@ -18,7 +18,7 @@ class EventsLanding extends Component {
     axios
       .get(
         // "/events"
-        "http://192.168.149.51:8001/api/events/10/1/",
+        "http://192.168.149.51:8001/api/events/20/1/",
         {
           headers: {
             Authorization: `token ${token}`,
