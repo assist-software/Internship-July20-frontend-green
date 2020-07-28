@@ -6,9 +6,9 @@ import "./Clubs.css";
 class Club extends Component {
 
   goToPage = () => {
-    console.log(this.props.id);
+    // console.log(this.props.id);
     const id = this.props.id;
-    id ? this.props.history.push(`/club/${this.props.id}/${this.props.title}/${this.props.coach}/`) : console.log('no-id');
+    id ? this.props.history.push(`/club/${this.props.id}/${this.props.title}/`) : console.log('no-id');
     id ? console.log(id) : console.log('no-id');
   }
 
@@ -32,7 +32,7 @@ class Club extends Component {
         </div>
 
         <p className="c-subtitle">Coach</p>
-        <p className="c-coach">{this.props.coach}</p>
+        {/* <p className="c-coach">{this.props.owner}</p> */}
       </div>
     );
   }

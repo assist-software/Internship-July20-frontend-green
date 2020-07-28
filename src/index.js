@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Layout from "./App";
@@ -30,7 +30,7 @@ ReactDOM.render(
           <Route exact path="/events/:id" component={EventPage} />
 
           <Route exact path="/clubs" component={ClubsLanding} />
-          <Route exact path="/club/:id/:title/:coach" component={ClubPage} />
+          <Route exact path="/club/:id/:title/" component={ClubPage} />
 
           <Route exact path="/athletes" component={AthletesLanding} />
 

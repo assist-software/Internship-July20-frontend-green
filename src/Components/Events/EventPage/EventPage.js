@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
 import Participants from './Participants';
+import { Checkbox } from "semantic-ui-react";
+import Chart from './Chart';
 
 import './EventPage.css';
 
@@ -18,13 +20,23 @@ class EventPage extends Component {
         displayGraphic: false,
         event: null,
         singleEvents: null,
-        members: null
+        members: null,
+
+        // graphic
+        chartData: {},
+        checked: false
     };
+
+    componentWillMount() {
+        this.getChartData();
+    }
 
     componentDidMount() {
         const pageID = parseInt(this.props.match.params.id);
         this.setState({ pageID: pageID });
         console.log("page id: ", pageID);
+
+
 
         axios.get(`http://192.168.149.51:8001/api/events/${pageID}/`,
             {
@@ -72,6 +84,140 @@ class EventPage extends Component {
 
         }
     }
+
+
+
+
+
+    getChartData() {
+        // Ajax calls here
+        this.setState({
+
+            chartData: {
+
+                labels: ['Ronald', 'Wendy', 'Brandon', 'Dariu'],
+
+                datasets: [
+                    {
+
+                        label: 'Heart Rate',
+                        hidden: true,
+                        data: [
+                            105,
+                            120,
+                            110,
+                            130
+                        ],
+                        backgroundColor:
+                            'rgba(0,0,0)'
+                    },
+
+                    {
+                        label: 'Calories',
+                        hidden: true,
+                        data: [
+                            89,
+                            120,
+                            60,
+                            20
+
+                        ],
+                        backgroundColor:
+                            'rgba(0,0,0)'
+                    },
+                    {
+                        label: 'Av. Speed',
+                        hidden: true,
+                        data: [
+                            70,
+                            80,
+                            90,
+                            100
+
+                        ],
+                        backgroundColor:
+                            'rgba(0,0,0)'
+                    },
+                    {
+
+                        label: 'Distance',
+                        hidden: true,
+                        data: [
+                            105,
+                            120,
+                            110,
+                            130
+                        ],
+                        backgroundColor:
+                            'rgba(0,0,0)'
+                    },
+
+                ],
+
+            },
+
+        });
+    }
+
+    changeLegendHeart = (e, data) => {
+        this.setState((prevState) => ({ checkedHeart: !prevState.checkedHeart }))
+        const { chartData } = this.state;
+        let name = data.label;
+        let chartDataNew = chartData.datasets.find(item => item.label === name);
+        if (this.state.checkedHeart) {
+            chartDataNew.hidden = true;
+        }
+        else {
+            chartDataNew.hidden = false
+        }
+        this.setState({ chartData })
+    }
+    changeLegendCalories = (e, data) => {
+        this.setState((prevState) => ({ checkedCalories: !prevState.checkedCalories }))
+        const { chartData } = this.state;
+        let name = data.label;
+        let chartDataNew = chartData.datasets.find(item => item.label === name);
+        if (this.state.checkedCalories) {
+            chartDataNew.hidden = true;
+
+        }
+        else {
+            chartDataNew.hidden = false
+        }
+        this.setState({ chartData })
+    }
+    changeLegendSpeed = (e, data) => {
+        this.setState((prevState) => ({ checkedSpeed: !prevState.checkedSpeed }))
+        const { chartData } = this.state;
+        let name = data.label;
+        let chartDataNew = chartData.datasets.find(item => item.label === name);
+        if (this.state.checkedSpeed) {
+            chartDataNew.hidden = true;
+        }
+        else {
+            chartDataNew.hidden = false
+        }
+        this.setState({ chartData })
+    }
+    changeLegendDistance = (e, data) => {
+        this.setState((prevState) => ({ checkedDistance: !prevState.checkedDistance }))
+        const { chartData } = this.state;
+        let name = data.label;
+        let chartDataNew = chartData.datasets.find(item => item.label === name);
+        if (this.state.checkedDistance) {
+            chartDataNew.hidden = true;
+
+        }
+        else {
+            chartDataNew.hidden = false
+        }
+        this.setState({ chartData })
+    }
+
+
+
+
+
 
 
     render() {
@@ -132,16 +278,23 @@ class EventPage extends Component {
                                 <div className="compareParticipants">
                                     <p className="p-select">Select metrics you want to be compared</p>
                                     <div className="p-options">
-                                        <p className="p-option"><img src={require('./img/checkbox.png')} alt="" />Heart Rate</p>
-                                        <p className="p-option"><img src={require('./img/checkbox.png')} alt="" />Calories</p>
-                                        <p className="p-option"><img src={require('./img/checked.png')} alt="" />Av. Speed</p>
-                                        <p className="p-option"><img src={require('./img/checkbox.png')} alt="" />Distance</p>
+                                        <p className="p-option" >  <Checkbox label="Heart Rate" name="Heart Rate" onChange={this.changeLegendHeart} value={this.state.checkedHeart} /></p>
+                                        <p className="p-option"> <Checkbox label="Calories" name="Calories" onChange={this.changeLegendCalories} value={this.state.checkedCalories} /></p>
+                                        <p className="p-option"> <Checkbox label="Av. Speed" name="Av. Speed" onChange={this.changeLegendSpeed} value={this.state.checkedSpeed} /></p>
+                                        <p className="p-option"> <Checkbox label="Distance" name="Distance" onChange={this.changeLegendDistance} value={this.state.checkedDistance} /></p>
+
                                     </div>
                                 </div>
                             ) : null
                         }
 
                     </div>
+
+                    {
+                        this.state.displayGraphic ? (
+                            <Chart chartData={this.state.chartData} location="Participants" legendPosition="bottom" />
+                        ) : null
+                    }
 
                 </div>
             );

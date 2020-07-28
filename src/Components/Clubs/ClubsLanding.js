@@ -9,48 +9,11 @@ import Spinner from "../Common/LoadingSpinner/Spinner";
 const token = localStorage.getItem("token");
 class ClubsLanding extends Component {
   state = {
-    //   "clubs": [
-    //     {
-    //       "id": 1,
-    //       "title": "Running club",
-    //       "img": "",
-    //       "members": "22",
-    //       "coach": "Esther Wilson"
-    //     },
-    //     {
-    //       "id": 2,
-    //       "title": "Biking Club",
-    //       "img": "",
-    //       "members": "22",
-    //       "coach": "Esther"
-    //     },
-    //     {
-    //       "id": 3,
-    //       "title": "Biking Club",
-    //       "img": "",
-    //       "members": "22",
-    //       "coach": "Esther"
-    //     },
-    //     {
-    //       "id": 4,
-    //       "title": "Biking Club",
-    //       "img": "",
-    //       "members": "22",
-    //       "coach": "Esther"
-    //     },
-    //     {
-    //       "id": 5,
-    //       "title": "Swimming club",
-    //       "img": "",
-    //       "members": "22",
-    //       "coach": "Wilson"
-    //     }
-    //   ]
     clubs: null
   };
 
   componentDidMount() {
-    Axios.get("http://192.168.149.51:8001/api/clubs/10/1/", {
+    Axios.get("http://192.168.149.51:8001/api/clubs/100/1/", {
       headers: {
         Authorization: `token ${token}`,
       },
