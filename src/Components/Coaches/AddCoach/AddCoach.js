@@ -116,7 +116,6 @@ class AddCoach extends Component {
   }
   deleteHandler = (event) => {
     document.getElementById("theform").reset();
-    this.setState({ clubs: "" });
   };
   handleValidation() {
     let fields = this.state.fields;
@@ -178,6 +177,7 @@ class AddCoach extends Component {
           })
           .then((res) => {
             console.log("success");
+            this.onClose(); //close form modal
             // this.setState({ fields: fields });
           })
           .catch((err) => console.log(err));
@@ -212,7 +212,16 @@ class AddCoach extends Component {
 
   render() {
     const { errors, fields } = this.state;
-
+    let buttonText = "Add";
+    let deleteButton = "";
+    if (this.state.editMode) {
+      buttonText = "Save";
+      deleteButton = (
+        <Button color="black" onClick={this.deleteHandler}>
+          delete
+        </Button>
+      );
+    }
     return (
       <Aux>
         <Modal
@@ -304,14 +313,13 @@ class AddCoach extends Component {
             </Form>
           </Modal.Content>
           <Modal.Actions className="form-btns">
-            <Button color="black" onClick={this.deleteHandler}>
-              delete
-            </Button>
+            {deleteButton}
+
             <Button color="red" onClick={this.onClose}>
               Cancel
             </Button>
             <Button color="green" type="submit" value="submit" form="theform">
-              Add
+              {buttonText}
             </Button>
           </Modal.Actions>{" "}
         </Modal>

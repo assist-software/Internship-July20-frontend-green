@@ -19,6 +19,7 @@ class AddClub extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeSelect = this.handleChangeSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -40,7 +41,7 @@ class AddClub extends Component {
 
         for (let index in obj) {
           let id = obj[index].id;
-          let name = obj[index].last_name;
+          let name = obj[index].first_name + " " + obj[index].last_name;
           let newCoach = {
             key: id,
             text: name,
@@ -63,10 +64,11 @@ class AddClub extends Component {
     this.setState({ club: club });
     console.log(this.state.club, "stateeee");
   }
-  handleChangeSelect(data) {
+  handleChangeSelect(event, data) {
     let club = this.state.club;
-    club[data.name] = data.value;
+    club.owner = data.value;
     this.setState({ club: club });
+    console.log(this.state.club, "dataSelect");
   }
   handleSubmit = (event) => {
     event.preventDefault();
@@ -78,10 +80,13 @@ class AddClub extends Component {
           Authorization: `token ${token}`,
         },
       })
-      .then(function (response) {})
+      .then(function (response) {
+        console.log("success");
+      })
       .catch(function (error) {
         console.log(error);
       });
+    this.onClose();
   };
   render() {
     let { club } = this.state;
@@ -96,7 +101,7 @@ class AddClub extends Component {
         <Header content={this.props.title} />
 
         <Modal.Content>
-          <Form
+          <form
             className="form-inputs"
             id="addCoach"
             onSubmit={this.handleSubmit}
@@ -124,7 +129,7 @@ class AddClub extends Component {
               <Button color="blue">invite members</Button>
               <p>(Optional)</p>
             </div>
-          </Form>
+          </form>
         </Modal.Content>
 
         <Modal.Actions className="form-btns">

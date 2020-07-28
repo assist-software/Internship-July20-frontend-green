@@ -19,7 +19,7 @@ class ClubsLanding extends Component {
       },
     }).then((response) => {
       this.setState({ clubs: response.data });
-      console.log(response);
+      // console.log(response);
     });
   }
 
