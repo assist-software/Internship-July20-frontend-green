@@ -59,6 +59,9 @@
   color: #44dabd;
   padding: 16px 40px;
 }
+button.ui.green.button.gotIt {
+  border: 1px solid #fff;
+}
 
 .ui.green.button:hover {
   background-color: #1a1a1a;
@@ -226,4 +229,17 @@ textarea {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 8px;
+}
+.ui.small.basic.modal.transition.visible.active.errorModal {
+  background: rgb(0 0 0 / 0%);
+}
+.errorMessage {
+  font-family: inter;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+}
+.errorUsername {
+  color: #db2828;
+  font-weight: 500;
 }
