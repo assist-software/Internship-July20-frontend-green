@@ -5,6 +5,8 @@ import Participants from './Participants';
 
 import './EventPage.css';
 
+const token = localStorage.getItem("token");
+
 class EventPage extends Component {
 
     state = {
@@ -14,6 +16,7 @@ class EventPage extends Component {
         pageID: null,
         arrayGraphic: [''],
         displayGraphic: false,
+        event: null,
         "singleEvents": [
             {
                 "event-title": "Running For Life",
@@ -211,7 +214,18 @@ class EventPage extends Component {
     componentDidMount() {
         const pageID = parseInt(this.props.match.params.id);
         this.setState({ pageID: pageID });
-        console.log(pageID);
+        console.log("page id: ", pageID);
+
+        axios.get(`http://192.168.149.51:8001/api/events/${pageID}/`,
+            {
+                headers: {
+                    Authorization: `token ${token}`,
+                },
+            }).then((response) => {
+                this.setState({ event: response.data });
+            });
+        // console.log(`http://192.168.149.51:8001/api/clubs/members/1/1/5/${type}`)
+        console.log(this.state.event);
     }
 
     compare = (e) => {

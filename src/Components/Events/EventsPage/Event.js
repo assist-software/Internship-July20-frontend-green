@@ -10,12 +10,15 @@ class Event extends Component {
 
   goToPage = () => {
     // console.log(this.props.id);
-    this.props.history.push(`/event/${this.props.id}`);
+    if (this.state.pageID) {
+      this.props.history.push(`/event/${this.state.pageID}`);
+    }
+
   };
 
   componentDidMount() {
-    const id = this.props.id;
-    this.setState({ pageID: this.props.id });
+    const id = this.props.event.id;
+    this.setState({ pageID: this.props.event.id });
   }
 
   render() {
