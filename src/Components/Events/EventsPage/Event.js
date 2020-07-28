@@ -9,7 +9,7 @@ class Event extends Component {
   };
 
   goToPage = () => {
-    console.log(this.props.id);
+    // console.log(this.props.id);
     this.props.history.push(`/event/${this.props.id}`);
   };
 
@@ -31,7 +31,7 @@ class Event extends Component {
             <p className="description">{event.description1}</p>
             <div className="dateTime">
               <p>
-                <img src={require("./img/calendar.png")} alt="" /> {event.img}
+                <img src={require("./img/calendar.png")} alt="" /> {event.date}
               </p>
               <p>
                 <img src={require("./img/clock.png")} alt="" /> {event.time}

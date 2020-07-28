@@ -27,10 +27,10 @@ ReactDOM.render(
           <Route exact path="/" component={Coaches} />
 
           <Route exact path="/events" component={EventsLanding} />
-          <Route exact path="/event/:id" component={EventPage} />
+          <Route exact path="/event/:id/:title/:coach" component={EventPage} />
 
           <Route exact path="/clubs" component={ClubsLanding} />
-          <Route exact path="/club/:id" component={ClubPage} />
+          <Route exact path="/club/:id/:title/:coach" component={ClubPage} />
 
           <Route exact path="/athletes" component={AthletesLanding} />
 

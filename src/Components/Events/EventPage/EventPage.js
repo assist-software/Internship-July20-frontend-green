@@ -257,7 +257,7 @@ class EventPage extends Component {
             const iD = this.state.pageID;
 
             return (
-                <div className='EventPage'>
+                <div className='EventPage' style={{ backgroundColor: '#F9F9F9' }}>
 
                     <header>
                         <p>Events</p>

@@ -6,11 +6,11 @@ const members = props => {
     return props.members.map((member, index) => {
         return <Member
             img={member.img}
-            name={member.name}
+            name={member.first_name + member.last_name}
             gender={member.gender}
             age={member.age}
-            primary={member.primary}
-            secondary={member.secondary}
+            primary={member.primary_sport}
+            secondary={member.secondary_sport}
         />
     });
 };
