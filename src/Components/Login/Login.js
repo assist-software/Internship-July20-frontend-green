@@ -37,6 +37,11 @@ class Login extends Component {
         console.log(res);
         if (res.status === 200) {
           this.setState({ isSignedUp: true });
+          //   const token = res.data.token;
+          //   localStorage.setItem("token", token);
+          //   this.props.history.push(`/coaches`);
+          // } else {
+          //   alert("Login Failed");
         }
 
         const token = res.data.token;

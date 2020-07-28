@@ -32,6 +32,7 @@ class AddEvent extends Component {
   };
   onClose = () => {
     this.props.closeClick();
+    window.location.reload(true);
   };
 
   handleChange = (e) => {

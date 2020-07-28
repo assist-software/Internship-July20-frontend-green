@@ -28,6 +28,7 @@ class AddClub extends Component {
   };
   onClose = () => {
     this.props.closeClick();
+    window.location.reload(true);
   };
   componentDidMount() {
     axios

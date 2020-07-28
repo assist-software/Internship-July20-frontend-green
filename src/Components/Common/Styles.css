@@ -183,7 +183,7 @@ textarea {
   color: #8e9296;
   padding: 13.6px;
 }
-.ui.multiple.dropdown {
+.ui.selection.dropdown {
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -196,9 +196,9 @@ textarea {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 17px;
   color: #8e9296;
-  padding: 7.28px;
+  padding: 13.6px;
 }
 .ui.selection.dropdown > .dropdown.icon {
   padding: 12px;

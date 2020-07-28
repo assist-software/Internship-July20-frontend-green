@@ -34,7 +34,7 @@ class AddCoach extends Component {
     super(props);
 
     if (this.props.coach) {
-      console.log(this.props.editMode, "@@@");
+      console.log(this.props.coach, "@@@");
 
       this.state = {
         fields: this.props.coach,
@@ -165,7 +165,7 @@ class AddCoach extends Component {
     event.preventDefault();
     let fields = this.state.fields;
     let id = this.state.fields.id;
-    console.log(id, "id on submit");
+    console.log(this.state.clubName, "club name on submit");
 
     if (this.handleValidation()) {
       if (this.state.editMode === true) {
@@ -175,12 +175,12 @@ class AddCoach extends Component {
               Authorization: `token ${token}`,
             },
           })
-          .then((res) => {
-            console.log("success");
-            this.onClose(); //close form modal
-            // this.setState({ fields: fields });
-          })
+          .then((res) => {})
           .catch((err) => console.log(err));
+
+        console.log(fields, "fields PUT");
+        this.onClose(); //close form modal
+        window.location.reload(true);
       } else {
         //post obj
         axios
@@ -278,7 +278,6 @@ class AddCoach extends Component {
               <Form.Input
                 id="email"
                 name="email"
-                // control={Input}
                 label="Email"
                 placeholder="test@test.com"
                 value={fields.email}

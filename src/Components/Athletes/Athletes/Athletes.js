@@ -1,18 +1,10 @@
-import React from 'react';
-import Athlete from './Athlete';
+import React from "react";
+import Athlete from "./Athlete";
 
-const athletes = props => {
-
-    return props.members.map((member, index) => {
-        return <Athlete
-            img={member.img}
-            name={member.name}
-            gender={member.gender}
-            age={member.age}
-            primary={member.primary}
-            secondary={member.secondary}
-        />
-    });
+const athletes = (props) => {
+  return props.members.map((member, index) => {
+    return <Athlete member={member} />;
+  });
 };
 
 export default athletes;

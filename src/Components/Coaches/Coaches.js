@@ -17,28 +17,14 @@ class Coaches extends Component {
   componentDidMount() {
     console.log(token, "coach token");
     axios
-      .get(
-        "http://192.168.149.51:8001/api/coach/10/1/",
-        {
-          headers: {
-            Authorization: `token ${token}`,
-          },
-        }
-        //  {pageNr:1, pageSize:10}
-      )
+      .get("http://192.168.149.51:8001/api/coach/10/1/", {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      })
       .then((response) => {
-        // axios
-        //   .get(
-        //     "http://192.168.149.51:8001/api/coach/clubs/" +
-        //       response.data.id +
-        //       "/"
-        //   )
-        //   .then((res) => {
-        //     console.log("teeext");
-        //     console.log(res, "rees");
-        //   });
-
         this.setState({ coaches: response.data });
+        console.log(this.state.coaches, "inapoi");
       });
   }
   render() {

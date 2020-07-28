@@ -9,6 +9,7 @@ class ConfirmSuccessModal extends Component {
   };
   onClose = () => {
     this.props.closeClick();
+    window.location.reload(true);
   };
 
   render() {
