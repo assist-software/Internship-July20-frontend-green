@@ -175,7 +175,7 @@ class ClubPage extends Component {
 
         axios.post(`http://192.168.149.51:8001/api/clubs/members/`,
             {
-                clubId: 11,
+                clubId: this.props.match.params.id,
                 type: 0,
                 pgNumber: 1,
                 pgSize: 5

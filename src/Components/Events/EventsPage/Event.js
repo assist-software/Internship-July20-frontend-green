@@ -11,7 +11,7 @@ class Event extends Component {
   goToPage = () => {
     // console.log(this.props.id);
     if (this.state.pageID) {
-      this.props.history.push(`/event/${this.state.pageID}`);
+      this.props.history.push(`/events/${this.props.event.id}`);
     }
 
   };

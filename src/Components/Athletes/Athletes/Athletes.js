@@ -6,11 +6,11 @@ const athletes = props => {
     return props.members.map((member, index) => {
         return <Athlete
             img={member.img}
-            name={member.name}
-            gender={member.gender}
+            name={`${member.first_name} ${member.last_name}`}
+            gender={member.gender ? 'female' : 'male'}
             age={member.age}
-            primary={member.primary}
-            secondary={member.secondary}
+            primary={member.primary_sport.type}
+            secondary={member.secondary_sport.type}
         />
     });
 };

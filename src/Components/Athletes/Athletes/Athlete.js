@@ -21,7 +21,7 @@ const athlete = props => {
                 </div>
                 <div className="secondary-sport">
                     <p>secondary sport</p>
-                    <p>{props.primary}</p>
+                    <p>{props.secondary}</p>
                 </div>
             </div>
 
