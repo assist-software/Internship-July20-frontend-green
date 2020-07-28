@@ -6,8 +6,7 @@ import "./Clubs.css";
 const clubsComponent = (props) => {
   return (
     <div className="ClubsComponent">
-      {" "}
-      <Clubs clubs={props.clubs} />{" "}
+      <Clubs clubs={props.clubs} />
     </div>
   );
 };

@@ -9,13 +9,15 @@ class Event extends Component {
   };
 
   goToPage = () => {
-    console.log(this.props.id);
-    this.props.history.push(`/event/${this.props.event.id}`);
+    // console.log(this.props.id);
+    if (this.state.pageID) {
+      this.props.history.push(`/events/${this.props.event.id}`);
+    }
   };
 
   componentDidMount() {
-    const id = this.props.id;
-    this.setState({ pageID: this.props.id });
+    const id = this.props.event.id;
+    this.setState({ pageID: this.props.event.id });
   }
 
   render() {
@@ -31,7 +33,7 @@ class Event extends Component {
             <p className="description">{event.description1}</p>
             <div className="dateTime">
               <p>
-                <img src={require("./img/calendar.png")} alt="" /> {event.img}
+                <img src={require("./img/calendar.png")} alt="" /> {event.date}
               </p>
               <p>
                 <img src={require("./img/clock.png")} alt="" /> {event.time}

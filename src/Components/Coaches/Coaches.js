@@ -12,6 +12,7 @@ const token = localStorage.getItem("token");
 class Coaches extends Component {
   state = {
     coaches: null,
+    page: 1
   };
 
   componentDidMount() {

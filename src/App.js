@@ -22,7 +22,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App layout">
+      <div className="App layout" style={{ height: '100vh', backgroundColor: '#F9F9F9' }}>
         <div>
           {" "}
           <LeftSidebar fullname={this.props.fullname} role={this.props.role} />

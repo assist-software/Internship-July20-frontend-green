@@ -8,7 +8,8 @@ class Club extends Component {
   goToPage = () => {
     console.log(this.props.id);
     const id = this.props.id;
-    id ? this.props.history.push(`/club/${this.props.id}`) : console.log('no-id');
+    id ? this.props.history.push(`/club/${this.props.id}/${this.props.title}/${this.props.coach}/`) : console.log('no-id');
+    id ? console.log(id) : console.log('no-id');
   }
 
   render() {

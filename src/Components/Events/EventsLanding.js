@@ -12,8 +12,13 @@ const token = localStorage.getItem("token");
 
 class EventsLanding extends Component {
   state = {
+    showOngoing: [true, "activeFilter"],
+    showFuture: [false, ""],
+    showPast: [false, ""],
     events: null,
+    specifiedEvents: null,
   };
+
   componentDidMount() {
     axios
       .get(
@@ -27,17 +32,69 @@ class EventsLanding extends Component {
       )
       .then((response) => {
         console.log(response, "respoonsEvents");
-        this.setState({ events: response.data });
+        this.setState({
+          events: response.data,
+          specifiedEvents: response.data,
+        });
+        this.checkDate(0);
       });
   }
 
+  checkDate = (tense) => {
+    const events = this.state.events;
+    let ongoingEvents = events.filter((event) => event.tense == "ongoing");
+    let futureEvents = events.filter((event) => event.tense == "future");
+    let pastEvents = events.filter((event) => event.tense == "past");
+
+    if (tense == 0) {
+      this.setState({ specifiedEvents: ongoingEvents });
+    } else if (tense == 1) {
+      this.setState({ specifiedEvents: futureEvents });
+    } else if (tense == 2) {
+      this.setState({ specifiedEvents: pastEvents });
+    }
+  };
+
+  showOngoing = (event) => {
+    this.setState({
+      showOngoing: [true, "active-btn"],
+      showFuture: [false, ""],
+      showPast: [false, ""],
+    });
+    event.target.className = this.state.showOngoing[1];
+    console.log("ongoing...");
+    this.checkDate(0);
+  };
+
+  showFuture = (event) => {
+    this.setState({
+      showOngoing: [false, ""],
+      showFuture: [true, "active-btn"],
+      showPast: [false, ""],
+    });
+    event.target.className = this.state.showFuture[1];
+    console.log("future...");
+    this.checkDate(1);
+  };
+
+  showPast = (event) => {
+    this.setState({
+      showOngoing: [false, ""],
+      showFuture: [false, ""],
+      showPast: [true, "active-btn"],
+    });
+    event.target.className = this.state.showPast[1];
+    console.log("past...");
+    this.checkDate(2);
+  };
+
   render() {
     let events = <Spinner />;
-    if (this.state.events) {
+    if (this.state.specifiedEvents) {
       events = (
         <EventsPage
-          events={this.state.events}
-          eventPages={this.state.singleEvents}
+          events={this.state.specifiedEvents}
+          // eventPages={this.state.singleEvents}
         />
       );
     }
@@ -48,15 +105,51 @@ class EventsLanding extends Component {
           <Header title="Events" />
 
           <div className="eventsFilter">
-            <button className="activeFilter">
+            <button
+              onClick={(event) => this.showOngoing(event)}
+              className={this.state.showOngoing[1]}
+            >
               Ongoing
-              <span>
-                {" "}
-                ({this.state.events ? this.state.events.length : null})
-              </span>
+              {this.state.showOngoing[0] ? (
+                <span>
+                  (
+                  {this.state.specifiedEvents
+                    ? this.state.specifiedEvents.length
+                    : null}
+                  )
+                </span>
+              ) : null}
             </button>
-            <button value="Future">Future</button>
-            <button>Past</button>
+            <button
+              onClick={(event) => this.showFuture(event)}
+              className={this.state.showFuture[1]}
+            >
+              Future
+              {this.state.showFuture[0] ? (
+                <span>
+                  (
+                  {this.state.specifiedEvents
+                    ? this.state.specifiedEvents.length
+                    : null}
+                  )
+                </span>
+              ) : null}
+            </button>
+            <button
+              onClick={(event) => this.showPast(event)}
+              className={this.state.showPast[1]}
+            >
+              Past
+              {this.state.showPast[0] ? (
+                <span>
+                  (
+                  {this.state.specifiedEvents
+                    ? this.state.specifiedEvents.length
+                    : null}
+                  )
+                </span>
+              ) : null}
+            </button>
           </div>
 
           {events}

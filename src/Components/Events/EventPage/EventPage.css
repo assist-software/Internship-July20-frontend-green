@@ -1,253 +1,249 @@
 /*=================================
             Event page
 =================================*/
-.EventPage{
-    /* padding: 53px 234px 80px 233px; */
-    padding: 60px 40px;
+.EventPage {
+  /* padding: 53px 234px 80px 233px; */
+  padding: 60px 40px;
 }
-
 
 .EventPage header p,
-.EventPage header h1{
-    display: inline;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 16px;
-    text-transform: capitalize;
+.EventPage header h1 {
+  display: inline;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: capitalize;
 }
 
-.EventPage header p{
-    color: #8E9296;
+.EventPage header p {
+  color: #8e9296;
 }
 
-.EventPage header h1{
-    color: #000000;
+.EventPage header h1 {
+  color: #000000;
 }
 
-.EventPage header img{
-    height: 16px;
-    width: 16px;
+.EventPage header img {
+  height: 16px;
+  width: 16px;
 }
 
 /* date&time style -------------- */
-.EventPage .main-header{
-    padding-bottom: 19px;
-    margin-top: 43px;
+.EventPage .main-header {
+  padding-bottom: 19px;
+  margin-top: 43px;
 }
 
-.EventPage .main-header p.title{
-    display: inline;
-    font-size: 24px;
-    line-height: 32px;
-    color: #000000;
+.EventPage .main-header p.title {
+  display: inline;
+  font-size: 24px;
+  line-height: 32px;
+  color: #000000;
 }
 
-.EventPage .dateTime{
-    margin-top: 15px;
+.EventPage .dateTime {
+  margin-top: 15px;
 }
 
 .EventPage .main-header .dateTime div p,
-.EventPage .main-header .dateTime div{
-    display: inline;
+.EventPage .main-header .dateTime div {
+  display: inline;
 }
 
-.EventPage .main-header .dateTime div{
-    font-size: 14px;
-    line-height: 24px;
-    color: #000000;
-    padding-right: 16px;
+.EventPage .main-header .dateTime div {
+  font-size: 14px;
+  line-height: 24px;
+  color: #000000;
+  padding-right: 16px;
 }
 
-.EventPage .main-header .dateTime div img{
-    padding-right: 4px;
-    top: 4px;
+.EventPage .main-header .dateTime div img {
+  padding-right: 4px;
+  top: 4px;
 }
 
 /* btn style -------------- */
-.EventPage .main-header button{
-    display: block;
-    float: right;
-    background: #1A1A1A;
-    border-radius: 8px;
-    padding: 16px 73.5px;
+.EventPage .main-header button {
+  display: block;
+  float: right;
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 16px 73.5px;
 
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #44DABD;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #44dabd;
 }
 
 /* Event page content -------------- */
-.EventPage .event-content{
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    margin-bottom: 93px;
+.EventPage .event-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 93px;
 }
 
-.EventPage .event-content p.title-content{
-    padding: 48px 44px 10px 32px;
-    font-size: 24px;
-    line-height: 32px;
-    color: #000000;
+.EventPage .event-content p.title-content {
+  padding: 48px 44px 10px 32px;
+  font-size: 24px;
+  line-height: 32px;
+  color: #000000;
 }
-.EventPage .text-content p{
-    padding: 10px 32px 40px 32px;
-    font-size: 14px;
-    line-height: 24px;
-    color: #000000;
+.EventPage .text-content p {
+  padding: 10px 32px 40px 32px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000000;
 }
 
-
-.EventPage .image-content{
-    background-image: url('./img/content-img.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 374px;
+.EventPage .image-content {
+  background-image: url("./img/content-img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 374px;
 }
 
 /*=================================
             Participants
 =================================*/
-.Participants{
-    display: grid;
-    grid-template-columns: .25fr .25fr .25fr .25fr;
-    column-gap: 16px;
-    row-gap: 16px;
+.Participants {
+  display: grid;
+  grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
+  column-gap: 16px;
+  row-gap: 16px;
 }
 
-@media screen and (max-width: 867px){
-    .Participants{
-        grid-template-columns: .5fr .5fr;
-    }
+@media screen and (max-width: 867px) {
+  .Participants {
+    grid-template-columns: 0.5fr 0.5fr;
+  }
 }
 
-@media screen and (max-width: 440px){
-    .Participants{
-        grid-template-columns: 1fr;
-    }
+@media screen and (max-width: 440px) {
+  .Participants {
+    grid-template-columns: 1fr;
+  }
 }
 
-.eventParticipants{
-    padding-bottom: 40px;
+.eventParticipants {
+  padding-bottom: 40px;
 }
 
-.eventParticipants p.p-title{
-    display: inline;
-    font-size: 24px;
-    line-height: 32px;
-    color: #000000;
+.eventParticipants p.p-title {
+  display: inline;
+  font-size: 24px;
+  line-height: 32px;
+  color: #000000;
 }
 
-.eventParticipants button{
-    float: right;
-    background: #1A1A1A;
-    border: 1px solid #44DABD;
-    box-sizing: border-box;
-    border-radius: 8px;
+.eventParticipants button {
+  float: right;
+  background: #1a1a1a;
+  border: 1px solid #44dabd;
+  box-sizing: border-box;
+  border-radius: 8px;
 
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #44DABD;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #44dabd;
 }
 
-.eventParticipants .btn-compare{
-    padding: 16px 2px;
+.eventParticipants .btn-compare {
+  padding: 16px 2px;
 }
-.eventParticipants .btn-done{
-    padding: 16px 68px;
-}
-
-
-.eventParticipants .p-select{
-    font-size: 14px;
-    line-height: 24px;
-    color: #1A1A1A;
-    /* display: none; */
+.eventParticipants .btn-done {
+  padding: 16px 68px;
 }
 
-.compareParticipants .p-select{
-    font-size: 14px;
-    line-height: 24px;
-    color: #1A1A1A;
-    margin-top: 40px;
+.eventParticipants .p-select {
+  font-size: 14px;
+  line-height: 24px;
+  color: #1a1a1a;
+  /* display: none; */
 }
 
+.compareParticipants .p-select {
+  font-size: 14px;
+  line-height: 24px;
+  color: #1a1a1a;
+  margin-top: 40px;
+}
 
 /*=================================
             Participant
 =================================*/
-.Participant{
-    background: #FFFFFF;
-    box-shadow: 0px 0.399006px 0.864513px rgba(0, 0, 0, 0.0201946), 0px 1.34018px 2.90372px rgba(0, 0, 0, 0.0298054), 0px 6px 13px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    text-transform: uppercase;
+.Participant {
+  background: #ffffff;
+  box-shadow: 0px 0.399006px 0.864513px rgba(0, 0, 0, 0.0201946),
+    0px 1.34018px 2.90372px rgba(0, 0, 0, 0.0298054),
+    0px 6px 13px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  text-transform: uppercase;
 }
 
-.Participant img:first-child{
-    margin-top: 22px;
-    margin-left: 22px;
+.Participant img:first-child {
+  margin-top: 22px;
+  margin-left: 22px;
 }
 
-.Participant img:nth-child(2){
-    float: right;
-    padding-top: 24px;
-    padding-right: 24px;
+.Participant img:nth-child(2) {
+  float: right;
+  padding-top: 24px;
+  padding-right: 24px;
 }
 
-.Participant .p-name{
-    font-size: 24px;
-    line-height: 32px;
-    color: #000000;
-    padding: 6px 24px;
-    margin: 0;
+.Participant .p-name {
+  font-size: 24px;
+  line-height: 32px;
+  color: #000000;
+  padding: 6px 24px;
+  margin: 0;
 }
 
-.Participant .p-details{
-    margin: 0;
-    padding-top: 0;
-    padding-left: 24px;
-    padding-bottom: 22px;
+.Participant .p-details {
+  margin: 0;
+  padding-top: 0;
+  padding-left: 24px;
+  padding-bottom: 22px;
 
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.06em;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.06em;
 }
 
-.Participant span{
-    font-weight: 900;
+.Participant span {
+  font-weight: 900;
 }
 
 /*=================================
             Compare
 =================================*/
 
-.compareParticipants .p-options{
-    display: grid;
-    grid-template-columns: .25fr .25fr .25fr .25fr;
-    column-gap: 15px;
-    margin-bottom: 70px;
+.compareParticipants .p-options {
+  display: grid;
+  grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
+  column-gap: 15px;
+  margin-bottom: 70px;
 }
 
-.compareParticipants .p-option{
-    font-size: 18px;
-    line-height: 43px;
-    color: #000000;
-    background: #FFFFFF;
-    border-radius: 8px;
-    margin: 0;
-    display: inline;
+.compareParticipants .p-option {
+  font-size: 18px;
+  line-height: 43px;
+  color: #000000;
+  background: #ffffff;
+  border-radius: 8px;
+  margin: 0;
+  display: inline;
 }
 
-
-.compareParticipants .p-option img{
-    float: left;
-    padding: 9.5px 7px 9.5px 12px;
+.compareParticipants .p-option img {
+  float: left;
+  padding: 9.5px 7px 9.5px 12px;
 }
 
-
-.display-none{
-    display: none;
+.display-none {
+  display: none;
 }

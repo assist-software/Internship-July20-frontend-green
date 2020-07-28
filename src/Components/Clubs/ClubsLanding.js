@@ -9,7 +9,44 @@ import Spinner from "../Common/LoadingSpinner/Spinner";
 const token = localStorage.getItem("token");
 class ClubsLanding extends Component {
   state = {
-    clubs: null,
+    //   "clubs": [
+    //     {
+    //       "id": 1,
+    //       "title": "Running club",
+    //       "img": "",
+    //       "members": "22",
+    //       "coach": "Esther Wilson"
+    //     },
+    //     {
+    //       "id": 2,
+    //       "title": "Biking Club",
+    //       "img": "",
+    //       "members": "22",
+    //       "coach": "Esther"
+    //     },
+    //     {
+    //       "id": 3,
+    //       "title": "Biking Club",
+    //       "img": "",
+    //       "members": "22",
+    //       "coach": "Esther"
+    //     },
+    //     {
+    //       "id": 4,
+    //       "title": "Biking Club",
+    //       "img": "",
+    //       "members": "22",
+    //       "coach": "Esther"
+    //     },
+    //     {
+    //       "id": 5,
+    //       "title": "Swimming club",
+    //       "img": "",
+    //       "members": "22",
+    //       "coach": "Wilson"
+    //     }
+    //   ]
+    clubs: null
   };
 
   componentDidMount() {
@@ -33,7 +70,7 @@ class ClubsLanding extends Component {
     if (localStorage.getItem("token")) {
       console.log("Already logged in!");
       return (
-        <div style={{ padding: "60px 40px" }}>
+        <div style={{ padding: "60px 40px", }}>
           <Header title="Clubs" />
           {/* <ClubsComponent clubs={this.state.clubs} /> */}
           {clubs}

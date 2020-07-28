@@ -30,9 +30,26 @@ class Login extends Component {
   submitHandler = (e) => {
     e.preventDefault();
     console.log(this.state);
+    // axios
+    //   .post("http://192.168.149.51:8001/user/signin/", this.state)
+    //   .then((res) => {
+    //     console.log(res);
+    //     if (res.status === 200) {
+    //       this.setState({ isSignedUp: true });
+    //     }
+
+    //     const token = res.data.token;
+    //     localStorage.setItem('token', token);
+    //     this.props.history.push(`/coaches`);
+
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+
+    //   });
+
     axios
       .post("http://192.168.149.51:8001/user/signin/", this.state)
-      // axios.post("https://jsonplaceholder.typicode.com/posts", this.state)
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
