@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import Participants from "./Participants";
-
+import { Button } from "semantic-ui-react";
 import "./EventPage.css";
+import EditEvent from "../AddEvent/EditEvent";
 
 const token = localStorage.getItem("token");
 
@@ -18,6 +19,13 @@ class EventPage extends Component {
     event: null,
     singleEvents: null,
     members: null,
+    openEditModal: false,
+  };
+  openEditModal = () => {
+    this.setState({ openEditModal: true });
+  };
+  closeEditModal = () => {
+    this.setState({ openEditModal: false });
   };
 
   componentDidMount() {
@@ -96,7 +104,9 @@ class EventPage extends Component {
             <p className="title">
               {this.state.singleEvents ? this.state.singleEvents["name"] : null}
             </p>
-            <button>Edit</button>
+            <Button color="green" onClick={this.openEditModal}>
+              Edit
+            </Button>
 
             <div className="dateTime">
               <div>
@@ -199,6 +209,12 @@ class EventPage extends Component {
               </div>
             ) : null}
           </div>
+          <EditEvent
+            title="Edit Event"
+            open={this.state.openEditModal}
+            openClick={this.openEditModal}
+            closeClick={this.closeEditModal}
+          />
         </div>
       );
     } else {
