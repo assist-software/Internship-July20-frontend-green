@@ -11,7 +11,7 @@ const clubs = (props) => {
         title={club.name}
         img="X"
         members={club.members}
-        coach={club.coach}
+        coach={club.owner}
       />
     );
   });

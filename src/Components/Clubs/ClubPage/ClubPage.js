@@ -6,188 +6,29 @@ import axios from 'axios';
 
 const token = localStorage.getItem("token");
 
+console.log("on page of the club")
+
 class ClubPage extends Component {
 
     state = {
-
-
-        clubs: [
-            {
-                title: 'club 1',
-                coach: 'Esther Wilson',
-                members: [
-                    {
-                        "img": "",
-                        "name": "Lily Jones",
-                        "gender": "female",
-                        "age": "22",
-                        "primary": "Running",
-                        "secondary": "Biking"
-                    }
-                ]
-            },
-            {
-                title: 'club2',
-                coach: 'Esther Wilson',
-                members: [
-                    {
-                        "img": "",
-                        "name": "Dianne Robertson",
-                        "gender": "female",
-                        "age": "22",
-                        "primary": "Running",
-                        "secondary": "Biking"
-                    },
-                    {
-                        "img": "",
-                        "name": "Lily Jones",
-                        "gender": "female",
-                        "age": "22",
-                        "primary": "Running",
-                        "secondary": "Biking"
-                    }
-                ]
-            },
-            {
-                title: 'club 3',
-                coach: 'Esther Wilson',
-                members: [
-                    {
-                        "img": "",
-                        "name": "Dianne Robertson",
-                        "gender": "female",
-                        "age": "22",
-                        "primary": "Running",
-                        "secondary": "Biking"
-                    },
-                    {
-                        "img": "",
-                        "name": "Eduardo Miles",
-                        "gender": "male",
-                        "age": "22",
-                        "primary": "Biking",
-                        "secondary": "Running"
-                    },
-                    {
-                        "img": "",
-                        "name": "Lily Jones",
-                        "gender": "female",
-                        "age": "22",
-                        "primary": "Running",
-                        "secondary": "Biking"
-                    }
-                ]
-            },
-            {
-                title: 'club 4',
-                coach: 'Esther Wilson',
-                members: [
-                    {
-                        "img": "",
-                        "name": "Dianne Robertson",
-                        "gender": "female",
-                        "age": "22",
-                        "primary": "Running",
-                        "secondary": "Biking"
-                    },
-                    {
-                        "img": "",
-                        "name": "Eduardo Miles",
-                        "gender": "male",
-                        "age": "22",
-                        "primary": "Biking",
-                        "secondary": "Running"
-                    },
-                    {
-                        "img": "",
-                        "name": "Eduardo Miles",
-                        "gender": "male",
-                        "age": "22",
-                        "primary": "Biking",
-                        "secondary": "Running"
-                    },
-                    {
-                        "img": "",
-                        "name": "Lily Jones",
-                        "gender": "female",
-                        "age": "22",
-                        "primary": "Running",
-                        "secondary": "Biking"
-                    }
-                ]
-            },
-            {
-                title: 'club 5',
-                coach: 'Esther Wilson',
-                members: [
-                    {
-                        "img": "",
-                        "name": "Dianne Robertson",
-                        "gender": "female",
-                        "age": "22",
-                        "primary": "Running",
-                        "secondary": "Biking"
-                    },
-                    {
-                        "img": "",
-                        "name": "Eduardo Miles",
-                        "gender": "male",
-                        "age": "22",
-                        "primary": "Biking",
-                        "secondary": "Running"
-                    },
-                    {
-                        "img": "",
-                        "name": "Eduardo Miles",
-                        "gender": "male",
-                        "age": "22",
-                        "primary": "Biking",
-                        "secondary": "Running"
-                    },
-                    {
-                        "img": "",
-                        "name": "Eduardo Miles",
-                        "gender": "male",
-                        "age": "22",
-                        "primary": "Biking",
-                        "secondary": "Running"
-                    },
-                    {
-                        "img": "",
-                        "name": "Lily Jones",
-                        "gender": "female",
-                        "age": "22",
-                        "primary": "Running",
-                        "secondary": "Biking"
-                    }
-                ]
-            }
-        ],
         club: null,
+        clubTitle: null,
         pageID: null,
         showMembers: [true, "active-btn"],
         showRequests: [false, ""]
     }
 
     componentDidMount() {
-        const pageID = parseInt(this.props.match.params.id);
-        this.setState({ pageID: pageID });
 
-        axios.post(`http://192.168.149.51:8001/api/clubs/members/`,
-            {
-                clubId: this.props.match.params.id,
-                type: 0,
-                pgNumber: 1,
-                pgSize: 5
-            },
-            {
-                headers: {
-                    Authorization: `token ${token}`,
-                },
-            }).then((response) => {
-                this.setState({ club: response.data });
-                console.log(response);
-            });
+        const pageID = parseInt(this.props.match.params.id);
+        const clubTitle = this.props.match.params.title;
+
+        console.log(pageID)
+
+
+        this.setState({ pageID: pageID, clubTitle: clubTitle });
+
+
 
         console.log(this.state.club);
     }
@@ -195,7 +36,7 @@ class ClubPage extends Component {
     callRequest = (type) => {
         axios.post(`http://192.168.149.51:8001/api/clubs/members/`,
             {
-                clubId: 11,
+                clubId: 19,
                 type: type,
                 pgNumber: 1,
                 pgSize: 5
@@ -208,7 +49,6 @@ class ClubPage extends Component {
                 this.setState({ club: response.data });
                 console.log(response);
             });
-        // console.log(`http://192.168.149.51:8001/api/clubs/members/1/1/5/${type}`)
         console.log(this.state.club);
 
     }
@@ -218,7 +58,7 @@ class ClubPage extends Component {
         console.log('this classname> ', event.target.className);
         event.target.className = this.state.showMembers[1];
 
-        this.callRequest(0);
+        this.callRequest(1);
     }
 
     showingRequests = (event) => {
@@ -226,25 +66,25 @@ class ClubPage extends Component {
         console.log('this classname> ', event.target.className);
         event.target.className = this.state.showRequests[1];
 
-        this.callRequest(1);
+        this.callRequest(0);
     }
 
     render() {
 
         if (localStorage.getItem("token")) {
-            const iD = this.state.pageID;
+            const iD = this.props.match.params.id;
 
 
             return (
                 <div className='ClubPage' style={{ padding: '60px 40px' }}>
 
                     {/* <p className="club-title">{iD ? this.state.clubs[iD - 1].title : null}</p> */}
-                    <p className="club-title">{iD ? (console.log(this.props.match.params.title), this.props.match.params.title) : null}</p>
+                    <p className="club-title">{iD ? (console.log(this.state.clubTitle), this.state.clubTitle) : null}</p>
                     <img className="club-edit" src={require('./img/edit.png')} />
 
                     <div className="club-coach">
                         <p>Coach</p>
-                        <p>{iD ? this.props.match.params.coach : null}</p>
+                        {/* <p>{iD ? this.props.match.params.coach : null}</p> */}
                     </div>
 
                     {/* butoane de membri sau requests ---------------------------------*/}
